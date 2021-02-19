@@ -1,0 +1,72 @@
+/* --------------------------------------------------------------
+/* MAIN LESS MIXINS AND FUNCTIONS - LESSHAT
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+VARIABLES
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+BODY DEFAULTS
+-------------------------------------------------------------- */
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+a {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+a:hover {
+  text-decoration: none;
+}
+.page-container {
+  min-height: 85vh;
+}
+/* --------------------------------------------------------------
+1.- HEADER
+-------------------------------------------------------------- */
+.top-header {
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+}
+.top-header a {
+  color: #66C5E0;
+  font-weight: 600;
+}
+.top-header a:hover {
+  color: #2A9CBD;
+}
+.top-header .top-header-left a {
+  margin-right: 5px;
+}
+.top-header .top-header-right {
+  text-align: right;
+}
+.top-header .top-header-right .social-header {
+  display: inline-block;
+  margin-right: 1rem;
+  letter-spacing: 5px;
+}
+.the-logo .logo-container {
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+.the-logo .logo-container .navbar-brand {
+  margin-right: 0;
+}
+.the-navbar .navbar-nav .nav-item .nav-link {
+  margin: 0 4rem;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+/* --------------------------------------------------------------
+2.- FOOTER
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+3.- HOME
+-------------------------------------------------------------- */

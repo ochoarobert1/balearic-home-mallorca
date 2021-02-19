@@ -1,0 +1,98 @@
+// compress: false, javascriptEnabled: true
+/* --------------------------------------------------------------
+/* MAIN LESS MIXINS AND FUNCTIONS - LESSHAT
+-------------------------------------------------------------- */
+@import 'less/_lesshat.less';
+/* --------------------------------------------------------------
+VARIABLES
+-------------------------------------------------------------- */
+
+@mainfont: 'Open Sans', sans-serif;
+@secondfont: 'Open Sans', sans-serif;
+@black: #000000;
+@white: #ffffff;
+@softblue: #66C5E0;
+@softbluehover: #2A9CBD;
+
+/* --------------------------------------------------------------
+BODY DEFAULTS
+-------------------------------------------------------------- */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: @mainfont;
+    font-weight: 400;
+}
+
+a {
+    .transition(all .2s ease-in-out);
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.page-container {
+    min-height: 85vh;
+}
+
+/* --------------------------------------------------------------
+1.- HEADER
+-------------------------------------------------------------- */
+.top-header {
+    padding: 1rem;
+    padding-bottom: .5rem;
+
+    & a {
+        color: @softblue;
+        font-weight: 600;
+
+        &:hover {
+            color: @softbluehover;
+        }
+    }
+
+    & .top-header-left {
+        & a {
+            margin-right: 5px;
+        }
+    }
+
+    & .top-header-right {
+        text-align: right;
+
+        & .social-header {
+            display: inline-block;
+            margin-right: 1rem;
+            letter-spacing: 5px;
+        }
+    }
+}
+
+.the-logo {
+    & .logo-container {
+        text-align: center;
+        padding-bottom: 0.5rem;
+
+        & .navbar-brand {
+            margin-right: 0;
+        }
+    }
+}
+
+.the-navbar .navbar-nav .nav-item .nav-link {
+    margin: 0 4rem;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+}
+
+/* --------------------------------------------------------------
+2.- FOOTER
+-------------------------------------------------------------- */
+
+/* --------------------------------------------------------------
+3.- HOME
+-------------------------------------------------------------- */
