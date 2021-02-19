@@ -48,10 +48,10 @@
             <div class="top-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="container">
                     <div class="row">
-                        <div class="top-header-left col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <a href="">ESP</a> <a href="">ING</a>
+                        <div class="top-header-left col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 d-xl-block d-lg-block d-md-block d-sm-none d-none">
+                            <a href="" title="<?php _e('Haga click aqui para cambiar a Español', 'balearic'); ?>">ESP</a> <a href="" title="<?php _e('Haga click aqui para cambiar a Inglés', 'balearic'); ?>">ING</a>
                         </div>
-                        <div class="top-header-right col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="top-header-right col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 d-xl-block d-lg-block d-md-block d-sm-none d-none">
                             <div class="social-header">
                                 <?php $social_settings = get_option('bhm_social_settings'); ?>
                                 <?php if ($social_settings['facebook'] != '') { ?>
@@ -70,7 +70,7 @@
                                     <a href="<?php echo $social_settings['youtube']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-youtube-play"></i></a>
                                 <?php } ?>
                             </div>
-                            <a href=""><?php _e('Login/Registro', 'balearic'); ?></a>
+                            <a href="" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Login/Registro', 'balearic'); ?></a>
                         </div>
                     </div>
                 </div>
@@ -88,11 +88,51 @@
                                     Navbar
                                 <?php } ?>
                             </a>
+
+                            <button id="menuBtn" class="d-xl-none d-lg-none d-md-none d-sm-inline d-inline"><i class="fa fa-bars"></i></button>
+                        </div>
+                        <div id="menuMobile" class="menu-container menu-container-hidden">
+                            <div class="main-menu-mobile">
+                                <?php
+                                wp_nav_menu(array(
+                                    'theme_location'  => 'header_menu',
+                                    'depth'           => 2,
+                                    'container'       => 'div',
+                                    'menu_class'      => 'mobile-navbar-nav'
+                                ));
+                                ?>
+                            </div>
+                            <div class="menu-mobile-lang">
+                                <a href="" title="<?php _e('Haga click aqui para cambiar a Español', 'balearic'); ?>">ESP</a> <a href="" title="<?php _e('Haga click aqui para cambiar a Inglés', 'balearic'); ?>">ING</a>
+                            </div>
+                            <div class="menu-mobile-login">
+                                <a href="" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Login/Registro', 'balearic'); ?></a>
+                            </div>
+
+                            <div class="social-header">
+                                <?php $social_settings = get_option('bhm_social_settings'); ?>
+                                <?php if ($social_settings['facebook'] != '') { ?>
+                                    <a href="<?php echo $social_settings['facebook']; ?>" title="<?php _e('Visita nuestro perfil en Facebook', 'balearic'); ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <?php } ?>
+                                <?php if ($social_settings['instagram'] != '') { ?>
+                                    <a href="<?php echo $social_settings['instagram']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-instagram"></i></a>
+                                <?php } ?>
+                                <?php if ($social_settings['twitter'] != '') { ?>
+                                    <a href="<?php echo $social_settings['twitter']; ?>" title="<?php _e('Visita nuestro perfil en Twitter', 'balearic'); ?>" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <?php } ?>
+                                <?php if ($social_settings['linkedin'] != '') { ?>
+                                    <a href="<?php echo $social_settings['linkedin']; ?>" title="<?php _e('Visita nuestro perfil en LinkedIn', 'balearic'); ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                <?php } ?>
+                                <?php if ($social_settings['youtube'] != '') { ?>
+                                    <a href="<?php echo $social_settings['youtube']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-youtube-play"></i></a>
+                                <?php } ?>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="the-navbar col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="the-navbar col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-xl-block d-lg-block d-md-block d-sm-none d-none">
                 <nav class="navbar navbar-expand-md navbar-light" role="navigation">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">

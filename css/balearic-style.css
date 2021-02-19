@@ -64,6 +64,50 @@ a:hover {
   margin-left: 1rem;
   font-size: 1.2rem;
 }
+.menu-container-hidden {
+  display: none;
+}
+#menuBtn {
+  background: none;
+  border: 0;
+  font-size: 1.5rem;
+}
+#menuBtn:hover {
+  color: #66C5E0;
+}
+#menuBtn:focus {
+  outline: none;
+}
+.menu-container {
+  padding: 1rem 0;
+}
+.menu-container a {
+  color: rgba(0, 0, 0, 0.5);
+}
+.menu-container a:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+.menu-container .mobile-navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.1rem;
+}
+.menu-container .menu-mobile-lang {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+}
+.menu-container .menu-mobile-login {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+}
+.menu-container .social-header {
+  padding: 0.5rem 1rem;
+  font-size: 1.3rem;
+}
+.menu-container .social-header a {
+  margin-right: 15px;
+}
 /* --------------------------------------------------------------
 2.- FOOTER
 -------------------------------------------------------------- */

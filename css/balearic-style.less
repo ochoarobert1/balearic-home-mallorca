@@ -89,6 +89,62 @@ a {
     font-size: 1.2rem;
 }
 
+.menu-container-hidden {
+    display: none;
+}
+
+#menuBtn {
+    background: none;
+    border: 0;
+    font-size: 1.5rem;
+
+    &:hover {
+        color: @softblue;
+    }
+
+    &:focus {
+       outline: none; 
+    }
+}
+
+.menu-container {
+    padding: 1rem 0;
+
+    & a {
+        color: rgba(0,0,0,.5);
+
+        &:hover {
+            color: rgba(0,0,0,.7);
+        }
+    }
+
+    & .mobile-navbar-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 1.1rem;
+    }
+
+    & .menu-mobile-lang {
+        padding: .5rem 1rem;
+        font-size: 1.1rem;
+    }
+
+    & .menu-mobile-login {
+        padding: .5rem 1rem;
+        font-size: 1.1rem;
+    }
+
+    & .social-header {
+        padding: .5rem 1rem;
+        font-size: 1.3rem;
+
+        & a {
+            margin-right: 15px;
+        }
+    }
+}
+
 /* --------------------------------------------------------------
 2.- FOOTER
 -------------------------------------------------------------- */
