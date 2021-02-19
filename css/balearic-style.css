@@ -111,6 +111,41 @@ a:hover {
 /* --------------------------------------------------------------
 2.- FOOTER
 -------------------------------------------------------------- */
+.the-footer {
+  background: #66C5E0;
+  color: #ffffff;
+  padding: 4rem 1rem;
+  padding-bottom: 6rem;
+}
+.the-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.the-footer .footer-item {
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+}
+.the-footer .footer-item img {
+  max-width: 200px !important;
+  margin-bottom: 1.3rem;
+}
+.the-footer .footer-item .widgettitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+.the-footer .footer-item a {
+  color: #ffffff;
+}
+.the-footer .footer-item .widget_nav_menu .menu {
+  list-style: none;
+}
+.the-footer .footer-item .widget_nav_menu .menu .nav-item .nav-link {
+  color: #ffffff;
+  font-size: 0.8rem;
+  padding-left: 0;
+}
 /* --------------------------------------------------------------
 3.- HOME
 -------------------------------------------------------------- */

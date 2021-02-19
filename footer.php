@@ -4,28 +4,28 @@
             <div class="container">
                 <div class="row align-items-start">
                     <?php if ( is_active_sidebar( 'sidebar_footer' ) ) : ?>
-                    <div class="footer-item col-xl col-lg col-md col-sm-12 col-12">
+                    <div class="footer-item col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 align-self-center">
                         <ul id="sidebar-footer1" class="footer-sidebar">
                             <?php dynamic_sidebar( 'sidebar_footer' ); ?>
                         </ul>
                     </div>
                     <?php endif; ?>
                     <?php if ( is_active_sidebar( 'sidebar_footer-2' ) ) : ?>
-                    <div class="footer-item col-xl col-lg col-md col-sm-12 col-12">
+                    <div class="footer-item col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                         <ul id="sidebar-footer2" class="footer-sidebar">
                             <?php dynamic_sidebar( 'sidebar_footer-2' ); ?>
                         </ul>
                     </div>
                     <?php endif; ?>
                     <?php if ( is_active_sidebar( 'sidebar_footer-3' ) ) : ?>
-                    <div class="footer-item col-xl col-lg col-md col-sm-12 col-12">
+                    <div class="footer-item col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                         <ul id="sidebar-footer3" class="footer-sidebar">
                             <?php dynamic_sidebar( 'sidebar_footer-3' ); ?>
                         </ul>
                     </div>
                     <?php endif; ?>
                     <?php if ( is_active_sidebar( 'sidebar_footer-4' ) ) : ?>
-                    <div class="footer-item col-xl col-lg col-md col-sm-12 col-12">
+                    <div class="footer-item col-xl-2 col-lg-2 col-md-6 col-sm-12 col-12">
                         <ul id="sidebar-footer4" class="footer-sidebar">
                             <?php dynamic_sidebar( 'sidebar_footer-4' ); ?>
                         </ul>

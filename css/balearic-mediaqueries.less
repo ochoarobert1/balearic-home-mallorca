@@ -23,7 +23,17 @@ MEDIAQUERIES LG/MD - LAYOUTS BIGGER THAN 992px
 /* --------------------------------------------------------------
 MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
 -------------------------------------------------------------- */
-@media (max-width: 991px) {}
+@media (max-width: 991px) {
+    .the-footer .footer-item {
+        font-size: 0.8rem;
+        line-height: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .the-footer .footer-item .widget_nav_menu .menu .nav-item .nav-link {
+        font-size: 0.8rem;
+    }
+}
 
 @media (max-width: 800px) {}
 
@@ -40,6 +50,16 @@ MEDIAQUERIES XS - LAYOUTS LESS THAN 600px
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
+    }
+
+    .the-footer .footer-item {
+        font-size: 0.9rem;
+        line-height: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .the-footer .footer-item .widget_nav_menu .menu .nav-item .nav-link {
+        font-size: 0.9rem;
     }
 }
 
