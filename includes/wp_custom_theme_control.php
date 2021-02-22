@@ -151,7 +151,7 @@ function balearic_sanitize_url( $url ) {
 /* --------------------------------------------------------------
 CUSTOM CONTROL PANEL
 -------------------------------------------------------------- */
-
+/*
 function register_balearic_settings() {
     register_setting( 'balearic-settings-group', 'monday_start' );
     register_setting( 'balearic-settings-group', 'monday_end' );
@@ -203,3 +203,4 @@ function balearic_control_panel_callback() {
     $content = ob_get_clean();
     echo $content;
 }
+*/

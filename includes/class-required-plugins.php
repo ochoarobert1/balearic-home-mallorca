@@ -1,5 +1,5 @@
 <?php
-add_action( 'tgmpa_register', 'balearic_register_required_plugins' );
+add_action('tgmpa_register', 'balearic_register_required_plugins');
 
 /**
  * Register the required plugins for this theme.
@@ -18,37 +18,62 @@ add_action( 'tgmpa_register', 'balearic_register_required_plugins' );
  *
  * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
  */
-function balearic_register_required_plugins() {
+function balearic_register_required_plugins()
+{
     /*
      * Array of plugin arrays. Required keys are name and slug.
      * If the source is NOT from the .org repo, then source is also required.
      */
-    $plugins = array(
+    if ($_SERVER['REMOTE_ADDR'] == '::1') {
+        $plugins = array(
 
-        array(
-            'name'      => 'Classic Editor',
-            'slug'      => 'classic-editor',
-            'required'  => true,
-        ),
+            array(
+                'name'      => 'Classic Editor',
+                'slug'      => 'classic-editor',
+                'required'  => true,
+            ),
 
-        array(
-            'name'      => 'CMB2',
-            'slug'      => 'cmb2',
-            'required'  => true,
-        ),
+            array(
+                'name'      => 'CMB2',
+                'slug'      => 'cmb2',
+                'required'  => true,
+            ),
 
-        array(
-            'name'      => 'WordPress Importer',
-            'slug'      => 'wordpress-importer',
-            'required'  => true,
-        ),
+            array(
+                'name'      => 'WordPress Importer',
+                'slug'      => 'wordpress-importer',
+                'required'  => true,
+            )
+        );
+    } else {
 
-        array(
-            'name'      => 'Jetpack for WordPress',
-            'slug'      => 'jetpack',
-            'required'  => false,
-        )
-    );
+        $plugins = array(
+
+            array(
+                'name'      => 'Classic Editor',
+                'slug'      => 'classic-editor',
+                'required'  => true,
+            ),
+
+            array(
+                'name'      => 'CMB2',
+                'slug'      => 'cmb2',
+                'required'  => true,
+            ),
+
+            array(
+                'name'      => 'WordPress Importer',
+                'slug'      => 'wordpress-importer',
+                'required'  => true,
+            ),
+
+            array(
+                'name'      => 'Jetpack for WordPress',
+                'slug'      => 'jetpack',
+                'required'  => false,
+            )
+        );
+    }
 
     /*
      * Array of configuration settings. Amend each line as needed.
@@ -73,11 +98,11 @@ function balearic_register_required_plugins() {
 
 
         'strings'      => array(
-            'page_title'                      => __( 'Instalar Plugins Requeridos', 'balearic' ),
-            'menu_title'                      => __( 'Instalar Plugins', 'balearic' ),
-            'installing'                      => __( 'Instalando Plugin: %s', 'balearic' ),
-            'updating'                        => __( 'Actualizando Plugin: %s', 'balearic' ),
-            'oops'                            => __( 'Ocurrió un error con el API del plugin.', 'balearic' ),
+            'page_title'                      => __('Instalar Plugins Requeridos', 'balearic'),
+            'menu_title'                      => __('Instalar Plugins', 'balearic'),
+            'installing'                      => __('Instalando Plugin: %s', 'balearic'),
+            'updating'                        => __('Actualizando Plugin: %s', 'balearic'),
+            'oops'                            => __('Ocurrió un error con el API del plugin.', 'balearic'),
             'notice_can_install_required'     => _n_noop(
                 'Este tema requiere el siguiente plugin: %1$s.',
                 'Este tema requiere los siguientes plugins: %1$s.',
@@ -123,19 +148,19 @@ function balearic_register_required_plugins() {
                 'Iniciar la activación de los plugins',
                 'balearic'
             ),
-            'return'                          => __( 'Volver al Instalador de plugins requeridos', 'balearic' ),
-            'plugin_activated'                => __( 'Plugin activado con éxito.', 'balearic' ),
-            'activated_successfully'          => __( 'El siguiente plugin ha sido activado exitosamente:', 'balearic' ),
-            'plugin_already_active'           => __( 'No se tomón ninguna acción. El plugin %1$s ya estaba activado.', 'balearic' ),
-            'plugin_needs_higher_version'     => __( 'Plugin no activo. Una versión mas alta de %s es necesaria para este tema. Por favor, actualiza el plugin.', 'balearic' ),
-            'complete'                        => __( 'Todos los plugins han sido instalados y activados exitosamente. %1$s', 'balearic' ),
-            'dismiss'                         => __( 'Ocultar este aviso', 'balearic' ),
-            'notice_cannot_install_activate'  => __( 'Hay uno o más plugins necesarios o recomendados para instalar, actualizar o activar.', 'balearic' ),
-            'contact_admin'                   => __( 'Por favor, contacte con el administrador de este sitio para mas ayuda.', 'balearic' ),
+            'return'                          => __('Volver al Instalador de plugins requeridos', 'balearic'),
+            'plugin_activated'                => __('Plugin activado con éxito.', 'balearic'),
+            'activated_successfully'          => __('El siguiente plugin ha sido activado exitosamente:', 'balearic'),
+            'plugin_already_active'           => __('No se tomón ninguna acción. El plugin %1$s ya estaba activado.', 'balearic'),
+            'plugin_needs_higher_version'     => __('Plugin no activo. Una versión mas alta de %s es necesaria para este tema. Por favor, actualiza el plugin.', 'balearic'),
+            'complete'                        => __('Todos los plugins han sido instalados y activados exitosamente. %1$s', 'balearic'),
+            'dismiss'                         => __('Ocultar este aviso', 'balearic'),
+            'notice_cannot_install_activate'  => __('Hay uno o más plugins necesarios o recomendados para instalar, actualizar o activar.', 'balearic'),
+            'contact_admin'                   => __('Por favor, contacte con el administrador de este sitio para mas ayuda.', 'balearic'),
 
             'nag_type'                        => 'notice-info', // Determines admin notice type - can only be one of the typical WP notice classes, such as 'updated', 'update-nag', 'notice-warning', 'notice-info' or 'error'. Some of which may not work as expected in older WP versions.
         ),
     );
 
-    tgmpa( $plugins, $config );
+    tgmpa($plugins, $config);
 }

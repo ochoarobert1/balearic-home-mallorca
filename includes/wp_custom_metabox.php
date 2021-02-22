@@ -67,4 +67,7 @@ function balearic_register_custom_metabox()
 
     /* HOME */
     require_once('custom-metaboxes-home.php');
+
+    /* TAXONOMY */
+    require_once('custom-metaboxes-taxonomy.php');
 }

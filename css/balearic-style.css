@@ -130,6 +130,10 @@ a:hover {
   max-width: 200px !important;
   margin-bottom: 1.3rem;
 }
+.the-footer .footer-item .widget_custom_social_widget a {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
 .the-footer .footer-item .widgettitle {
   font-size: 1rem;
   font-weight: 600;

@@ -149,7 +149,10 @@ function balearic_widgets_init() {
     //        'before_title'  => '<h2 class='widgettitle'>',
     //        'after_title'   => '</h2>',
     //    ) );
+
+    register_widget( 'Custom_Social_Widget' ); 
 }
+
 
 /* --------------------------------------------------------------
     CUSTOM ADMIN LOGIN
