@@ -29,16 +29,26 @@
                         <div class="row">
                             <?php $arr_contact = get_post_meta(get_the_ID(), 'bhm_main_contact_group', true); ?>
                             <?php if (!empty($arr_contact)) { ?>
-                            <?php $i = 1; ?>
-                            <?php foreach ($arr_contact as $item) { ?>
-                            <article class="main-contact-item col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <h4>0<?php echo $i; ?> .</h4>
-                                <h2><?php echo $item['title']; ?></h2>
-                                <?php echo apply_filters('the_content', $item['desc']); ?>
-                            </article>
-                            <?php $i++; } ?>
+                                <?php $i = 1; ?>
+                                <?php foreach ($arr_contact as $item) { ?>
+                                    <article class="main-contact-item col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <h4>0<?php echo $i; ?> .</h4>
+                                        <h2><?php echo $item['title']; ?></h2>
+                                        <?php echo apply_filters('the_content', $item['desc']); ?>
+                                    </article>
+                                <?php $i++;
+                                } ?>
                             <?php } ?>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="main-contact-form-section col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="container">
+                <div class="row">
+                    <div class="main-contact-form-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <?php echo get_template_part('templates/template-contact-form'); ?>
                     </div>
                 </div>
             </div>

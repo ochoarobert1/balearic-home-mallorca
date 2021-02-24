@@ -1,7 +1,8 @@
 <?php
-function balearic_load_js() {
+function balearic_load_js()
+{
     $version_remove = NULL;
-    if (!is_admin()){
+    if (!is_admin()) {
         if ($_SERVER['REMOTE_ADDR'] == '::1') {
 
             /*- MODERNIZR ON LOCAL  -*/
@@ -63,7 +64,6 @@ function balearic_load_js() {
             /*- AOS ON LOCAL -*/
             wp_register_script('aos-js', get_template_directory_uri() . '/js/aos.js', array('jquery'), '3.0.0', true);
             wp_enqueue_script('aos-js');
-
         } else {
 
             /*- MODERNIZR -*/
@@ -125,15 +125,25 @@ function balearic_load_js() {
             /*- AOS -*/
             wp_register_script('aos-js', 'https://unpkg.com/aos@next/dist/aos.js', array('jquery'), '3.0.0', true);
             wp_enqueue_script('aos-js');
-
         }
 
         /*- MAIN FUNCTIONS -*/
         wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), $version_remove, true);
         wp_enqueue_script('main-functions');
 
-        if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-            wp_enqueue_script( 'comment-reply' );
+        wp_localize_script('main-functions', 'custom_admin_url', array(
+            'ajax_url'          => admin_url('admin-ajax.php'),
+            'error_nombre'      => __('Error: El nombre no puede estar vacio.', 'balearic'),
+            'invalid_nombre'    => __('Error: El nombre no es válido.', 'balearic'),
+            'error_phone'       => __('Error: El teléfono no puede estar vacio.', 'balearic'),
+            'invalid_phone'     => __('Error: El teléfono no es válido.', 'balearic'),
+            'error_email'       => __('Error: El correo no puede estar vacio.', 'balearic'),
+            'invalid_email'     => __('Error: El correo no es válido.', 'balearic'),
+            'error_message'     => __('Error: El Mensaje no puede estar vacio.', 'balearic'),
+        ));
+
+        if (is_singular() && comments_open() && get_option('thread_comments')) {
+            wp_enqueue_script('comment-reply');
         }
     }
 }

@@ -212,5 +212,61 @@ if (function_exists('add_image_size')) {
     add_image_size('logo', 200, 100, false);
     add_image_size('home_special_img', 1000, 750, array('center', 'center'));
     add_image_size('tax_boxed_img', 500, 500, array('center', 'center'));
-    add_image_size('global_hero', 9999, 400, array('center', 'center'));
+    add_image_size('global_hero', 9999, 300, array('center', 'center'));
+}
+
+/* --------------------------------------------------------------
+    AJAX: SEND A MESSAGE
+-------------------------------------------------------------- */
+add_action('wp_ajax_send_message', 'send_message_callback');
+add_action('wp_ajax_nopriv_send_message', 'send_message_callback');
+
+function send_message_callback()
+{
+    $email = $_POST['form_email'];
+    $name = $_POST['form_name'];
+    $phone = $_POST['form_phone'];
+    $message = $_POST['form_message'];
+
+    ob_start();
+    $logo = get_template_directory_uri() . '/images/logo.png';
+    require_once get_theme_file_path('/templates/template-contact-email.php');
+    $body = ob_get_clean();
+    $body = str_replace([
+        '{name}',
+        '{email}',
+        '{phone}',
+        '{message}',
+        '{logo}'
+    ], [
+        $name,
+        $email,
+        $phone,
+        $message,
+        $logo
+    ], $body);
+    $path = ABSPATH . WPINC . '/class-phpmailer.php';
+
+    if (file_exists($path)) {
+        require_once($path);
+        $mail = new PHPMailer;
+    } else {
+        require_once ABSPATH . WPINC . '/PHPMailer/PHPMailer.php';
+        $mail = new PHPMailer\PHPMailer\PHPMailer;
+    }
+
+    $mail->isHTML(true);
+    $mail->Body = $body;
+    $mail->CharSet = 'UTF-8';
+    $mail->addAddress(get_option('admin_email'));
+    $mail->setFrom("noreply@{$_SERVER['SERVER_NAME']}", esc_html(get_bloginfo('name')));
+    $mail->Subject = esc_html__('Balearic Home Mallorca: Nuevo Mensaje', 'balearic');
+
+    if (!$mail->send()) {
+        wp_send_json_success(esc_html__("Ha ocurrido un error, por favor intente mas tarde.", 'balearic'), 200);
+    } else {
+        wp_send_json_success(esc_html__("Gracias por enviar su mensaje, en breve será contactado por uno de nuestros representantes.", 'balearic'), 200);
+    }
+
+    wp_die();
 }

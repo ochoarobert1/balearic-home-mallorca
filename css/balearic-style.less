@@ -40,6 +40,69 @@ a {
     min-height: 85vh;
 }
 
+/* LOADER */
+.loader-css {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: 2rem auto;
+    margin-bottom: 0;
+}
+
+.loader-css:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid @softblue;
+    border-color: @softblue transparent @softblue transparent;
+    animation: loader-spin 1.2s linear infinite;
+}
+
+@keyframes loader-spin {
+    0% {
+        .transform(rotate(0deg));
+    }
+
+    100% {
+        .transform(rotate(360deg));
+    }
+}
+
+.main-banner-title {
+    margin-top: 1.5rem;
+    position: relative;
+    overflow: hidden;
+
+    & img {
+        width: 100%;
+    }
+
+    & .wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .3);
+        .display(flex);
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        .transition(all .3s ease-in-out);
+
+        & h1 {
+            color: @white;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+    }
+}
+
 /* --------------------------------------------------------------
 1.- HEADER
 -------------------------------------------------------------- */
@@ -361,5 +424,112 @@ a {
 
     & .embed-responsive-special {
         max-height: 540px;
+    }
+}
+
+/* --------------------------------------------------------------
+5.- CONTACTO
+-------------------------------------------------------------- */
+.main-contact-section {
+    padding-bottom: 4rem;
+
+    & .main-contact-logo {
+        padding: 4rem 1rem;
+        text-align: center;
+    }
+
+    & .main-contact-preview {
+        color: @softblue;
+        font-size: 1.5rem;
+        line-height: 2rem;
+
+
+        & img {
+            margin-bottom: 1.2rem;
+        }
+    }
+
+    & .main-contact-item {
+        font-size: 1rem;
+        line-height: 1.8rem;
+
+        & h4 {
+            color: @softblue;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        & a {
+            color: black;
+
+            & .fa {
+                color: @softblue;
+                margin-right: 5px;
+            }
+
+            &:hover {
+                color: @softbluehover
+            }
+        }
+
+        & h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+.main-contact-form-content {
+    padding-bottom: 4rem;
+
+    & .main-form-item {
+        margin-bottom: 1.5rem;
+
+        & .custom-form-control {
+            border: 0;
+            background: @gray;
+            color: @black;
+            border-radius: 15px;
+            padding: .5rem 1rem;
+            height: auto;
+            font-weight: 600;
+            .placeholder(@softblue);
+        }
+
+        & .custom-textarea-control {
+            min-height: 230px;
+        }
+
+        & .feedback {
+            color: red;
+            font-weight: 600;
+            padding-left: 1rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    & .main-form-submit {
+        text-align: center;
+
+        & .btn-submit {
+            background: @softblue;
+            color: @white;
+            padding: 0.4rem 8rem;
+            font-weight: 700;
+            font-size: 1.3rem;
+            border-radius: 25px;
+
+            &:hover {
+                background: @softbluehover;
+                color: @white;
+            }
+        }
+    }
+
+    & .form-response {
+        margin-top: 1rem;
+        font-size: 1.2rem;
     }
 }

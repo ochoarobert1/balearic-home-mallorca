@@ -43,6 +43,9 @@ MEDIAQUERIES LG/MD - LAYOUTS BIGGER THAN 992px
     line-height: 1.5rem;
     margin-top: 1.2rem;
   }
+  .main-banner-title .wrapper h1 {
+    font-size: 1.5rem;
+  }
 }
 /* --------------------------------------------------------------
 MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
@@ -89,6 +92,19 @@ MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
     line-height: 2rem;
     text-align: center;
     margin-bottom: 2rem;
+  }
+  .main-banner-title img {
+    width: auto;
+    height: 250px;
+    max-width: unset;
+    margin-left: -50%;
+  }
+  .main-contact-section .main-contact-preview {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .main-contact-section .main-contact-logo {
+    padding-bottom: 3rem;
   }
 }
 /* --------------------------------------------------------------
@@ -143,6 +159,28 @@ MEDIAQUERIES XS - LAYOUTS LESS THAN 600px
   .home-main-section {
     padding-top: 1rem;
   }
+  .main-contact-section .main-contact-item {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+  .main-banner-title img {
+    width: auto;
+    height: 190px;
+    max-width: unset;
+    margin-left: -55%;
+  }
+  .main-contact-form-content {
+    padding-bottom: 2rem;
+    padding-left: 0;
+  }
+}
+@media (max-width: 600px) {
+  .main-banner-title img {
+    width: auto;
+    height: 190px;
+    max-width: unset;
+    margin-left: -85%;
+  }
 }
 @media (max-width: 424px) {
   .home-location-tax {
@@ -157,5 +195,11 @@ MEDIAQUERIES XS - LAYOUTS LESS THAN 600px
   }
   .home-location-tax .home-location-tax-wrap h2 {
     font-size: 1.2rem;
+  }
+  .main-banner-title img {
+    width: auto;
+    height: 190px;
+    max-width: unset;
+    margin-left: -105%;
   }
 }

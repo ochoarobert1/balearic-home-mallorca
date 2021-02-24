@@ -27,6 +27,76 @@ a:hover {
 .page-container {
   min-height: 85vh;
 }
+/* LOADER */
+.loader-css {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 2rem auto;
+  margin-bottom: 0;
+}
+.loader-css:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #66C5E0;
+  border-color: #66C5E0 transparent #66C5E0 transparent;
+  animation: loader-spin 1.2s linear infinite;
+}
+@keyframes loader-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.main-banner-title {
+  margin-top: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.main-banner-title img {
+  width: 100%;
+}
+.main-banner-title .wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.main-banner-title .wrapper h1 {
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 700;
+}
 /* --------------------------------------------------------------
 1.- HEADER
 -------------------------------------------------------------- */
@@ -289,4 +359,102 @@ a:hover {
 }
 .main-contact-map-container .embed-responsive-special {
   max-height: 540px;
+}
+/* --------------------------------------------------------------
+5.- CONTACTO
+-------------------------------------------------------------- */
+.main-contact-section {
+  padding-bottom: 4rem;
+}
+.main-contact-section .main-contact-logo {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+.main-contact-section .main-contact-preview {
+  color: #66C5E0;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.main-contact-section .main-contact-preview img {
+  margin-bottom: 1.2rem;
+}
+.main-contact-section .main-contact-item {
+  font-size: 1rem;
+  line-height: 1.8rem;
+}
+.main-contact-section .main-contact-item h4 {
+  color: #66C5E0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+.main-contact-section .main-contact-item a {
+  color: black;
+}
+.main-contact-section .main-contact-item a .fa {
+  color: #66C5E0;
+  margin-right: 5px;
+}
+.main-contact-section .main-contact-item a:hover {
+  color: #2A9CBD;
+}
+.main-contact-section .main-contact-item h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+.main-contact-form-content {
+  padding-bottom: 4rem;
+}
+.main-contact-form-content .main-form-item {
+  margin-bottom: 1.5rem;
+}
+.main-contact-form-content .main-form-item .custom-form-control {
+  border: 0;
+  background: #F6F6F6;
+  color: #000000;
+  border-radius: 15px;
+  padding: 0.5rem 1rem;
+  height: auto;
+  font-weight: 600;
+}
+.main-contact-form-content .main-form-item .custom-form-control::-webkit-input-placeholder {
+  color: #66C5E0;
+}
+.main-contact-form-content .main-form-item .custom-form-control:-moz-placeholder {
+  color: #66C5E0;
+}
+.main-contact-form-content .main-form-item .custom-form-control::-moz-placeholder {
+  color: #66C5E0;
+}
+.main-contact-form-content .main-form-item .custom-form-control:-ms-input-placeholder {
+  color: #66C5E0;
+}
+.main-contact-form-content .main-form-item .custom-textarea-control {
+  min-height: 230px;
+}
+.main-contact-form-content .main-form-item .feedback {
+  color: red;
+  font-weight: 600;
+  padding-left: 1rem;
+  font-size: 0.8rem;
+}
+.main-contact-form-content .main-form-submit {
+  text-align: center;
+}
+.main-contact-form-content .main-form-submit .btn-submit {
+  background: #66C5E0;
+  color: #ffffff;
+  padding: 0.4rem 8rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  border-radius: 25px;
+}
+.main-contact-form-content .main-form-submit .btn-submit:hover {
+  background: #2A9CBD;
+  color: #ffffff;
+}
+.main-contact-form-content .form-response {
+  margin-top: 1rem;
+  font-size: 1.2rem;
 }
