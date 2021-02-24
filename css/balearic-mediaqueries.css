@@ -84,6 +84,12 @@ MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
     font-size: 1.3rem;
     letter-spacing: 0.5px;
   }
+  .home-contact-section .home-contact-preview {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
 }
 /* --------------------------------------------------------------
 MEDIAQUERIES XS - LAYOUTS LESS THAN 600px
@@ -129,6 +135,10 @@ MEDIAQUERIES XS - LAYOUTS LESS THAN 600px
   .home-location-tax .home-location-tax-wrap h2 {
     padding: 0 24%;
     font-size: 1.5rem;
+  }
+  .home-contact-section .home-contact-item {
+    font-size: 0.9rem;
+    line-height: 1.6rem;
   }
 }
 @media (max-width: 424px) {

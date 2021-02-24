@@ -205,6 +205,10 @@ a {
 3.- HOME
 -------------------------------------------------------------- */
 
+.home-main-section {
+    padding-top: 5rem;
+}
+
 .home-main-content {
     padding-left: 18vw !important;
     padding-right: 5vw !important;
@@ -304,5 +308,58 @@ a {
             margin-top: 1.2rem;
         }
     }
+}
 
+.home-contact-section {
+    padding: 4rem 1rem;
+
+    & .home-contact-preview {
+        color: @softblue;
+        font-size: 1.5rem;
+        line-height: 2rem;
+
+
+        & img {
+            margin-bottom: 1.2rem;
+        }
+    }
+
+    & .home-contact-item {
+        font-size: 1rem;
+        line-height: 1.8rem;
+
+        & h4 {
+            color: @softblue;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        & a {
+            color: black;
+
+            & .fa {
+                color: @softblue;
+                margin-right: 5px;
+            }
+
+            &:hover {
+                color: @softbluehover
+            }
+        }
+
+        & h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+.main-contact-map-container {
+    padding-bottom: 6rem;
+
+    & .embed-responsive-special {
+        max-height: 540px;
+    }
 }

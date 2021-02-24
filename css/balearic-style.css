@@ -153,6 +153,9 @@ a:hover {
 /* --------------------------------------------------------------
 3.- HOME
 -------------------------------------------------------------- */
+.home-main-section {
+  padding-top: 5rem;
+}
 .home-main-content {
   padding-left: 18vw !important;
   padding-right: 5vw !important;
@@ -244,4 +247,46 @@ a:hover {
   font-weight: 600;
   line-height: 1.7rem;
   margin-top: 1.2rem;
+}
+.home-contact-section {
+  padding: 4rem 1rem;
+}
+.home-contact-section .home-contact-preview {
+  color: #66C5E0;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.home-contact-section .home-contact-preview img {
+  margin-bottom: 1.2rem;
+}
+.home-contact-section .home-contact-item {
+  font-size: 1rem;
+  line-height: 1.8rem;
+}
+.home-contact-section .home-contact-item h4 {
+  color: #66C5E0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+.home-contact-section .home-contact-item a {
+  color: black;
+}
+.home-contact-section .home-contact-item a .fa {
+  color: #66C5E0;
+  margin-right: 5px;
+}
+.home-contact-section .home-contact-item a:hover {
+  color: #2A9CBD;
+}
+.home-contact-section .home-contact-item h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+.main-contact-map-container {
+  padding-bottom: 6rem;
+}
+.main-contact-map-container .embed-responsive-special {
+  max-height: 540px;
 }
