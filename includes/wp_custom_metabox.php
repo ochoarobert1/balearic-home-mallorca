@@ -65,9 +65,48 @@ function balearic_register_custom_metabox()
 {
     $prefix = 'bhm_';
 
+    /* --------------------------------------------------------------
+    1.- HOME: SLIDER SECTION
+-------------------------------------------------------------- */
+    $cmb_global_hero = new_cmb2_box(array(
+        'id'            => $prefix . 'global_hero_metabox',
+        'title'         => esc_html__('Global: Hero con Título', 'balearic'),
+        'object_types'  => array('page'),
+        'context'       => 'side',
+        'priority'      => 'high',
+        'show_names'    => true,
+        'cmb_styles'    => true,
+        'closed'        => false
+    ));
+
+    $cmb_global_hero->add_field(array(
+        'id'        => $prefix . 'global_hero_image',
+        'name'      => esc_html__('Imagen de Fondo del Hero', 'balearic'),
+        'desc'      => esc_html__('Cargar un fondo para este Item', 'balearic'),
+        'type'      => 'file',
+
+        'options' => array(
+            'url' => false
+        ),
+        'text'    => array(
+            'add_upload_file_text' => esc_html__('Cargar fondo', 'balearic'),
+        ),
+        'query_args' => array(
+            'type' => array(
+                'image/gif',
+                'image/jpeg',
+                'image/png'
+            )
+        ),
+        'preview_size' => 'thumbnail'
+    ));
+
     /* HOME */
     require_once('custom-metaboxes-home.php');
 
     /* TAXONOMY */
     require_once('custom-metaboxes-taxonomy.php');
+
+    /* CONTACTO */
+    require_once('custom-metaboxes-contact.php');
 }
