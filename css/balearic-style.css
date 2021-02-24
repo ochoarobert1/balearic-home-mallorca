@@ -458,3 +458,44 @@ a:hover {
   margin-top: 1rem;
   font-size: 1.2rem;
 }
+/* --------------------------------------------------------------
+6.- CONTACTO
+-------------------------------------------------------------- */
+.main-services-container {
+  padding: 3rem 1rem;
+  padding-bottom: 2rem;
+}
+.main-services-container .main-services-item-picture {
+  text-align: center;
+}
+.main-services-container .main-services-item-picture h3 {
+  color: #66C5E0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.6rem;
+  margin-top: 1rem;
+}
+.main-services-container .main-services-item-wrapper {
+  font-size: 1.1rem;
+  line-height: 1.9rem;
+  margin-bottom: 1rem;
+}
+.main-services-container .main-services-item-wrapper ul li {
+  margin-bottom: 0.5rem;
+}
+.main-services-container .main-services-item-wrapper .btn-services {
+  background: #66C5E0;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.5rem 5rem;
+  margin: 2rem auto;
+  display: block;
+  max-width: 280px;
+  border-radius: 25px;
+}
+.main-services-container .main-services-item-wrapper .btn-services:hover {
+  background: #2A9CBD;
+}
+.even {
+  background: #F6F6F6;
+}

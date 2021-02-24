@@ -7,6 +7,42 @@ add_action( 'customize_register', 'balearic_customize_register' );
 
 function balearic_customize_register( $wp_customize ) {
 
+    $wp_customize->add_section('bhm_cover_settings', array(
+        'title'    => __('Covers', 'balearic'),
+        'description' => __('Opciones de Covers', 'balearic'),
+        'priority' => 176,
+    ));
+    
+    $wp_customize->add_setting('bhm_cover_settings[services_cover]', array(
+        'default'           => '',
+        'sanitize_callback' => 'absint',
+        'capability'        => 'edit_theme_options',
+        'type'           => 'option',
+
+    ));
+
+    $wp_customize->add_control( 'services_cover', array(
+        'type'     => 'dropdown-pages',
+        'section' => 'bhm_cover_settings',
+        'settings' => 'bhm_cover_settings[services_cover]',
+        'label' => __( 'Página para obtener el cover de Servicios', 'balearic' ),
+    ) );
+
+    $wp_customize->add_setting('bhm_cover_settings[local_cover]', array(
+        'default'           => '',
+        'sanitize_callback' => 'absint',
+        'capability'        => 'edit_theme_options',
+        'type'           => 'option',
+
+    ));
+
+    $wp_customize->add_control( 'local_cover', array(
+        'type'     => 'dropdown-pages',
+        'section' => 'bhm_cover_settings',
+        'settings' => 'bhm_cover_settings[local_cover]',
+        'label' => __( 'Página para obtener el cover de Localizaciones', 'balearic' ),
+    ) );
+
     /* SOCIAL */
     $wp_customize->add_section('bhm_social_settings', array(
         'title'    => __('Redes Sociales', 'balearic'),

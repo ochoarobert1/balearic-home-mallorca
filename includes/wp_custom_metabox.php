@@ -107,6 +107,9 @@ function balearic_register_custom_metabox()
     /* TAXONOMY */
     require_once('custom-metaboxes-taxonomy.php');
 
+    /* SERVICIOS */
+    require_once('custom-metaboxes-services.php');
+
     /* CONTACTO */
     require_once('custom-metaboxes-contact.php');
 }

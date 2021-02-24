@@ -200,6 +200,18 @@ require_once('includes/wp_custom_post_type.php');
 
 require_once('includes/wp_custom_theme_control.php');
 
+add_filter('get_the_archive_title', function ($title) {
+    if (is_category()) {
+        $title = single_cat_title('', false);
+    } elseif (is_tag()) {
+        $title = single_tag_title('', false);
+    } elseif (is_author()) {
+        $title = '<span class="vcard">' . get_the_author() . '</span>';
+    }
+
+    return $title;
+});
+
 /* --------------------------------------------------------------
     ADD CUSTOM IMAGE SIZE
 -------------------------------------------------------------- */
@@ -213,6 +225,17 @@ if (function_exists('add_image_size')) {
     add_image_size('home_special_img', 1000, 750, array('center', 'center'));
     add_image_size('tax_boxed_img', 500, 500, array('center', 'center'));
     add_image_size('global_hero', 9999, 300, array('center', 'center'));
+}
+
+add_action('pre_get_posts', 'balearic_archive_order');
+function balearic_archive_order($query)
+{
+    if ($query->is_main_query() && !is_admin()) {
+        if ($query->is_tax() || $query->is_post_type_archive('servicios')) {
+            $query->set('orderby', 'date');
+            $query->set('order', 'ASC');
+        }
+    }
 }
 
 /* --------------------------------------------------------------

@@ -96,3 +96,61 @@ function balearic_custom_taxonomy()
     register_taxonomy('tipos-localizaciones', array('localizaciones'), $args);
 }
 add_action('init', 'balearic_custom_taxonomy', 0);
+
+
+// Register Custom Post Type
+function balearic_services_custom_post_type()
+{
+
+    $labels = array(
+        'name'                  => _x('Servicios', 'Post Type General Name', 'balearic'),
+        'singular_name'         => _x('Servicio', 'Post Type Singular Name', 'balearic'),
+        'menu_name'             => __('Servicios', 'balearic'),
+        'name_admin_bar'        => __('Servicios', 'balearic'),
+        'archives'              => __('Archivos de Servicios', 'balearic'),
+        'attributes'            => __('Atributos del Servicio', 'balearic'),
+        'parent_item_colon'     => __('Servicio Padre:', 'balearic'),
+        'all_items'             => __('Todos los Servicios', 'balearic'),
+        'add_new_item'          => __('Agregar Nuevo Servicio', 'balearic'),
+        'add_new'               => __('Agregar Nuevo', 'balearic'),
+        'new_item'              => __('Nuevo Servicio', 'balearic'),
+        'edit_item'             => __('Editar Servicio', 'balearic'),
+        'update_item'           => __('Actualizar Servicio', 'balearic'),
+        'view_item'             => __('Ver Servicio', 'balearic'),
+        'view_items'            => __('Ver Servicios', 'balearic'),
+        'search_items'          => __('Buscar Servicio', 'balearic'),
+        'not_found'             => __('No hay resultados', 'balearic'),
+        'not_found_in_trash'    => __('No hay resultados en Papelera', 'balearic'),
+        'featured_image'        => __('Ícono del Servicio', 'balearic'),
+        'set_featured_image'    => __('Colocar Ícono del Servicio', 'balearic'),
+        'remove_featured_image' => __('Remover Ícono del Servicio', 'balearic'),
+        'use_featured_image'    => __('Usar como Ícono del Servicio', 'balearic'),
+        'insert_into_item'      => __('Insertar en Servicio', 'balearic'),
+        'uploaded_to_this_item' => __('Cargado a este Servicio', 'balearic'),
+        'items_list'            => __('Listado de Servicios', 'balearic'),
+        'items_list_navigation' => __('Navegación del Listado de Servicios', 'balearic'),
+        'filter_items_list'     => __('Filtro del Listado de Servicios', 'balearic'),
+    );
+    $args = array(
+        'label'                 => __('Servicio', 'balearic'),
+        'description'           => __('Servicios de la Empresa', 'balearic'),
+        'labels'                => $labels,
+        'supports'              => array('title', 'editor', 'thumbnail'),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 15,
+        'menu_icon'             => 'dashicons-format-status',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => true,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'page',
+        'show_in_rest'          => true,
+    );
+    register_post_type('servicios', $args);
+}
+add_action('init', 'balearic_services_custom_post_type', 0);
