@@ -153,3 +153,22 @@ a:hover {
 /* --------------------------------------------------------------
 3.- HOME
 -------------------------------------------------------------- */
+.home-main-content {
+  padding-left: 18vw !important;
+  padding-right: 5vw !important;
+  font-size: 1rem;
+  line-height: 2rem;
+  font-weight: 400;
+}
+.home-main-content strong {
+  font-weight: 700;
+}
+.home-main-content img {
+  margin-bottom: 2rem;
+}
+.home-main-content h2 {
+  color: #66C5E0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
