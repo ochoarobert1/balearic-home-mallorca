@@ -172,3 +172,60 @@ a:hover {
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
+.home-locations-section {
+  padding: 4rem 1rem;
+  padding-top: 2rem;
+}
+.title-container {
+  text-align: center;
+  padding: 4rem 11vw;
+  padding-top: 2rem;
+  text-transform: uppercase;
+}
+.title-container h2 {
+  color: #66C5E0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.home-location-tax {
+  margin-bottom: 2rem;
+}
+.home-location-tax .wrapper {
+  position: relative;
+}
+.home-location-tax .wrapper img {
+  border-radius: 55px;
+}
+.home-location-tax .home-location-tax-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-radius: 55px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.home-location-tax .home-location-tax-wrap h2 {
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 2rem 22%;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.home-location-tax .home-location-tax-wrap:hover {
+  background: rgba(0, 0, 0, 0.3);
+}

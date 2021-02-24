@@ -29,6 +29,33 @@
                 </div>
             </div>
         </section>
+        <section class="home-locations-section col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="container">
+                <div class="row align-items-top">
+                    <div class="home-locations-title title-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <h2><?php echo get_post_meta(get_the_ID(), 'bhm_home_locals_title', true); ?></h2>
+                    </div>
+                    <?php $args = array('taxonomy' => 'tipos-localizaciones', 'hide_empty' => false, 'order' => 'DESC', 'orderby' => 'date'); ?>
+                    <?php $arr_tipos = get_terms($args); ?>
+                    <?php if (!empty($arr_tipos)) { ?>
+                        <?php foreach ($arr_tipos as $item) { ?>
+                            <article class="home-location-tax col-xl col-lg col-md col-sm-12 col-12">
+                                <div class="wrapper">
+                                    <picture>
+                                        <?php $bg_banner_id = get_term_meta($item->term_id, 'bhm_tax_image_id', true); ?>
+                                        <?php $bg_banner = wp_get_attachment_image_src($bg_banner_id, 'tax_boxed_img', false); ?>
+                                        <img itemprop="image" content="<?php echo $bg_banner[0]; ?>" src="<?php echo $bg_banner[0]; ?>" title="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true); ?>" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true); ?>" class="img-fluid" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" />
+                                    </picture>
+                                    <a href="<?php echo get_term_link($item, 'tipos-localizaciones') ?>" class="home-location-tax-wrap">
+                                        <h2><?php echo $item->name; ?></h2>
+                                    </a>
+                                </div>
+                            </article>
+                        <?php } ?>
+                    <?php } ?>
+                </div>
+            </div>
+        </section>
     </div>
 </main>
 <?php get_footer(); ?>
