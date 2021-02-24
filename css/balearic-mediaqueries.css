@@ -38,6 +38,11 @@ MEDIAQUERIES LG/MD - LAYOUTS BIGGER THAN 992px
     font-size: 0.9rem;
     line-height: 1.6rem;
   }
+  .home-services-section .home-service-item h3 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 1.2rem;
+  }
 }
 /* --------------------------------------------------------------
 MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
