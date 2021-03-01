@@ -222,8 +222,9 @@ if (function_exists('add_theme_support')) {
 if (function_exists('add_image_size')) {
     add_image_size('avatar', 100, 100, true);
     add_image_size('logo', 200, 100, false);
-    add_image_size('home_special_img', 1000, 750, array('center', 'center'));
+    add_image_size('home_special_img', 900, 600, array('center', 'center'));
     add_image_size('tax_boxed_img', 500, 500, array('center', 'center'));
+    add_image_size('tax_boxed_item', 300, 300, array('center', 'center'));
     add_image_size('global_hero', 9999, 300, array('center', 'center'));
 }
 
@@ -292,4 +293,34 @@ function send_message_callback()
     }
 
     wp_die();
+}
+
+/* --------------------------------------------------------------
+    SOCIAL NETWORK SHORTCODE
+-------------------------------------------------------------- */
+
+add_shortcode('bhm_social_networks', 'bhm_social_networks_callback');
+function bhm_social_networks_callback()
+{
+    ob_start();
+?>
+    <?php $social_settings = get_option('bhm_social_settings'); ?>
+    <?php if ($social_settings['facebook'] != '') { ?>
+        <a href="<?php echo $social_settings['facebook']; ?>" title="<?php _e('Visita nuestro perfil en Facebook', 'balearic'); ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+    <?php } ?>
+    <?php if ($social_settings['instagram'] != '') { ?>
+        <a href="<?php echo $social_settings['instagram']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-instagram"></i></a>
+    <?php } ?>
+    <?php if ($social_settings['twitter'] != '') { ?>
+        <a href="<?php echo $social_settings['twitter']; ?>" title="<?php _e('Visita nuestro perfil en Twitter', 'balearic'); ?>" target="_blank"><i class="fa fa-twitter"></i></a>
+    <?php } ?>
+    <?php if ($social_settings['linkedin'] != '') { ?>
+        <a href="<?php echo $social_settings['linkedin']; ?>" title="<?php _e('Visita nuestro perfil en LinkedIn', 'balearic'); ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <?php } ?>
+    <?php if ($social_settings['youtube'] != '') { ?>
+        <a href="<?php echo $social_settings['youtube']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-youtube-play"></i></a>
+    <?php } ?>
+<?php
+    $content = ob_get_clean();
+    return $content;
 }

@@ -32,7 +32,6 @@
                                 <?php $i = 1; ?>
                                 <?php foreach ($arr_contact as $item) { ?>
                                     <article class="main-contact-item col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <h4>0<?php echo $i; ?> .</h4>
                                         <h2><?php echo $item['title']; ?></h2>
                                         <?php echo apply_filters('the_content', $item['desc']); ?>
                                     </article>
@@ -54,8 +53,18 @@
             </div>
         </section>
         <section class="main-contact-map-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="embed-responsive embed-responsive-16by9 embed-responsive-special">
-                <?php echo get_post_meta(get_the_ID(), 'bhm_main_contact_embed', true); ?>
+            <div class="container">
+                <div class="row">
+                    <div class="main-contact-map-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="embed-responsive embed-responsive-16by9 embed-responsive-special">
+                            <?php echo get_post_meta(get_the_ID(), 'bhm_main_contact_embed', true); ?>
+                        </div>
+                    </div>
+                    <div class="main-contact-post-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <?php $contenido = get_post_meta(get_the_ID(), 'bhm_main_contact_post_content', true); ?>
+                        <?php echo apply_filters('the_content', $contenido); ?>
+                    </div>
+                </div>
             </div>
         </section>
     </div>

@@ -92,11 +92,11 @@
                                 <?php $i = 1; ?>
                                 <?php foreach ($arr_contact as $item) { ?>
                                     <article class="home-contact-item col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <h4>0<?php echo $i; ?> .</h4>
                                         <h2><?php echo $item['title']; ?></h2>
                                         <?php echo apply_filters('the_content', $item['desc']); ?>
                                     </article>
-                                <?php $i++; } ?>
+                                <?php $i++;
+                                } ?>
                             <?php } ?>
                         </div>
                     </div>
@@ -104,10 +104,15 @@
             </div>
         </section>
         <section class="main-contact-map-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="embed-responsive embed-responsive-16by9 embed-responsive-special">
-                <?php echo get_post_meta(get_the_ID(), 'bhm_home_contact_embed', true); ?>
+            <div class="container">
+                <div class="row">
+                    <div class="main-contact-map-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="embed-responsive embed-responsive-16by9 embed-responsive-special">
+                            <?php echo get_post_meta(get_the_ID(), 'bhm_home_contact_embed', true); ?>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </section>
     </div>
 </main>

@@ -70,7 +70,7 @@
                                     <a href="<?php echo $social_settings['youtube']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-youtube-play"></i></a>
                                 <?php } ?>
                             </div>
-                            <a href="" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Login/Registro', 'balearic'); ?></a>
+                            <a href="" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Entrar / Registrarse', 'balearic'); ?></a>
                         </div>
                     </div>
                 </div>

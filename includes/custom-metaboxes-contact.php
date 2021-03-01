@@ -64,3 +64,15 @@ $cmb_main_contact->add_field(array(
     'desc'      => esc_html__('Ingrese la descripción del Item', 'balearic'),
     'type'      => 'textarea_code'
 ));
+
+
+$cmb_main_contact->add_field(array(
+    'id'        => $prefix . 'main_contact_post_content',
+    'name'      => esc_html__('Contenido luego del Mapa', 'balearic'),
+    'desc'      => esc_html__('Ingrese el Contenido luego del Mapa', 'balearic'),
+    'type'      => 'wysiwyg',
+    'options'   => array(
+        'textarea_rows' => get_option('default_post_edit_rows', 2),
+        'teeny'         => false
+    )
+));

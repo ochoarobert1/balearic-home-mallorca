@@ -278,6 +278,7 @@ a {
     font-size: 1rem;
     line-height: 2rem;
     font-weight: 400;
+    text-align: justify;
 
     & strong {
         font-weight: 700;
@@ -460,6 +461,11 @@ a {
             margin-bottom: 1.5rem;
         }
 
+        & h3 {
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
         & a {
             color: black;
 
@@ -534,6 +540,18 @@ a {
     }
 }
 
+.main-contact-post-content {
+    padding: 4rem 1rem;
+    padding-bottom: 0;
+    text-align: center;
+
+    & h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #828282;
+    }
+}
+
 /* --------------------------------------------------------------
 6.- CONTACTO
 -------------------------------------------------------------- */
@@ -581,4 +599,76 @@ a {
 
 .even {
     background: @gray;
+}
+
+
+/* --------------------------------------------------------------
+7.- LOCALIZACIONES
+-------------------------------------------------------------- */
+.main-locals-search-container {
+    padding: 3rem 1rem;
+    padding-bottom: 1rem;
+
+    & .searchform {
+        background: @softblue;
+        border-radius: 25px;
+
+        & .btn {
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border: 0;
+            color: @white;
+
+            &:hover {
+                background: none;
+                outline: 0;
+            }
+        }
+
+        & .form-control {
+            background: none;
+            border: 0;
+            color: @white;
+            text-align: center;
+            .placeholder(@white);
+
+            &:focus {
+                background: none;
+                outline: 0 !important;
+                box-shadow: 0 !important;
+            }
+        }
+    }
+}
+
+.locals-main-container {
+    padding: 3rem 1rem;
+
+    & .locals-item {
+        margin-bottom: 1.5rem;
+
+        & h2 {
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 2rem 0;
+            font-weight: 800;
+        }
+
+        & a {
+            color: @black;
+
+            &:hover {
+                color: @softblue;
+            }
+        }
+
+        & img {
+            border-radius: 25px;
+        }
+    }
+}
+
+.servicios-location-tax {
+    padding: 0rem 1rem;
+    padding-top: 3rem;
 }

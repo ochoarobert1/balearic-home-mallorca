@@ -232,6 +232,7 @@ a:hover {
   font-size: 1rem;
   line-height: 2rem;
   font-weight: 400;
+  text-align: justify;
 }
 .home-main-content strong {
   font-weight: 700;
@@ -388,6 +389,10 @@ a:hover {
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
+.main-contact-section .main-contact-item h3 {
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
 .main-contact-section .main-contact-item a {
   color: black;
 }
@@ -458,6 +463,16 @@ a:hover {
   margin-top: 1rem;
   font-size: 1.2rem;
 }
+.main-contact-post-content {
+  padding: 4rem 1rem;
+  padding-bottom: 0;
+  text-align: center;
+}
+.main-contact-post-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #828282;
+}
 /* --------------------------------------------------------------
 6.- CONTACTO
 -------------------------------------------------------------- */
@@ -498,4 +513,73 @@ a:hover {
 }
 .even {
   background: #F6F6F6;
+}
+/* --------------------------------------------------------------
+7.- LOCALIZACIONES
+-------------------------------------------------------------- */
+.main-locals-search-container {
+  padding: 3rem 1rem;
+  padding-bottom: 1rem;
+}
+.main-locals-search-container .searchform {
+  background: #66C5E0;
+  border-radius: 25px;
+}
+.main-locals-search-container .searchform .btn {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border: 0;
+  color: #ffffff;
+}
+.main-locals-search-container .searchform .btn:hover {
+  background: none;
+  outline: 0;
+}
+.main-locals-search-container .searchform .form-control {
+  background: none;
+  border: 0;
+  color: #ffffff;
+  text-align: center;
+}
+.main-locals-search-container .searchform .form-control::-webkit-input-placeholder {
+  color: #ffffff;
+}
+.main-locals-search-container .searchform .form-control:-moz-placeholder {
+  color: #ffffff;
+}
+.main-locals-search-container .searchform .form-control::-moz-placeholder {
+  color: #ffffff;
+}
+.main-locals-search-container .searchform .form-control:-ms-input-placeholder {
+  color: #ffffff;
+}
+.main-locals-search-container .searchform .form-control:focus {
+  background: none;
+  outline: 0 !important;
+  box-shadow: 0 !important;
+}
+.locals-main-container {
+  padding: 3rem 1rem;
+}
+.locals-main-container .locals-item {
+  margin-bottom: 1.5rem;
+}
+.locals-main-container .locals-item h2 {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 2rem 0;
+  font-weight: 800;
+}
+.locals-main-container .locals-item a {
+  color: #000000;
+}
+.locals-main-container .locals-item a:hover {
+  color: #66C5E0;
+}
+.locals-main-container .locals-item img {
+  border-radius: 25px;
+}
+.servicios-location-tax {
+  padding: 0rem 1rem;
+  padding-top: 3rem;
 }
