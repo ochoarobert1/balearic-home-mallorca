@@ -1,7 +1,8 @@
 <?php
-function balearic_load_css() {
+function balearic_load_css()
+{
     $version_remove = NULL;
-    if (!is_admin()){
+    if (!is_admin()) {
         if ($_SERVER['REMOTE_ADDR'] == '::1') {
 
             /*- BOOTSTRAP CORE ON LOCAL -*/
@@ -31,8 +32,6 @@ function balearic_load_css() {
             /*- AOS ON LOCAL -*/
             wp_register_style('aos-css', get_template_directory_uri() . '/css/aos.css', false, '3.0.0', 'all');
             wp_enqueue_style('aos-css');
-
-
         } else {
 
             /*- BOOTSTRAP CORE -*/
@@ -64,6 +63,12 @@ function balearic_load_css() {
             wp_enqueue_style('aos-css');
         }
 
+        if (is_singular('localizaciones')) {
+            /*- SWIPER JS -*/
+            wp_register_style('swiper-css', 'https://unpkg.com/swiper/swiper-bundle.min.css', false, '6.1.2', 'all');
+            wp_enqueue_style('swiper-css');
+        }
+
         /*- GOOGLE FONTS -*/
         wp_register_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap', false, $version_remove, 'all');
         wp_enqueue_style('google-fonts');
@@ -77,7 +82,7 @@ function balearic_load_css() {
         wp_enqueue_style('main-mediaqueries');
 
         /*- WOOCOMMERCE OVERRIDES -*/
-        if ( class_exists( 'WooCommerce' ) ) {
+        if (class_exists('WooCommerce')) {
             wp_register_style('main-woocommerce-style', get_template_directory_uri() . '/css/balearic-woocommerce.css', false, $version_remove, 'all');
             wp_enqueue_style('main-woocommerce-style');
         }

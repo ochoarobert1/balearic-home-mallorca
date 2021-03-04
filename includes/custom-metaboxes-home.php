@@ -85,7 +85,7 @@ $cmb_home_services->add_field(array(
 $group_field_id = $cmb_home_services->add_field(array(
     'id'            => $prefix . 'home_services_group',
     'name'          => esc_html__('Grupos de Servicios', 'balearic'),
-    'description'   => __('Servicios dentro del Itemr', 'balearic'),
+    'description'   => __('Servicios dentro del Item', 'balearic'),
     'type'          => 'group',
     'options'       => array(
         'group_title'       => __('Servicio {#}', 'balearic'),

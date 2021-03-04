@@ -16,9 +16,6 @@
             <div class="container-fluid container-special-fluid p-0">
                 <div class="row no-gutters align-items-center">
                     <div class="home-main-content col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 order-xl-1 order-lg-1 order-md-12 order-sm-12 order-12">
-                        <?php $custom_logo_id = get_theme_mod('custom_logo'); ?>
-                        <?php $image = wp_get_attachment_image_src($custom_logo_id, 'medium'); ?>
-                        <img src="<?php echo $image[0]; ?>" alt="<?php echo get_bloginfo('name'); ?>" class="img-fluid img-logo" />
                         <?php the_content(); ?>
                     </div>
                     <picture class="home-main-picture col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 order-xl-12 order-lg-12 order-md-1 order-sm-1 order-1">
@@ -66,12 +63,14 @@
                     <?php if (!empty($arr_group)) { ?>
                         <?php foreach ($arr_group as $item) { ?>
                             <article class="home-service-item col-xl col-lg col-md col-sm-6 col-12">
+                            <a href="<?php echo $item['button_link']; ?>" title="<?php echo $item['title']; ?>">
                                 <?php $bg_banner_id = $item['icon_id']; ?>
                                 <?php $bg_banner = wp_get_attachment_image_src($bg_banner_id, 'logo', false); ?>
                                 <img itemprop="image" content="<?php echo $bg_banner[0]; ?>" src="<?php echo $bg_banner[0]; ?>" title="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true); ?>" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true); ?>" class="img-fluid" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" />
                                 <div class="home-service-item-content">
                                     <h3><?php echo $item['title']; ?></h3>
                                 </div>
+                                </a>
                             </article>
                         <?php } ?>
                     <?php } ?>

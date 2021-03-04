@@ -127,6 +127,13 @@ function balearic_load_js()
             wp_enqueue_script('aos-js');
         }
 
+        if (is_singular('localizaciones')) {
+            /*- SWIPER JS -*/
+            wp_register_script('swiper-js', 'https://unpkg.com/swiper/swiper-bundle.min.js', [], '6.1.2', true);
+            wp_enqueue_script('swiper-js');
+        }
+
+
         /*- MAIN FUNCTIONS -*/
         wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), $version_remove, true);
         wp_enqueue_script('main-functions');
