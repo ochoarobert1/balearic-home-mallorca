@@ -71,7 +71,7 @@ function balearic_register_custom_metabox()
     $cmb_global_hero = new_cmb2_box(array(
         'id'            => $prefix . 'global_hero_metabox',
         'title'         => esc_html__('Global: Hero con Título', 'balearic'),
-        'object_types'  => array('page'),
+        'object_types'  => array('page', 'localizaciones'),
         'context'       => 'side',
         'priority'      => 'high',
         'show_names'    => true,

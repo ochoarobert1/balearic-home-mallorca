@@ -46,6 +46,9 @@
         <section class="main-contact-form-section col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="container">
                 <div class="row">
+                    <div class="main-contact-content-section col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <?php the_content(); ?>
+                    </div>
                     <div class="main-contact-form-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <?php echo get_template_part('templates/template-contact-form'); ?>
                     </div>
@@ -61,6 +64,7 @@
                         </div>
                     </div>
                     <div class="main-contact-post-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        
                         <?php $contenido = get_post_meta(get_the_ID(), 'bhm_main_contact_post_content', true); ?>
                         <?php echo apply_filters('the_content', $contenido); ?>
                     </div>

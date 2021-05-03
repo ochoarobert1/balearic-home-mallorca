@@ -28,7 +28,9 @@
     <?php wp_title('|', false, 'right'); ?>
     <?php wp_head() ?>
     <?php /* OPEN GRAPHS INFO - COMMENTS SCRIPTS */ ?>
-    <?php if (is_singular() && get_option('thread_comments')) wp_enqueue_script('comment-reply'); ?>
+    <?php if (is_singular() && get_option('thread_comments')) {
+    wp_enqueue_script('comment-reply');
+} ?>
     <?php /* IE COMPATIBILITIES */ ?>
     <!--[if lt IE 7]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8 lt-ie7" /><![endif]-->
     <!--[if (IE 7)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8" /><![endif]-->
@@ -66,11 +68,13 @@
                                 <?php if ($social_settings['linkedin'] != '') { ?>
                                     <a href="<?php echo $social_settings['linkedin']; ?>" title="<?php _e('Visita nuestro perfil en LinkedIn', 'balearic'); ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
                                 <?php } ?>
-                                <?php if ($social_settings['youtube'] != '') { ?>
-                                    <a href="<?php echo $social_settings['youtube']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-youtube-play"></i></a>
-                                <?php } ?>
                             </div>
-                            <a href="" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Entrar / Registrarse', 'balearic'); ?></a>
+                            <?php if (is_user_logged_in()) { ?>
+                                <a href="<?php echo home_url('/mi-cuenta'); ?>" title="<?php _e('Haga click aqui ir a mi cuenta', 'balearic'); ?>"><?php _e('Mi Cuenta', 'balearic'); ?></a>
+                                
+                            <?php } else { ?>
+                                <a href="<?php echo home_url('/mi-cuenta'); ?>" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Entrar / Registrarse', 'balearic'); ?></a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -106,7 +110,12 @@
                                 <a href="" title="<?php _e('Haga click aqui para cambiar a Español', 'balearic'); ?>">ESP</a> <a href="" title="<?php _e('Haga click aqui para cambiar a Inglés', 'balearic'); ?>">ING</a>
                             </div>
                             <div class="menu-mobile-login">
-                                <a href="" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Login/Registro', 'balearic'); ?></a>
+                            <?php if (is_user_logged_in()) { ?>
+                                <a href="<?php echo home_url('/mi-cuenta'); ?>" title="<?php _e('Haga click aqui ir a mi cuenta', 'balearic'); ?>"><?php _e('Mi Cuenta', 'balearic'); ?></a>
+                                
+                            <?php } else { ?>
+                                <a href="<?php echo home_url('/mi-cuenta'); ?>" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Entrar / Registrarse', 'balearic'); ?></a>
+                            <?php } ?>
                             </div>
 
                             <div class="social-header">

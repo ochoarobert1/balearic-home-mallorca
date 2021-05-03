@@ -3,10 +3,104 @@ let menuMobile = document.getElementById('menuMobile');
 let validForm = true;
 let mainForm = document.getElementById('mainForm');
 let formSubmit = document.getElementById('formSubmit');
+let filterForm = document.getElementById('filterForm');
+let filterSubmit = document.getElementById('filterBtn');
+let filterBtnMobile = document.getElementById('filterBtnMobile');
 
 function documentCustomLoad() {
     "use strict";
     console.log('Functions Correctly Loaded');
+
+    if (filterForm) {
+        filterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var filterValues = document.getElementsByClassName('filter-form-control');
+            var info = 'action=search_filter&busqueda_sencilla=' + filterValues[0].value + '&bhm_local_type=' + filterValues[1].value + '&bhm_local_price=' + filterValues[2].value + '&bhm_local_size=' + filterValues[3].value + '&bhm_local_room=' + filterValues[4].value + '&bhm_local_bath=' + filterValues[5].value + '&bhm_local_equip=' + filterValues[6].value;
+            var loaderContainer = document.getElementById('loaderFilter');
+            loaderContainer.classList.toggle("d-none");
+            var ajaxResponse = document.getElementById('filterResults');
+            ajaxResponse.innerHTML = '';
+            var filterContainer = document.getElementById('filterContainer');
+            filterContainer.classList.add('mobile-filter-hidden');
+            /* SEND AJAX */
+            var newRequest = new XMLHttpRequest();
+            newRequest.open('POST', custom_admin_url.ajax_url, true);
+            newRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+            newRequest.onload = function() {
+                loaderContainer.classList.toggle("d-none");
+                var respuesta = JSON.parse(newRequest.response);
+                var ajaxResponse = document.getElementById('filterResults');
+                ajaxResponse.innerHTML = respuesta;
+            };
+            newRequest.send(info);
+        });
+
+        filterBtnMobile.addEventListener('click', function(e) {
+            e.preventDefault();
+            var filterContainer = document.getElementById('filterContainer');
+            filterContainer.classList.toggle('mobile-filter-hidden');
+        });
+    }
+
+
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+        spaceBetween: 80,
+        slidesPerView: 4,
+        loop: true,
+        freeMode: true,
+        loopedSlides: 5, //looped slides should be the same
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        breakpoints: {
+            0: {
+                loopedSlides: 2, //looped slides should be the same
+                spaceBetween: 5,
+                slidesPerView: 2,
+            },
+            768: {
+                loopedSlides: 2, //looped slides should be the same
+                spaceBetween: 10,
+                slidesPerView: 2,
+            },
+            1024: {
+                loopedSlides: 3, //looped slides should be the same
+                spaceBetween: 40,
+                slidesPerView: 3,
+            },
+            1171: {
+                loopedSlides: 5, //looped slides should be the same
+                spaceBetween: 40,
+                slidesPerView: 5,
+            },
+        }
+    });
+
+    var galleryTop = new Swiper('.gallery-top', {
+        spaceBetween: 0,
+        loop: true,
+        loopedSlides: 5, //looped slides should be the same
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        thumbs: {
+            swiper: galleryThumbs,
+        },
+        breakpoints: {
+            0: {
+                loopedSlides: 2, //looped slides should be the same
+            },
+            768: {
+                loopedSlides: 2, //looped slides should be the same
+            },
+            1024: {
+                loopedSlides: 3, //looped slides should be the same
+            },
+            1171: {
+                loopedSlides: 5, //looped slides should be the same
+            },
+        }
+    });
 
     menuBtn.addEventListener('click', function(e) {
         e.preventDefault();

@@ -226,6 +226,8 @@ if (function_exists('add_image_size')) {
     add_image_size('tax_boxed_img', 500, 500, array('center', 'center'));
     add_image_size('tax_boxed_item', 300, 300, array('center', 'center'));
     add_image_size('global_hero', 9999, 300, array('center', 'center'));
+    add_image_size('locals_big_image', 700, 500, array('center', 'center'));
+    add_image_size('locals_small_image', 150, 150, array('center', 'center'));
 }
 
 add_action('pre_get_posts', 'balearic_archive_order');
@@ -322,7 +324,186 @@ function bhm_social_networks_callback()
             <a href="<?php echo $social_settings['youtube']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-youtube-play"></i></a>
         <?php } ?>
     </div>
-<?php
+    <?php
     $content = ob_get_clean();
     return $content;
+}
+
+
+/* --------------------------------------------------------------
+    AJAX: SEND A MESSAGE
+-------------------------------------------------------------- */
+add_action('wp_ajax_search_filter', 'search_filter_callback');
+add_action('wp_ajax_nopriv_search_filter', 'search_filter_callback');
+
+function search_filter_callback()
+{
+    if (defined('WP_DEBUG') && WP_DEBUG) {
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+    }
+
+    ob_start();
+
+    if (isset($_POST['busqueda_sencilla'])) {
+        $busqueda = $_POST['busqueda_sencilla'];
+    }
+
+    if (isset($_POST['bhm_local_type'])) {
+        $tipo = $_POST['bhm_local_type'];
+    }
+
+    if (isset($_POST['bhm_local_price'])) {
+        $precio = $_POST['bhm_local_price'];
+    }
+
+    if (isset($_POST['bhm_local_size'])) {
+        $size = $_POST['bhm_local_size'];
+    }
+
+    if (isset($_POST['bhm_local_room'])) {
+        $rooms = $_POST['bhm_local_room'];
+    }
+
+    if (isset($_POST['bhm_local_bath'])) {
+        $baths = $_POST['bhm_local_bath'];
+    }
+
+    if (isset($_POST['bhm_local_equip'])) {
+        $equip = $_POST['bhm_local_equip'];
+    }
+
+    global $wpdb;
+
+    if ($busqueda != '') {
+        $arr_posts = array();
+
+        $fivesdrafts = $wpdb->get_results($wpdb->prepare(
+            "SELECT ID FROM $wpdb->posts WHERE post_type = 'localizaciones' AND post_title LIKE %s",
+            '%' . $busqueda . '%'
+        ));
+
+        foreach ($fivesdrafts as $item) {
+            array_push($arr_posts, (int) $item->ID);
+        }
+
+        $args = array(
+            'post_type'     => 'localizaciones',
+            'post_status'   => 'publish',
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'post__in' => $arr_posts,
+            'meta_query' => array(
+                'relation' => 'OR',
+                array(
+                    'key'     => 'bhm_local_type',
+                    'value'   => $tipo,
+                    'compare' => 'LIKE',
+                ),
+                array(
+                    'key' => 'bhm_local_price',
+                    'value'   => array( $precio ),
+                    'type'    => 'numeric',
+                    'compare' => '<=',
+                ),
+                array(
+                    'key' => 'bhm_local_size',
+                    'value'   => array( $size ),
+                    'type'    => 'numeric',
+                    'compare' => '<=',
+                ),
+                array(
+                    'key' => 'bhm_local_room',
+                    'value'   => array( $rooms ),
+                    'type'    => 'numeric',
+                    'compare' => '<=',
+                ),
+                array(
+                    'key' => 'bhm_local_bath',
+                    'value'   => array( $baths ),
+                    'type'    => 'numeric',
+                    'compare' => '<=',
+                ),
+                array(
+                    'key' => 'bhm_local_equip',
+                    'value'   => array( $equip ),
+                    'compare' => 'LIKE',
+                ),
+            ),
+        );
+    } else {
+        $args = array(
+            'post_type'     => 'localizaciones',
+            'post_status'   => 'publish',
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'meta_query' => array(
+                'relation' => 'OR',
+                array(
+                    'key'     => 'bhm_local_type',
+                    'value'   => $tipo,
+                    'compare' => 'LIKE',
+                ),
+                array(
+                    'key' => 'bhm_local_price',
+                    'value'   => $precio,
+                    'type'    => 'numeric',
+                    'compare' => '<=',
+                ),
+                array(
+                    'key' => 'bhm_local_size',
+                    'value'   => array( $size ),
+                    'type'    => 'numeric',
+                    'compare' => '<=',
+                ),
+                array(
+                    'key' => 'bhm_local_room',
+                    'value'   => array( $rooms ),
+                    'type'    => 'numeric',
+                    'compare' => '<=',
+                ),
+                array(
+                    'key' => 'bhm_local_bath',
+                    'value'   => array( $baths ),
+                    'type'    => 'numeric',
+                    'compare' => '<=',
+                ),
+                array(
+                    'key' => 'bhm_local_equip',
+                    'value'   => array( $equip ),
+                    'compare' => 'LIKE',
+                ),
+            ),
+        );
+    }
+    $arr_locals = new WP_Query($args);
+    if ($arr_locals->have_posts()) :
+        while ($arr_locals->have_posts()) : $arr_locals->the_post();
+    ?>
+            <article class="locals-item col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
+                <picture>
+                    <a href="<?php echo get_permalink(); ?>" title="<?php _e('Ver Localización', 'balearic'); ?>">
+                        <?php the_post_thumbnail('tax_boxed_item', array('class' => 'img-fluid')); ?>
+                    </a>
+                </picture>
+                <header>
+                    <a href="<?php echo get_permalink(); ?>" title="<?php _e('Ver Localización', 'balearic'); ?>">
+                        <h2><?php the_title(); ?></h2>
+                    </a>
+                </header>
+            </article>
+        <?php
+        endwhile;
+
+    else :
+        ?>
+        <div class="no-results">
+            <h3><?php _e('No hay resultados que coincidan con su búsqueda', 'balearic'); ?></h3>
+        </div>
+<?php
+    endif;
+    wp_reset_query();
+    $content = ob_get_clean();
+    echo json_encode($content);
+    wp_die();
 }
