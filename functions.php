@@ -10,7 +10,9 @@ require_once('includes/wp_enqueue_styles.php');
     ENQUEUE AND REGISTER JS
 -------------------------------------------------------------- */
 
-if (!is_admin()) add_action('wp_enqueue_scripts', 'balearic_jquery_enqueue');
+if (!is_admin()) {
+    add_action('wp_enqueue_scripts', 'balearic_jquery_enqueue');
+}
 function balearic_jquery_enqueue()
 {
     wp_deregister_script('jquery');
@@ -19,7 +21,7 @@ function balearic_jquery_enqueue()
         /*- JQUERY ON LOCAL  -*/
         wp_register_script('jquery', get_template_directory_uri() . '/js/jquery.min.js', false, '3.4.1', false);
         /*- JQUERY MIGRATE ON LOCAL  -*/
-        wp_register_script('jquery-migrate', get_template_directory_uri() . '/js/jquery-migrate.min.js',  array('jquery'), '3.1.0', false);
+        wp_register_script('jquery-migrate', get_template_directory_uri() . '/js/jquery-migrate.min.js', array('jquery'), '3.1.0', false);
     } else {
         /*- JQUERY ON WEB  -*/
         wp_register_script('jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', false, '3.5.1', false);
@@ -164,7 +166,7 @@ function balearic_widgets_init()
 
 function custom_admin_styles()
 {
-    $version_remove = NULL;
+    $version_remove = null;
     wp_register_style('wp-admin-style', get_template_directory_uri() . '/css/custom-wordpress-admin-style.css', false, $version_remove, 'all');
     wp_enqueue_style('wp-admin-style');
 }
@@ -304,28 +306,62 @@ function send_message_callback()
 add_shortcode('bhm_social_networks', 'bhm_social_networks_callback');
 function bhm_social_networks_callback()
 {
-    ob_start();
-?>
-    <?php $social_settings = get_option('bhm_social_settings'); ?>
-    <div class="social-widget-container">
-        <?php if ($social_settings['facebook'] != '') { ?>
-            <a href="<?php echo $social_settings['facebook']; ?>" title="<?php _e('Visita nuestro perfil en Facebook', 'balearic'); ?>" target="_blank"><i class="fa fa-facebook"></i></a>
-        <?php } ?>
-        <?php if ($social_settings['instagram'] != '') { ?>
-            <a href="<?php echo $social_settings['instagram']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-instagram"></i></a>
-        <?php } ?>
-        <?php if ($social_settings['twitter'] != '') { ?>
-            <a href="<?php echo $social_settings['twitter']; ?>" title="<?php _e('Visita nuestro perfil en Twitter', 'balearic'); ?>" target="_blank"><i class="fa fa-twitter"></i></a>
-        <?php } ?>
-        <?php if ($social_settings['linkedin'] != '') { ?>
-            <a href="<?php echo $social_settings['linkedin']; ?>" title="<?php _e('Visita nuestro perfil en LinkedIn', 'balearic'); ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
-        <?php } ?>
-        <?php if ($social_settings['youtube'] != '') { ?>
-            <a href="<?php echo $social_settings['youtube']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-youtube-play"></i></a>
-        <?php } ?>
-    </div>
-    <?php
+    ob_start(); ?>
+<?php $social_settings = get_option('bhm_social_settings'); ?>
+<div class="social-widget-container">
+    <?php if ($social_settings['facebook'] != '') { ?>
+    <a href="<?php echo $social_settings['facebook']; ?>" title="<?php _e('Visita nuestro perfil en Facebook', 'balearic'); ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+    <?php } ?>
+    <?php if ($social_settings['instagram'] != '') { ?>
+    <a href="<?php echo $social_settings['instagram']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-instagram"></i></a>
+    <?php } ?>
+    <?php if ($social_settings['twitter'] != '') { ?>
+    <a href="<?php echo $social_settings['twitter']; ?>" title="<?php _e('Visita nuestro perfil en Twitter', 'balearic'); ?>" target="_blank"><i class="fa fa-twitter"></i></a>
+    <?php } ?>
+    <?php if ($social_settings['linkedin'] != '') { ?>
+    <a href="<?php echo $social_settings['linkedin']; ?>" title="<?php _e('Visita nuestro perfil en LinkedIn', 'balearic'); ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <?php } ?>
+    <?php if ($social_settings['youtube'] != '') { ?>
+    <a href="<?php echo $social_settings['youtube']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-youtube-play"></i></a>
+    <?php } ?>
+</div>
+<?php
     $content = ob_get_clean();
+    return $content;
+}
+
+/* --------------------------------------------------------------
+    CLOSED LOCATIONS
+-------------------------------------------------------------- */
+
+add_shortcode('closed-locations', 'closed_locations_callback');
+function closed_locations_callback()
+{
+    $arr_locals = new WP_Query(array('post_type' => 'localizaciones', 'posts_per_page' => 3, 'orderby' => 'date', 'order' => 'DESC'));
+    if ($arr_locals->have_posts()) :
+    ob_start(); ?>
+<div class="locals-main-container locals-shortcode-container container">
+    <div class="row align-items-top justify-content-between">
+        <?php while ($arr_locals->have_posts()) : $arr_locals->the_post(); ?>
+        <article class="locals-item col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
+            <picture>
+                <a href="<?php echo get_permalink(); ?>" title="<?php _e('Ver Localización', 'balearic'); ?>">
+                    <?php the_post_thumbnail('tax_boxed_item', array('class' => 'img-fluid')); ?>
+                </a>
+            </picture>
+            <header>
+                <a href="<?php echo get_permalink(); ?>" title="<?php _e('Ver Localización', 'balearic'); ?>">
+                    <h2><?php the_title(); ?></h2>
+                </a>
+            </header>
+        </article>
+        <?php endwhile; ?>
+    </div>
+</div>
+<?php
+    $content = ob_get_clean();
+    endif;
+    wp_reset_query();
     return $content;
 }
 
@@ -478,28 +514,25 @@ function search_filter_callback()
     }
     $arr_locals = new WP_Query($args);
     if ($arr_locals->have_posts()) :
-        while ($arr_locals->have_posts()) : $arr_locals->the_post();
-    ?>
-            <article class="locals-item col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                <picture>
-                    <a href="<?php echo get_permalink(); ?>" title="<?php _e('Ver Localización', 'balearic'); ?>">
-                        <?php the_post_thumbnail('tax_boxed_item', array('class' => 'img-fluid')); ?>
-                    </a>
-                </picture>
-                <header>
-                    <a href="<?php echo get_permalink(); ?>" title="<?php _e('Ver Localización', 'balearic'); ?>">
-                        <h2><?php the_title(); ?></h2>
-                    </a>
-                </header>
-            </article>
-        <?php
-        endwhile;
-
-    else :
+        while ($arr_locals->have_posts()) : $arr_locals->the_post(); ?>
+<article class="locals-item col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
+    <picture>
+        <a href="<?php echo get_permalink(); ?>" title="<?php _e('Ver Localización', 'balearic'); ?>">
+            <?php the_post_thumbnail('tax_boxed_item', array('class' => 'img-fluid')); ?>
+        </a>
+    </picture>
+    <header>
+        <a href="<?php echo get_permalink(); ?>" title="<?php _e('Ver Localización', 'balearic'); ?>">
+            <h2><?php the_title(); ?></h2>
+        </a>
+    </header>
+</article>
+<?php
+        endwhile; else :
         ?>
-        <div class="no-results">
-            <h3><?php _e('No hay resultados que coincidan con su búsqueda', 'balearic'); ?></h3>
-        </div>
+<div class="no-results">
+    <h3><?php _e('No hay resultados que coincidan con su búsqueda', 'balearic'); ?></h3>
+</div>
 <?php
     endif;
     wp_reset_query();
@@ -507,3 +540,7 @@ function search_filter_callback()
     echo json_encode($content);
     wp_die();
 }
+
+/* --------------------------------------------------------------
+    WP-MEMBERS OVERRIDES
+-------------------------------------------------------------- */

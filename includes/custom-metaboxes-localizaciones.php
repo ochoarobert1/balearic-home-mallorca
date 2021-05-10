@@ -2,6 +2,27 @@
 /* --------------------------------------------------------------
     1.- LOCALS - GALLERY
 -------------------------------------------------------------- */
+$cmb_local_lock = new_cmb2_box(array(
+    'id'            => $prefix . 'main_locals_blocker_metabox',
+    'title'         => esc_html__('Propiedades Premium', 'balearic'),
+    'object_types'  => array('localizaciones'),
+    'context'       => 'side',
+    'priority'      => 'high',
+    'show_names'    => true,
+    'cmb_styles'    => true,
+    'closed'        => false
+));
+
+$cmb_local_lock->add_field(array(
+    'id'   => $prefix . 'local_locked',
+    'name'      => esc_html__('Esta propiedad es Premium?', 'balearic'),
+    'desc'      => esc_html__('Activar si esta propiedad esta bloqueada solo para el acceso VIP', 'balearic'),
+    'type'      => 'checkbox'
+));
+
+/* --------------------------------------------------------------
+    1.- LOCALS - GALLERY
+-------------------------------------------------------------- */
 $cmb_main_locals = new_cmb2_box(array(
     'id'            => $prefix . 'main_locals_metabox',
     'title'         => esc_html__('Galería de Fotos', 'balearic'),

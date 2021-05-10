@@ -38,6 +38,25 @@
     </div>
 </footer>
 <?php wp_footer() ?>
+<!-- Modal -->
+<div class="modal modal-login fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"><?php _e('Ingresar al Sistema', 'balearic'); ?></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?php echo do_shortcode('[wpmem_form login redirect_to="'. home_url('/mi-cuenta') .'"]'); ?>
+                <div class="extra-links">
+                    <?php _e('¿No tienes una cuenta? Crea una cuenta personal', 'balearic'); ?> <a href="<?php echo home_url('/registro'); ?>"><?php _e('aquí', 'balearic'); ?></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>

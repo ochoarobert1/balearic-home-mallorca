@@ -57,24 +57,24 @@
                             <div class="social-header">
                                 <?php $social_settings = get_option('bhm_social_settings'); ?>
                                 <?php if ($social_settings['facebook'] != '') { ?>
-                                    <a href="<?php echo $social_settings['facebook']; ?>" title="<?php _e('Visita nuestro perfil en Facebook', 'balearic'); ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="<?php echo $social_settings['facebook']; ?>" title="<?php _e('Visita nuestro perfil en Facebook', 'balearic'); ?>" target="_blank"><i class="fa fa-facebook"></i></a>
                                 <?php } ?>
                                 <?php if ($social_settings['instagram'] != '') { ?>
-                                    <a href="<?php echo $social_settings['instagram']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-instagram"></i></a>
+                                <a href="<?php echo $social_settings['instagram']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-instagram"></i></a>
                                 <?php } ?>
                                 <?php if ($social_settings['twitter'] != '') { ?>
-                                    <a href="<?php echo $social_settings['twitter']; ?>" title="<?php _e('Visita nuestro perfil en Twitter', 'balearic'); ?>" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a href="<?php echo $social_settings['twitter']; ?>" title="<?php _e('Visita nuestro perfil en Twitter', 'balearic'); ?>" target="_blank"><i class="fa fa-twitter"></i></a>
                                 <?php } ?>
                                 <?php if ($social_settings['linkedin'] != '') { ?>
-                                    <a href="<?php echo $social_settings['linkedin']; ?>" title="<?php _e('Visita nuestro perfil en LinkedIn', 'balearic'); ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                <a href="<?php echo $social_settings['linkedin']; ?>" title="<?php _e('Visita nuestro perfil en LinkedIn', 'balearic'); ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
                                 <?php } ?>
                             </div>
-                            <?php if (is_user_logged_in()) { ?>
-                                <a href="<?php echo home_url('/mi-cuenta'); ?>" title="<?php _e('Haga click aqui ir a mi cuenta', 'balearic'); ?>"><?php _e('Mi Cuenta', 'balearic'); ?></a>
-                                
+                            <?php if (!is_user_logged_in()) { ?>
+                            <a href="#" data-toggle="modal" data-target="#exampleModalCenter" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Entrar / Registrarse', 'balearic'); ?></a>
                             <?php } else { ?>
-                                <a href="<?php echo home_url('/mi-cuenta'); ?>" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Entrar / Registrarse', 'balearic'); ?></a>
+                            <a href="<?php echo home_url('/mi-cuenta'); ?>" title="<?php _e('Haga click aqui ir a mi cuenta', 'balearic'); ?>" class="ml-2"><i class="fa fa-user"></i> <?php _e('Mi Cuenta', 'balearic'); ?></a>
                             <?php } ?>
+
                         </div>
                     </div>
                 </div>
@@ -87,9 +87,9 @@
                                 <?php $custom_logo_id = get_theme_mod('custom_logo'); ?>
                                 <?php $image = wp_get_attachment_image_src($custom_logo_id, 'logo'); ?>
                                 <?php if (!empty($image)) { ?>
-                                    <img src="<?php echo $image[0]; ?>" alt="<?php echo get_bloginfo('name'); ?>" class="img-fluid img-logo" />
+                                <img src="<?php echo $image[0]; ?>" alt="<?php echo get_bloginfo('name'); ?>" class="img-fluid img-logo" />
                                 <?php } else { ?>
-                                    Navbar
+                                Navbar
                                 <?php } ?>
                             </a>
 
@@ -110,30 +110,29 @@
                                 <a href="" title="<?php _e('Haga click aqui para cambiar a Español', 'balearic'); ?>">ESP</a> <a href="" title="<?php _e('Haga click aqui para cambiar a Inglés', 'balearic'); ?>">ING</a>
                             </div>
                             <div class="menu-mobile-login">
-                            <?php if (is_user_logged_in()) { ?>
-                                <a href="<?php echo home_url('/mi-cuenta'); ?>" title="<?php _e('Haga click aqui ir a mi cuenta', 'balearic'); ?>"><?php _e('Mi Cuenta', 'balearic'); ?></a>
-                                
-                            <?php } else { ?>
-                                <a href="<?php echo home_url('/mi-cuenta'); ?>" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Entrar / Registrarse', 'balearic'); ?></a>
-                            <?php } ?>
+                                <?php if (!is_user_logged_in()) { ?>
+                                <a href="<?php echo home_url('/registro'); ?>" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Entrar / Registrarse', 'balearic'); ?></a>
+                                <?php } else { ?>
+                                <a href="<?php echo home_url('/mi-cuenta'); ?>" title="<?php _e('Haga click aqui para ir a mi cuenta', 'balearic'); ?>"><?php _e('Mi Cuenta', 'balearic'); ?></a>
+                                <?php } ?>
                             </div>
 
                             <div class="social-header">
                                 <?php $social_settings = get_option('bhm_social_settings'); ?>
                                 <?php if ($social_settings['facebook'] != '') { ?>
-                                    <a href="<?php echo $social_settings['facebook']; ?>" title="<?php _e('Visita nuestro perfil en Facebook', 'balearic'); ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="<?php echo $social_settings['facebook']; ?>" title="<?php _e('Visita nuestro perfil en Facebook', 'balearic'); ?>" target="_blank"><i class="fa fa-facebook"></i></a>
                                 <?php } ?>
                                 <?php if ($social_settings['instagram'] != '') { ?>
-                                    <a href="<?php echo $social_settings['instagram']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-instagram"></i></a>
+                                <a href="<?php echo $social_settings['instagram']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-instagram"></i></a>
                                 <?php } ?>
                                 <?php if ($social_settings['twitter'] != '') { ?>
-                                    <a href="<?php echo $social_settings['twitter']; ?>" title="<?php _e('Visita nuestro perfil en Twitter', 'balearic'); ?>" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a href="<?php echo $social_settings['twitter']; ?>" title="<?php _e('Visita nuestro perfil en Twitter', 'balearic'); ?>" target="_blank"><i class="fa fa-twitter"></i></a>
                                 <?php } ?>
                                 <?php if ($social_settings['linkedin'] != '') { ?>
-                                    <a href="<?php echo $social_settings['linkedin']; ?>" title="<?php _e('Visita nuestro perfil en LinkedIn', 'balearic'); ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                <a href="<?php echo $social_settings['linkedin']; ?>" title="<?php _e('Visita nuestro perfil en LinkedIn', 'balearic'); ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
                                 <?php } ?>
                                 <?php if ($social_settings['youtube'] != '') { ?>
-                                    <a href="<?php echo $social_settings['youtube']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-youtube-play"></i></a>
+                                <a href="<?php echo $social_settings['youtube']; ?>" title="<?php _e('Visita nuestro perfil en Instagram', 'balearic'); ?>" target="_blank"><i class="fa fa-youtube-play"></i></a>
                                 <?php } ?>
                             </div>
 

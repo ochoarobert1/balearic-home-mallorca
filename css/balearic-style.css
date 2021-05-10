@@ -764,3 +764,102 @@ a:hover {
   padding-bottom: 2rem;
   text-align: center;
 }
+.main-page-content {
+  font-size: 1.1rem;
+  padding: 2rem 1rem;
+}
+.main-account-page {
+  padding: 3rem 1rem;
+}
+.main-account-page .nav-pills .nav-link {
+  border-radius: 0;
+  margin: 0.3rem 0;
+  color: #000000;
+}
+.main-account-page .nav-pills .nav-link.active,
+.main-account-page .nav-pills .show > .nav-link {
+  background: #66c5e0;
+  color: #fff;
+  border-radius: 0;
+}
+.main-account-page .tab-content {
+  background: #f5f5f5;
+  padding: 1.5rem;
+}
+.main-account-page .tab-content .tab-title {
+  position: relative;
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+}
+.main-account-page .tab-content .tab-title:before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #66c5e0;
+}
+.main-account-page .tab-content h3 {
+  font-weight: 300;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+/* --------------------------------------------------------------
+WP-MEMBERS OVERRIDES
+-------------------------------------------------------------- */
+.wpmem_msg {
+  width: 100% !important;
+}
+#wpmem_login .div_text,
+#wpmem_reg .div_checkbox,
+#wpmem_reg .div_date,
+#wpmem_reg .div_file,
+#wpmem_reg .div_image,
+#wpmem_reg .div_multicheckbox,
+#wpmem_reg .div_multiselect,
+#wpmem_reg .div_number,
+#wpmem_reg .div_radio,
+#wpmem_reg .div_select,
+#wpmem_reg .div_text,
+#wpmem_reg .div_textarea,
+#wpmem_reg .div_url {
+  width: 100% !important;
+}
+#wpmem_login .button_div,
+#wpmem_reg .button_div {
+  width: 100% !important;
+  text-align: left !important;
+}
+#wpmem_login .button_div .buttons,
+#wpmem_reg .button_div .buttons {
+  background: #66c5e0;
+  color: #fff;
+  border: 0;
+  padding: 1.1rem 2.2rem;
+  font-size: 1rem !important;
+}
+#wpmem_login fieldset {
+  margin: 10px 0 !important;
+}
+#wpmem_login label,
+#wpmem_reg label {
+  display: initial;
+  font-size: 0.9rem;
+  font-weight: 400 !important;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: -0.4px;
+}
+.modal-login #wpmem_login .button_div .buttons {
+  padding: 0.7rem 2.2rem;
+  float: right;
+}
+.modal-login legend {
+  display: none;
+}
+.extra-links {
+  padding: 1rem 0.4rem;
+  font-size: 0.9rem;
+  letter-spacing: -0.5px;
+}
