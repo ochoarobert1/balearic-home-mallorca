@@ -343,6 +343,9 @@ function closed_locations_callback()
 <div class="locals-main-container locals-shortcode-container container">
     <div class="row align-items-top justify-content-between">
         <?php while ($arr_locals->have_posts()) : $arr_locals->the_post(); ?>
+        <?php $is_blocked = get_post_meta(get_the_ID(), '_wpmem_block', true); ?>
+        <?php if (!is_user_logged_in()) { ?>
+        <?php if ($is_blocked == '0') { ?>
         <article class="locals-item col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
             <picture>
                 <a href="<?php echo get_permalink(); ?>" title="<?php _e('Ver Localización', 'balearic'); ?>">
@@ -355,6 +358,21 @@ function closed_locations_callback()
                 </a>
             </header>
         </article>
+        <?php } ?>
+        <?php } else { ?>
+        <article class="locals-item col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
+            <picture>
+                <a href="<?php echo get_permalink(); ?>" title="<?php _e('Ver Localización', 'balearic'); ?>">
+                    <?php the_post_thumbnail('tax_boxed_item', array('class' => 'img-fluid')); ?>
+                </a>
+            </picture>
+            <header>
+                <a href="<?php echo get_permalink(); ?>" title="<?php _e('Ver Localización', 'balearic'); ?>">
+                    <h2><?php the_title(); ?></h2>
+                </a>
+            </header>
+        </article>
+        <?php } ?>
         <?php endwhile; ?>
     </div>
 </div>

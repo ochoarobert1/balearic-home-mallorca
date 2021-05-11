@@ -863,3 +863,13 @@ WP-MEMBERS OVERRIDES
   font-size: 0.9rem;
   letter-spacing: -0.5px;
 }
+.vip-closed-container {
+  padding: 4.5rem 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+.vip-closed-container h1 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
