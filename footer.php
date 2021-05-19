@@ -49,13 +49,24 @@
                 </button>
             </div>
             <div class="modal-body">
-                <?php echo do_shortcode('[wpmem_form login redirect_to="'. home_url('/mi-cuenta') .'"]'); ?>
+                <?php if (function_exists('pll_current_language')) { ?>
+                <?php $lang = pll_current_language('slug'); ?>
+                <?php } else { ?>
+                <?php $lang = 'es'; ?>
+                <?php } ?>
+                <?php if ($lang == 'es') { ?>
+                <?php echo do_shortcode('[lrm_form default_tab="login" logged_in_message="¡Estas actualmente loggeado!"]'); ?>
+                <?php } else { ?>
+                <?php echo do_shortcode('[lrm_form default_tab="login" logged_in_message="You are currently logged in!"]'); ?>
+                <?php } ?>
+                <?php /*
                 <div class="extra-links">
                     <?php _e('¿No tienes una cuenta? Crea una cuenta personal', 'balearic'); ?> <a href="<?php echo home_url('/registro'); ?>"><?php _e('aquí', 'balearic'); ?></a>
-                </div>
             </div>
+            */ ?>
         </div>
     </div>
+</div>
 </div>
 </body>
 

@@ -11,6 +11,57 @@ function documentCustomLoad() {
     "use strict";
     console.log('Functions Correctly Loaded');
 
+    var proxied = window.XMLHttpRequest.prototype.send;
+    window.XMLHttpRequest.prototype.send = function() {
+
+        var partsArray = arguments[0].split('&');
+        const found = partsArray.find(element => element == 'lrm_action=login');
+
+        if (found == 'lrm_action=login') {
+
+            var pointer = this;
+            var intervalId = window.setInterval(function() {
+                if (pointer.readyState != 4) {
+                    return;
+                }
+                var respuesta = JSON.parse(pointer.responseText);
+                //Here is where you can add any code to process the response.
+                //If you want to pass the Ajax request object, pass the 'pointer' below
+                clearInterval(intervalId);
+                if (respuesta.success == true) {
+                    window.location = custom_admin_url.redirect_route;
+                }
+
+            }, 1); //I found a delay of 1 to be sufficient, modify it as you need.
+        }
+
+        var found2 = partsArray.find(element => element == 'lrm_action=signup');
+
+        if (found2 == 'lrm_action=signup') {
+            var pointer = this;
+            var intervalId = window.setInterval(function() {
+                if (pointer.readyState != 4) {
+                    return;
+                }
+                var respuesta = JSON.parse(pointer.responseText);
+                //Here is where you can add any code to process the response.
+                //If you want to pass the Ajax request object, pass the 'pointer' below
+                clearInterval(intervalId);
+                if (respuesta.success == true) {
+                    window.location = custom_admin_url.redirect_route;
+                }
+
+            }, 5); //I found a delay of 1 to be sufficient, modify it as you need.
+        }
+        return proxied.apply(this, [].slice.call(arguments));
+
+    };
+
+    var redirectTo = document.getElementsByName('redirect_to');
+    Array.prototype.forEach.call(redirectTo, function(el) {
+        el.value = custom_admin_url.redirect_route;
+    });
+
     if (filterForm) {
         filterForm.addEventListener('submit', function(e) {
             e.preventDefault();

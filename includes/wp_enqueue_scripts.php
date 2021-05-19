@@ -1,7 +1,7 @@
 <?php
 function balearic_load_js()
 {
-    $version_remove = NULL;
+    $version_remove = null;
     if (!is_admin()) {
         if ($_SERVER['REMOTE_ADDR'] == '::1') {
 
@@ -135,8 +135,21 @@ function balearic_load_js()
         wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), $version_remove, true);
         wp_enqueue_script('main-functions');
 
+        if (function_exists('pll_current_language')) {
+            $lang = pll_current_language('slug');
+        } else {
+            $lang = 'es';
+        }
+
+        if ($lang == 'es') {
+            $redirect_route = network_home_url( '/mi-cuenta/' );
+        } else {
+            $redirect_route = network_home_url( '/en/my-account/' );
+        }
+
         wp_localize_script('main-functions', 'custom_admin_url', array(
             'ajax_url'          => admin_url('admin-ajax.php'),
+            'redirect_route'    => $redirect_route,
             'error_nombre'      => __('Error: El nombre no puede estar vacio.', 'balearic'),
             'invalid_nombre'    => __('Error: El nombre no es válido.', 'balearic'),
             'error_phone'       => __('Error: El teléfono no puede estar vacio.', 'balearic'),

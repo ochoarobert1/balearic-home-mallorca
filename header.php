@@ -48,10 +48,15 @@
     <header class="container-fluid p-0" role="banner" itemscope itemtype="http://schema.org/WPHeader">
         <div class="row no-gutters">
             <div class="top-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <?php if (function_exists('pll_current_language')) { ?>
+                <?php $lang = pll_current_language('slug'); ?>
+                <?php } else { ?>
+                <?php $lang = 'es'; ?>
+                <?php } ?>
                 <div class="container">
                     <div class="row">
                         <div class="top-header-left col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 d-xl-block d-lg-block d-md-block d-sm-none d-none">
-                            <a href="" title="<?php _e('Haga click aqui para cambiar a Español', 'balearic'); ?>">ESP</a> <a href="" title="<?php _e('Haga click aqui para cambiar a Inglés', 'balearic'); ?>">ING</a>
+                            <a href="<?php echo network_home_url('/');?>" title="<?php _e('Haga click aqui para cambiar a Español', 'balearic'); ?>">ESP</a> <a href="<?php echo home_url('/en');?>" title="<?php _e('Haga click aqui para cambiar a Inglés', 'balearic'); ?>">ING</a>
                         </div>
                         <div class="top-header-right col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 d-xl-block d-lg-block d-md-block d-sm-none d-none">
                             <div class="social-header">
@@ -72,7 +77,11 @@
                             <?php if (!is_user_logged_in()) { ?>
                             <a href="#" data-toggle="modal" data-target="#exampleModalCenter" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Entrar / Registrarse', 'balearic'); ?></a>
                             <?php } else { ?>
+                            <?php if ($lang == 'es') { ?>
                             <a href="<?php echo home_url('/mi-cuenta'); ?>" title="<?php _e('Haga click aqui ir a mi cuenta', 'balearic'); ?>" class="ml-2"><i class="fa fa-user"></i> <?php _e('Mi Cuenta', 'balearic'); ?></a>
+                            <?php } else { ?>
+                            <a href="<?php echo home_url('/en/my-account'); ?>" title="<?php _e('Haga click aqui ir a mi cuenta', 'balearic'); ?>" class="ml-2"><i class="fa fa-user"></i> <?php _e('Mi Cuenta', 'balearic'); ?></a>
+                            <?php } ?>
                             <?php } ?>
 
                         </div>
@@ -107,13 +116,25 @@
                                 ?>
                             </div>
                             <div class="menu-mobile-lang">
-                                <a href="" title="<?php _e('Haga click aqui para cambiar a Español', 'balearic'); ?>">ESP</a> <a href="" title="<?php _e('Haga click aqui para cambiar a Inglés', 'balearic'); ?>">ING</a>
+                                <a href="<?php echo network_home_url('/'); ?>" title="<?php _e('Haga click aqui para cambiar a Español', 'balearic'); ?>">ESP</a> <a href="<?php echo home_url('/en'); ?>" title="<?php _e('Haga click aqui para cambiar a Inglés', 'balearic'); ?>">ING</a>
                             </div>
                             <div class="menu-mobile-login">
                                 <?php if (!is_user_logged_in()) { ?>
+
+                                <?php if ($lang == 'es') { ?>
                                 <a href="<?php echo home_url('/registro'); ?>" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Entrar / Registrarse', 'balearic'); ?></a>
                                 <?php } else { ?>
+                                <a href="<?php echo home_url('/en/registry'); ?>" title="<?php _e('Haga click aqui para Iniciar Sesión', 'balearic'); ?>"><?php _e('Entrar / Registrarse', 'balearic'); ?></a>
+                                <?php } ?>
+
+                                <?php } else { ?>
+
+                                <?php if ($lang == 'es') { ?>
                                 <a href="<?php echo home_url('/mi-cuenta'); ?>" title="<?php _e('Haga click aqui para ir a mi cuenta', 'balearic'); ?>"><?php _e('Mi Cuenta', 'balearic'); ?></a>
+                                <?php } else { ?>
+                                <a href="<?php echo home_url('/en/my-account'); ?>" title="<?php _e('Haga click aqui para ir a mi cuenta', 'balearic'); ?>"><?php _e('Mi Cuenta', 'balearic'); ?></a>
+                                <?php } ?>
+
                                 <?php } ?>
                             </div>
 
