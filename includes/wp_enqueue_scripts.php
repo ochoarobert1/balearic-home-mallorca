@@ -132,7 +132,8 @@ function balearic_load_js()
         wp_enqueue_script('swiper-js');
 
         /*- MAIN FUNCTIONS -*/
-        wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), $version_remove, true);
+        //wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), $version_remove, true);
+        wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.min.js', array('jquery'), $version_remove, true);
         wp_enqueue_script('main-functions');
 
         if (function_exists('pll_current_language')) {
