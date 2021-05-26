@@ -8,8 +8,10 @@
                     <?php $args = array('taxonomy' => 'tipos-localizaciones', 'hide_empty' => false, 'order' => 'DESC', 'orderby' => 'date'); ?>
                     <?php $arr_tipos = get_terms($args); ?>
                     <?php if (!empty($arr_tipos)) { ?>
+                    <?php $i = 1; ?>
                         <?php foreach ($arr_tipos as $item) { ?>
-                            <article class="home-location-tax col-xl-3 col-lg-3 col-md col-sm-12 col-12">
+                            <?php $delay = 150 * $i; ?>
+                            <article class="home-location-tax col-xl-3 col-lg-3 col-md col-sm-12 col-12" data-aos="fade-in" data-aos-delay="<?php echo $delay; ?>">
                                 <div class="wrapper">
                                     <picture>
                                         <?php $bg_banner_id = get_term_meta($item->term_id, 'bhm_tax_image_id', true); ?>
@@ -30,16 +32,16 @@
             <?php $i = 1; ?>
             <?php while (have_posts()) : the_post(); ?>
                 <?php $class = ($i % 2 == 0) ? 'even' : 'odd'; ?>
-                <section class="main-services-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 <?php echo $class; ?>">
+                <section class="main-services-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 <?php echo $class; ?>" data-aos="fade-in" data-aos-delay="300">
                     <div class="container">
                         <div class="row align-items-center">
-                            <picture class="main-services-item-picture col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12">
+                            <picture class="main-services-item-picture col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12" data-aos="fade-in" data-aos-delay="500">
                                 <?php $bg_banner_id = get_post_thumbnail_id(); ?>
                                 <?php $bg_banner = wp_get_attachment_image_src($bg_banner_id, 'logo', false); ?>
                                 <img itemprop="image" content="<?php echo $bg_banner[0]; ?>" src="<?php echo $bg_banner[0]; ?>" title="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true); ?>" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true); ?>" class="img-fluid" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" />
                                 <h3><?php the_title(); ?></h3>
                             </picture>
-                            <div class="main-services-item-content col-xl-9 col-lg-9 col-md-8 col-sm-12 col-12">
+                            <div class="main-services-item-content col-xl-9 col-lg-9 col-md-8 col-sm-12 col-12" data-aos="fade-in" data-aos-delay="600">
                                 <?php $arr_group = get_post_meta(get_the_ID(), 'bhm_services_description_group', true); ?>
                                 <?php if (!empty($arr_group)) { ?>
                                     <?php foreach ($arr_group as $item) { ?>

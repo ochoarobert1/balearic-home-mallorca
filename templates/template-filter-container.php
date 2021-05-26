@@ -25,11 +25,11 @@
             </div>
             <div class="filter-content-item col-xl col-lg col-md col-sm-12 col-12">
                 <label for="bhm_local_price"><?php _e('Precio', 'balearic'); ?></label>
-                <input type="number" name="bhm_local_price" id="bhm_local_price" class="form-control filter-form-control" />
+                <input type="number" name="bhm_local_price" id="bhm_local_price" class="form-control filter-form-control" value="200" />
             </div>
             <div class="filter-content-item col-xl col-lg col-md col-sm-12 col-12">
                 <label for="bhm_local_size"><?php _e('Tamaño', 'balearic'); ?></label>
-                <input type="number" name="bhm_local_size" id="bhm_local_size" class="form-control filter-form-control" />
+                <input type="number" name="bhm_local_size" id="bhm_local_size" class="form-control filter-form-control" value="10" />
             </div>
             <div class="filter-content-item col-xl col-lg col-md col-sm-12 col-12">
                 <label for="bhm_local_room"><?php _e('Habitaciones', 'balearic'); ?></label>
@@ -46,7 +46,7 @@
                 <label for="bhm_local_bath"><?php _e('Baños', 'balearic'); ?></label>
                 <select name="bhm_local_bath" id="bhm_local_bath" class="form-control filter-form-control">
                     <option value="">Cualquier Cantidad</option>
-                    <option value="1">1</option>
+                    <option value="1" selected>1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="mas">Más</option>
@@ -55,7 +55,7 @@
             <div class="filter-content-item col-xl col-lg col-md col-sm-12 col-12">
                 <label for="bhm_local_equip"><?php _e('Equipamiento', 'balearic'); ?></label>
                 <select name="bhm_local_equip" id="bhm_local_equip" class="form-control filter-form-control">
-                    <option value="">Cualquier Modalidad</option>
+                    <option value="" selected>Cualquier Modalidad</option>
                     <option value="none">Indiferente</option>
                     <option value="amueblado">Amueblado</option>
                     <option value="cocina">Solo cocina amueblada</option>
