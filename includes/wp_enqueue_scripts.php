@@ -132,8 +132,8 @@ function balearic_load_js()
         wp_enqueue_script('swiper-js');
 
         /*- MAIN FUNCTIONS -*/
-        //wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), $version_remove, true);
-        wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.min.js', array('jquery'), $version_remove, true);
+        wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), $version_remove, true);
+        //wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.min.js', array('jquery'), $version_remove, true);
         wp_enqueue_script('main-functions');
 
         if (function_exists('pll_current_language')) {
@@ -150,9 +150,14 @@ function balearic_load_js()
 
         wp_localize_script('main-functions', 'custom_admin_url', array(
             'ajax_url'          => admin_url('admin-ajax.php'),
+            'redirect_home'    => home_url('/'),
             'redirect_route'    => $redirect_route,
             'error_nombre'      => __('Error: El nombre no puede estar vacio.', 'balearic'),
             'invalid_nombre'    => __('Error: El nombre no es válido.', 'balearic'),
+            'error_apellido'      => __('Error: El apellido no puede estar vacio.', 'balearic'),
+            'invalid_apellido'    => __('Error: El apellido no es válido.', 'balearic'),
+            'error_password'      => __('Error: La contraseña no puede estar vacia.', 'balearic'),
+            'invalid_password'    => __('Error: La contraseña no es válido.', 'balearic'),
             'error_phone'       => __('Error: El teléfono no puede estar vacio.', 'balearic'),
             'invalid_phone'     => __('Error: El teléfono no es válido.', 'balearic'),
             'error_email'       => __('Error: El correo no puede estar vacio.', 'balearic'),

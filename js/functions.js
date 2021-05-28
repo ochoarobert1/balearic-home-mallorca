@@ -7,60 +7,16 @@ let filterForm = document.getElementById('filterForm');
 let filterSubmit = document.getElementById('filterBtn');
 let filterBtnMobile = document.getElementById('filterBtnMobile');
 
+
 function documentCustomLoad() {
     "use strict";
     console.log('Functions Correctly Loaded');
 
-    var proxied = window.XMLHttpRequest.prototype.send;
-    window.XMLHttpRequest.prototype.send = function() {
+    var loginForm = document.getElementById('loginForm');
+    var loginFormBtn = document.getElementById('loginBtn');
 
-        var partsArray = arguments[0].split('&');
-        const found = partsArray.find(element => element == 'lrm_action=login');
-
-        if (found == 'lrm_action=login') {
-
-            var pointer = this;
-            var intervalId = window.setInterval(function() {
-                if (pointer.readyState != 4) {
-                    return;
-                }
-                var respuesta = JSON.parse(pointer.responseText);
-                //Here is where you can add any code to process the response.
-                //If you want to pass the Ajax request object, pass the 'pointer' below
-                clearInterval(intervalId);
-                if (respuesta.success == true) {
-                    window.location = custom_admin_url.redirect_route;
-                }
-
-            }, 1); //I found a delay of 1 to be sufficient, modify it as you need.
-        }
-
-        var found2 = partsArray.find(element => element == 'lrm_action=signup');
-
-        if (found2 == 'lrm_action=signup') {
-            var pointer = this;
-            var intervalId = window.setInterval(function() {
-                if (pointer.readyState != 4) {
-                    return;
-                }
-                var respuesta = JSON.parse(pointer.responseText);
-                //Here is where you can add any code to process the response.
-                //If you want to pass the Ajax request object, pass the 'pointer' below
-                clearInterval(intervalId);
-                if (respuesta.success == true) {
-                    window.location = custom_admin_url.redirect_route;
-                }
-
-            }, 5); //I found a delay of 1 to be sufficient, modify it as you need.
-        }
-        return proxied.apply(this, [].slice.call(arguments));
-
-    };
-
-    var redirectTo = document.getElementsByName('redirect_to');
-    Array.prototype.forEach.call(redirectTo, function(el) {
-        el.value = custom_admin_url.redirect_route;
-    });
+    var registerForm = document.getElementById('registerForm');
+    var registerFormBtn = document.getElementById('registerBtn');
 
     if (filterForm) {
         filterForm.addEventListener('submit', function(e) {
@@ -233,6 +189,136 @@ function documentCustomLoad() {
             }
         });
     }
+
+    loginFormBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        validForm = true;
+        var elements = document.getElementById('user_login');
+        var errorText = document.getElementById('errorLoginName');
+        if (elements.value == '') {
+            errorText.classList.remove('d-none');
+            validForm = false;
+        } else {
+            errorText.classList.add('d-none');
+            validForm = true;
+        }
+
+        var elements = document.getElementById('user_pass');
+        var errorText = document.getElementById('errorLoginPass');
+        if (elements.value == '') {
+            errorText.classList.remove('d-none');
+            validForm = false;
+        } else {
+            errorText.classList.add('d-none');
+            errorText.innerHTML = '';
+            validForm = true;
+        }
+
+        if (validForm == true) {
+            submitLogin();
+        }
+    });
+
+    registerFormBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        validForm = true;
+        var elements = document.getElementById('registerFname');
+        var errorText = document.getElementById('errorFname');
+        if (elements.value == '') {
+            errorText.classList.remove('d-none');
+            errorText.innerHTML = custom_admin_url.error_nombre;
+            validForm = false;
+        } else {
+            if (elements.value.length < 3) {
+                errorText.classList.remove('d-none');
+                errorText.innerHTML = custom_admin_url.invalid_nombre;
+                validForm = false;
+            } else {
+                errorText.classList.add('d-none');
+                errorText.innerHTML = '';
+                validForm = true;
+            }
+        }
+
+        var elements = document.getElementById('registerLname');
+        var errorText = document.getElementById('errorLname');
+        if (elements.value == '') {
+            errorText.classList.remove('d-none');
+            errorText.innerHTML = custom_admin_url.error_apellido;
+            validForm = false;
+        } else {
+            if (elements.value.length < 3) {
+                errorText.classList.remove('d-none');
+                errorText.innerHTML = custom_admin_url.invalid_apellido;
+                validForm = false;
+            } else {
+                errorText.classList.add('d-none');
+                errorText.innerHTML = '';
+                validForm = true;
+            }
+        }
+
+        var elements = document.getElementById('registerEmail');
+        var errorText = document.getElementById('errorEmail');
+        if (elements.value == '') {
+            errorText.classList.remove('d-none');
+            errorText.innerHTML = custom_admin_url.error_email;
+            validForm = false;
+        } else {
+            if (validateEmail(elements.value) == false) {
+                errorText.classList.remove('d-none');
+                errorText.innerHTML = custom_admin_url.invalid_email;
+                validForm = false;
+            } else {
+                errorText.classList.add('d-none');
+                errorText.innerHTML = '';
+                validForm = true;
+            }
+        }
+
+        var elements = document.getElementById('registerPass');
+        var errorText = document.getElementById('errorPass');
+        if (elements.value == '') {
+            errorText.classList.remove('d-none');
+            errorText.innerHTML = custom_admin_url.error_password;
+            validForm = false;
+        } else {
+            if (elements.value.length < 3) {
+                errorText.classList.remove('d-none');
+                errorText.innerHTML = custom_admin_url.invalid_password;
+                validForm = false;
+            } else {
+                errorText.classList.add('d-none');
+                errorText.innerHTML = '';
+                validForm = true;
+            }
+        }
+
+        var elements = document.getElementById('registerCpass');
+        var errorText = document.getElementById('errorCpass');
+        if (elements.value == '') {
+            errorText.classList.remove('d-none');
+            errorText.innerHTML = custom_admin_url.error_password;
+            validForm = false;
+        } else {
+            if (elements.value.length < 3) {
+                errorText.classList.remove('d-none');
+                errorText.innerHTML = custom_admin_url.invalid_password;
+                validForm = false;
+            } else {
+                errorText.classList.add('d-none');
+                errorText.innerHTML = '';
+                validForm = true;
+            }
+        }
+
+        if (validForm == true) {
+            registerFormAction();
+        }
+    });
+
+
+
 }
 document.addEventListener("DOMContentLoaded", documentCustomLoad, false);
 
@@ -250,6 +336,54 @@ function submitForm() {
         var respuesta = JSON.parse(newRequest.response);
         var ajaxResponse = document.getElementById('formResponse');
         ajaxResponse.innerHTML = respuesta.data;
+    };
+    newRequest.send(info);
+}
+
+
+function registerFormAction() {
+    var emailForm = document.getElementsByClassName('register-form-control');
+    var info = 'action=register_action&fname=' + emailForm[0].value + '&lname=' + emailForm[1].value + '&email=' + emailForm[2].value + '&pass=' + emailForm[3].value + '&cpass=' + emailForm[4].value;
+    var loaderContainer = document.getElementById('registerLoader');
+    loaderContainer.classList.toggle("d-none");
+    /* SEND AJAX */
+    newRequest = new XMLHttpRequest();
+    newRequest.open('POST', custom_admin_url.ajax_url, true);
+    newRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    newRequest.onload = function() {
+        loaderContainer.classList.toggle("d-none");
+        var respuesta = JSON.parse(newRequest.response);
+        var ajaxResponse = document.getElementById('registerResponse');
+        ajaxResponse.innerHTML = respuesta.data;
+        if (respuesta.success == true) {
+            setTimeout(function() {
+                window.location.replace(custom_admin_url.redirect_home);
+            }, 2000);
+        }
+    };
+    newRequest.send(info);
+}
+
+
+function submitLogin() {
+    var loginForm = document.getElementsByClassName('login-form-control');
+    var info = 'action=login_action&user_name=' + loginForm[0].value + '&user_pass=' + loginForm[1].value;
+    var loaderContainer = document.getElementById('loginLoader');
+    loaderContainer.classList.toggle("d-none");
+    /* SEND AJAX */
+    newRequest = new XMLHttpRequest();
+    newRequest.open('POST', custom_admin_url.ajax_url, true);
+    newRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    newRequest.onload = function() {
+        loaderContainer.classList.toggle("d-none");
+        var respuesta = JSON.parse(newRequest.response);
+        var ajaxResponse = document.getElementById('loginResponse');
+        ajaxResponse.innerHTML = respuesta.data;
+        if (respuesta.success == true) {
+            setTimeout(function() {
+                window.location.replace(custom_admin_url.redirect_route);
+            }, 1000);
+        }
     };
     newRequest.send(info);
 }

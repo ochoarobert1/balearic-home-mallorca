@@ -562,3 +562,114 @@ function search_filter_callback()
 /* --------------------------------------------------------------
     WP-MEMBERS OVERRIDES
 -------------------------------------------------------------- */
+add_action('wp_ajax_login_action', 'login_action_handler');
+add_action('wp_ajax_nopriv_login_action', 'login_action_handler');
+
+function login_action_handler()
+{
+    $user_name = $_POST['user_name'];
+    $user_pass = $_POST['user_pass'];
+    $found = true;
+    $pass = true;
+    $activated = true;
+
+    $user_data = get_user_by('email', $user_name);
+    if (empty($user_data)) {
+        $user_data = get_user_by('login', $user_name);
+        if (empty($user_data)) {
+            $found = false;
+        }
+    }
+
+    if ($found == true) {
+        if ( $user_data && wp_check_password( $user_pass , $user_data->data->user_pass, $user_data->ID ) ) {
+            $pass = true; 
+        } else {
+            $pass = false; 
+        }
+    }
+
+    if (($found == true) && ($pass == true)) {
+        $active = get_user_meta($user_data->id, 'active', true);
+        $isAdmin = user_can( $user_data->id, 'manage_options' );
+        if (($active != 1) && ($isAdmin != true)) {
+            $activated = false;
+        } else {
+            $activated = true;
+        }
+    }
+
+    if (($found == false) || ($pass == false)) {
+        $arrResponse = array('success' => false, 'data' => __('Hay un problema con sus credenciales, por favor revise sus datos', 'balearic'));
+        echo json_encode($arrResponse);
+    }
+
+    if ($activated == false) {
+        $arrResponse = array('success' => false, 'data' => __('Su usuario aun no ha sido activado, por favor revise sus correos para confirmar su suscripción', 'balearic'));
+        echo json_encode($arrResponse);
+    }
+
+    if (($found == true) && ($pass == true) && ($activated == true)) {
+        $creds = array(
+            'user_login'    => $user_name,
+            'user_password' => $user_pass,
+            'remember'      => true
+        );
+     
+        $user = wp_signon( $creds, false );
+
+        $arrResponse = array('success' => true, 'data' => __('Has iniciado sesión, en breve serás redireccionado', 'balearic'));
+        echo json_encode($arrResponse);
+        
+    }
+
+    wp_die();
+}
+
+
+
+add_action('wp_ajax_register_action', 'register_action_handler');
+add_action('wp_ajax_nopriv_register_action', 'register_action_handler');
+
+function register_action_handler() {
+    $user_fname = $_POST['fname'];
+    $user_lname = $_POST['lname'];
+    $user_email = $_POST['email'];
+    $user_pass = $_POST['pass'];
+    $user_cpass = $_POST['cpass'];
+    $error = false;
+
+    if ($user_pass != $user_cpass) {
+        $error = true;
+        $arrResponse = array('success' => false, 'data' => __('Las contraseñas no coinciden', 'balearic'));
+        echo json_encode($arrResponse);
+    } else {
+        $exists = email_exists( $user_email );
+        if ($exists != false) {
+            $error = true;
+            $arrResponse = array('success' => false, 'data' => __('El correo ya existe dentro de nuestra base de datos', 'balearic'));
+            echo json_encode($arrResponse);
+        }
+    }
+
+    if ($error == false) {
+        $username = explode('@', $user_email);
+        $userdata = array(
+            'user_login'            => $username[0].$username[1],
+            'user_email'            => $user_email,   
+            'first_name'            => $user_fname,  
+            'last_name'             => $user_lname,  
+            'user_pass'             => $user_pass,  
+            'role'                  => 'subscriber'
+        );
+
+        $user_id = wp_insert_user( $userdata );
+
+        if ( ! is_wp_error( $user_id ) ) {
+            $arrResponse = array('success' => true, 'data' => __('Te has registrado correctamente, en breve recibiras una confirmación de activación al correo electrónico', 'balearic'));
+            echo json_encode($arrResponse);     
+        }
+    }
+
+    wp_die();
+}

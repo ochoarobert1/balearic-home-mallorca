@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: balearic\n"
-"POT-Creation-Date: 2021-05-18 20:54-0400\n"
-"PO-Revision-Date: 2021-05-18 21:27-0400\n"
+"POT-Creation-Date: 2021-05-28 01:21-0400\n"
+"PO-Revision-Date: 2021-05-28 01:23-0400\n"
 "Last-Translator: Robert Ochoa <ochoa.robert1@gmail.com>\n"
 "Language-Team: Robert Ochoa <contacto@robertochoaweb.com>\n"
 "Language: en_US\n"
@@ -67,15 +67,79 @@ msgstr "About"
 
 #: footer.php:46
 msgid "Ingresar al Sistema"
-msgstr "Entering the System"
+msgstr "Log into the system"
 
-#: footer.php:54
-msgid "¿No tienes una cuenta? Crea una cuenta personal"
-msgstr "Don't have an account? Create a personal account"
+#: footer.php:54 footer.php:85
+msgid "Iniciar Sesión"
+msgstr "Log In"
 
-#: footer.php:54
-msgid "aquí"
-msgstr "here"
+#: footer.php:57
+msgid "Registrarme"
+msgstr "Sign in"
+
+#: footer.php:65
+msgid "Correo electrónico o nombre de usuario"
+msgstr "Email or username"
+
+#: footer.php:70
+msgid "Ingresa tu correo o nombre de usuario"
+msgstr "Enter your email or username"
+
+#: footer.php:72
+msgid "el correo o nombre de usuario no puede estar vacio"
+msgstr "mail or username cannot be empty"
+
+#: footer.php:75 footer.php:123
+msgid "Contraseña"
+msgstr "Password"
+
+#: footer.php:80
+msgid "Ingresa tu contraseña"
+msgstr "Enter your password"
+
+#: footer.php:82
+msgid "su contraseña no puede estar vacia"
+msgstr "your password can't be empty"
+
+#: footer.php:102
+msgid "Nombre"
+msgstr "Name"
+
+#: footer.php:103
+msgid "Ingrese su nombre"
+msgstr "Enter your name"
+
+#: footer.php:109
+msgid "Apellido"
+msgstr "Last Name"
+
+#: footer.php:110
+msgid "Ingresa tu apellido"
+msgstr "Enter your last name"
+
+#: footer.php:116
+msgid "Correo electrónico"
+msgstr "Email"
+
+#: footer.php:117
+msgid "Ingresa tu correo electrónico"
+msgstr "Enter your email"
+
+#: footer.php:124
+msgid "Ingrese su contraseña"
+msgstr "Enter your password"
+
+#: footer.php:130
+msgid "Confirmar contraseña"
+msgstr "Confirm password"
+
+#: footer.php:131
+msgid "Confirme su contraseña"
+msgstr "Confirm your password"
+
+#: footer.php:136
+msgid "Registrarse"
+msgstr "Register"
 
 #: functions.php:118
 msgid "Menu Header - Principal"
@@ -126,23 +190,23 @@ msgstr ""
 "Thank you for sending your message, you will be contacted shortly by one of "
 "our representatives."
 
-#: functions.php:313 header.php:60 header.php:123
+#: functions.php:313 header.php:65 header.php:144
 #: includes/wp_custom_functions.php:97
 msgid "Visita nuestro perfil en Facebook"
 msgstr "Visit our Facebook profile"
 
-#: functions.php:316 functions.php:325 header.php:63 header.php:126
-#: header.php:135 includes/wp_custom_functions.php:100
+#: functions.php:316 functions.php:325 header.php:68 header.php:147
+#: header.php:156 includes/wp_custom_functions.php:100
 #: includes/wp_custom_functions.php:109
 msgid "Visita nuestro perfil en Instagram"
 msgstr "Visit our Instagram profile"
 
-#: functions.php:319 header.php:66 header.php:129
+#: functions.php:319 header.php:71 header.php:150
 #: includes/wp_custom_functions.php:103
 msgid "Visita nuestro perfil en Twitter"
 msgstr "Visit our Twitter profile"
 
-#: functions.php:322 header.php:69 header.php:132
+#: functions.php:322 header.php:74 header.php:153
 #: includes/wp_custom_functions.php:106
 msgid "Visita nuestro perfil en LinkedIn"
 msgstr "Visit our LinkedIn profile"
@@ -160,31 +224,63 @@ msgstr "View Location"
 msgid "No hay resultados que coincidan con su búsqueda"
 msgstr "No results match your search"
 
-#: header.php:54 header.php:110
+#: functions.php:603
+msgid "Hay un problema con sus credenciales, por favor revise sus datos"
+msgstr "There is a problem with your credentials, please check your details"
+
+#: functions.php:608
+msgid ""
+"Su usuario aun no ha sido activado, por favor revise sus correos para "
+"confirmar su suscripción"
+msgstr ""
+"Your user has not yet been activated, please check their emails to confirm "
+"their subscription"
+
+#: functions.php:621
+msgid "Has iniciado sesión, en breve serás redireccionado"
+msgstr "You're logged in, soon you'll be redirected"
+
+#: functions.php:644
+msgid "Las contraseñas no coinciden"
+msgstr "The passwords do not match"
+
+#: functions.php:650
+msgid "El correo ya existe dentro de nuestra base de datos"
+msgstr "Mail already exists within our database"
+
+#: functions.php:669
+msgid ""
+"Te has registrado correctamente, en breve recibiras una confirmación de "
+"activación al correo electrónico"
+msgstr ""
+"You have successfully registered, you will shortly receive an activation "
+"confirmation to your email"
+
+#: header.php:59 header.php:119
 msgid "Haga click aqui para cambiar a Español"
 msgstr "Click here to switch to Spanish"
 
-#: header.php:54 header.php:110
+#: header.php:59 header.php:119
 msgid "Haga click aqui para cambiar a Inglés"
 msgstr "Click here to switch to English"
 
-#: header.php:73 header.php:114
+#: header.php:78 header.php:125 header.php:127
 msgid "Haga click aqui para Iniciar Sesión"
 msgstr "Click here to Log In"
 
-#: header.php:73 header.php:114
+#: header.php:78 header.php:125 header.php:127
 msgid "Entrar / Registrarse"
 msgstr "Enter/Register"
 
-#: header.php:75
+#: header.php:81 header.php:83
 msgid "Haga click aqui ir a mi cuenta"
 msgstr "Click here to go to my account"
 
-#: header.php:75 header.php:116
+#: header.php:81 header.php:83 header.php:133 header.php:135
 msgid "Mi Cuenta"
 msgstr "My Account"
 
-#: header.php:116
+#: header.php:133 header.php:135
 msgid "Haga click aqui para ir a mi cuenta"
 msgstr "Click here to go to my account"
 
@@ -1235,31 +1331,47 @@ msgstr "Text of the consent cookie."
 msgid "Link de Cookies"
 msgstr "Link de Cookies"
 
-#: includes/wp_enqueue_scripts.php:140
+#: includes/wp_enqueue_scripts.php:155
 msgid "Error: El nombre no puede estar vacio."
 msgstr "Error: The name cannot be empty."
 
-#: includes/wp_enqueue_scripts.php:141
+#: includes/wp_enqueue_scripts.php:156
 msgid "Error: El nombre no es válido."
 msgstr "Error: Name is invalid."
 
-#: includes/wp_enqueue_scripts.php:142
+#: includes/wp_enqueue_scripts.php:157
+msgid "Error: El apellido no puede estar vacio."
+msgstr "Error: Last name cannot be empty"
+
+#: includes/wp_enqueue_scripts.php:158
+msgid "Error: El apellido no es válido."
+msgstr "Error: Last name is invalid"
+
+#: includes/wp_enqueue_scripts.php:159
+msgid "Error: La contraseña no puede estar vacia."
+msgstr "Error: The password cannot be empty."
+
+#: includes/wp_enqueue_scripts.php:160
+msgid "Error: La contraseña no es válido."
+msgstr "Error: Password is invalid."
+
+#: includes/wp_enqueue_scripts.php:161
 msgid "Error: El teléfono no puede estar vacio."
 msgstr "Error: Phone cannot be empty."
 
-#: includes/wp_enqueue_scripts.php:143
+#: includes/wp_enqueue_scripts.php:162
 msgid "Error: El teléfono no es válido."
 msgstr "Error: Phone is invalid."
 
-#: includes/wp_enqueue_scripts.php:144
+#: includes/wp_enqueue_scripts.php:163
 msgid "Error: El correo no puede estar vacio."
 msgstr "Error: Mail cannot be empty."
 
-#: includes/wp_enqueue_scripts.php:145
+#: includes/wp_enqueue_scripts.php:164
 msgid "Error: El correo no es válido."
 msgstr "Error: Mail is invalid."
 
-#: includes/wp_enqueue_scripts.php:146
+#: includes/wp_enqueue_scripts.php:165
 msgid "Error: El Mensaje no puede estar vacio."
 msgstr "Error: Message cannot be empty."
 
@@ -1408,6 +1520,12 @@ msgstr "Equipment"
 #: templates/template-filter-container.php:65
 msgid "Buscar"
 msgstr "Search"
+
+#~ msgid "¿No tienes una cuenta? Crea una cuenta personal"
+#~ msgstr "Don't have an account? Create a personal account"
+
+#~ msgid "aquí"
+#~ msgstr "here"
 
 #, fuzzy
 #~ msgid "Test Metabox"
