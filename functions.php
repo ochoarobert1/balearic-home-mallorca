@@ -665,6 +665,9 @@ function register_action_handler() {
 
         $user_id = wp_insert_user( $userdata );
 
+
+        
+
         if ( ! is_wp_error( $user_id ) ) {
             $arrResponse = array('success' => true, 'data' => __('Te has registrado correctamente, en breve recibiras una confirmación de activación al correo electrónico', 'balearic'));
             echo json_encode($arrResponse);     
