@@ -356,9 +356,12 @@ function registerFormAction() {
         var ajaxResponse = document.getElementById('registerResponse');
         ajaxResponse.innerHTML = respuesta.data;
         if (respuesta.success == true) {
+            ajaxResponse.classList.add('success-text');
             setTimeout(function() {
                 window.location.replace(custom_admin_url.redirect_home);
             }, 2000);
+        } else {
+            ajaxResponse.classList.add('error-text');
         }
     };
     newRequest.send(info);
@@ -380,9 +383,12 @@ function submitLogin() {
         var ajaxResponse = document.getElementById('loginResponse');
         ajaxResponse.innerHTML = respuesta.data;
         if (respuesta.success == true) {
+            ajaxResponse.classList.add('success-text');
             setTimeout(function() {
                 window.location.replace(custom_admin_url.redirect_route);
             }, 1000);
+        } else {
+            ajaxResponse.classList.add('error-text');
         }
     };
     newRequest.send(info);

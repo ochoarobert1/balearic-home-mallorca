@@ -665,14 +665,53 @@ function register_action_handler() {
 
         $user_id = wp_insert_user( $userdata );
 
+        ob_start();
+        $logo = get_template_directory_uri() . '/images/logo.png';
+        require_once get_theme_file_path('/templates/template-register-email.php');
+        $body = ob_get_clean();
+        $body = str_replace([
+            '{name}',
+            '{lastname}',
+            '{email}',
+            '{logo}',
+            '{correo_title}'
+        ], [
+            $user_fname,
+            $user_lname,
+            $user_email,
+            $logo,
+            __('Nuevo Registro', 'balearic')
+        ], $body);
+        $path = ABSPATH . WPINC . '/class-phpmailer.php';
 
-        
+        if (file_exists($path)) {
+            require_once($path);
+            $mail = new PHPMailer;
+        } else {
+            require_once ABSPATH . WPINC . '/PHPMailer/PHPMailer.php';
+            $mail = new PHPMailer\PHPMailer\PHPMailer;
+        }
 
-        if ( ! is_wp_error( $user_id ) ) {
-            $arrResponse = array('success' => true, 'data' => __('Te has registrado correctamente, en breve recibiras una confirmación de activación al correo electrónico', 'balearic'));
-            echo json_encode($arrResponse);     
+        try {
+            $mail->isHTML(true);
+            $mail->Body = $body;
+            $mail->CharSet = 'UTF-8';
+            $mail->addAddress($user_email);
+            //$mail->addBCC(get_option('admin_email'));
+            $mail->addBCC('ochoa.robert1@gmail.com');
+            $mail->setFrom("noreply@{$_SERVER['SERVER_NAME']}", esc_html(get_bloginfo('name')));
+            $mail->Subject = esc_html__('Balearic Home Mallorca: Nuevo Registro', 'balearic');
+    
+            $mail->send();
+
+            if ( ! is_wp_error( $user_id ) ) {
+                $arrResponse = array('success' => true, 'data' => __('Te has registrado correctamente, en breve recibiras una confirmación de activación al correo electrónico', 'balearic'));
+                echo json_encode($arrResponse);     
+            }
+        } catch (Exception $e) {
+            $arrResponse = array('success' => true, 'data' => 'Message could not be sent. Mailer Error:' . $mail->ErrorInfo);
+            echo json_encode($arrResponse); 
         }
     }
-
     wp_die();
 }

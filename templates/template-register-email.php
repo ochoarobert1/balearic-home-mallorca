@@ -234,7 +234,7 @@ Set the email width. Defined in two places:
                 <!-- Email Header : BEGIN -->
                 <tr>
                     <td style="padding: 40px 0; text-align: center">
-                        <img src="{logo}" width="220" height="81" alt="Tisserie" border="0" style="height: auto; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;">
+                        <img src="{logo}" width="220" height="81" alt="Balearic home mallorca" border="0" style="height: auto; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;">
                     </td>
                 </tr>
                 <!-- Email Header : END -->
@@ -245,19 +245,17 @@ Set the email width. Defined in two places:
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
                                 <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
-                                    <h1 style=" text-align: center; margin: 0 0 10px 0; font-size: 25px; line-height: 30px; color: #333333; font-weight: bold;">Nuevo Mensaje.</h1>
+                                    <h1 style=" text-align: center; margin: 0 0 10px 0; font-size: 25px; line-height: 30px; color: #333333; font-weight: bold;">{correo_title}.</h1>
+                                    <p><?php _e('Felicidades, te has registrado exitosamente en el sitio web, estas ahora en espera de activación, espera mientras uno de nuestros representantes atienden tu registro y aprueban tu cuenta', 'balearic'); ?></p>
                                     <hr>
-                                    <h3>Nombre: </h3>
+                                    <h3><?php _e('Nombre', 'balearic')?>: </h3>
                                     <p style="margin: 0;">{name}</p>
 
-                                    <h3>Email: </h3>
+                                    <h3><?php _e('Apellido', 'balearic')?>: </h3>
+                                    <p style="margin: 0;">{lastname}</p>
+
+                                    <h3><?php _e('Correo Electrónico', 'balearic')?>: </h3>
                                     <p style="margin: 0;">{email}</p>
-
-                                    <h3>Teléfono: </h3>
-                                    <p style="margin: 0;">{phone}</p>
-
-                                    <h3>Mensaje: </h3>
-                                    <p style="margin: 0;">{message}</p>
                                 </td>
                             </tr>
                         </table>

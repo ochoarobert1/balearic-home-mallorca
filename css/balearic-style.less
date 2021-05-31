@@ -1190,3 +1190,44 @@ WP-MEMBERS OVERRIDES
     font-size: 0.8rem;
     font-weight: 600;
 }
+
+.back-btn-container {
+    background: #f3f3f3;
+    padding: .5rem 1rem;
+
+    & .back-btn-content  {
+        & i {
+            border: 2px solid #66c5e0;
+            padding: 0.3rem;
+            padding-right: 0.5rem;
+            border-radius: 100%;
+            margin-right: 0.5rem;
+            color: #66c5e0;
+            font-size: 0.9rem;
+        }
+
+        &:hover {
+            & i {
+                background: @softbluehover;
+                border-color: black;
+                color: black !important;
+            }
+        }
+
+        & a {
+            font-size: .9rem;
+            color: black;
+        }
+    }
+
+    
+}
+
+
+.error-text {
+    color: #f00 !important;
+}
+
+.success-text {
+    color: rgb(9, 156, 21) !important;
+}

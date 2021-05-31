@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: balearic\n"
-"POT-Creation-Date: 2021-05-28 01:21-0400\n"
-"PO-Revision-Date: 2021-05-28 01:23-0400\n"
+"POT-Creation-Date: 2021-05-31 00:53-0400\n"
+"PO-Revision-Date: 2021-05-31 00:53-0400\n"
 "Last-Translator: Robert Ochoa <ochoa.robert1@gmail.com>\n"
 "Language-Team: Robert Ochoa <contacto@robertochoaweb.com>\n"
 "Language: en_US\n"
@@ -101,7 +101,7 @@ msgstr "Enter your password"
 msgid "su contraseña no puede estar vacia"
 msgstr "your password can't be empty"
 
-#: footer.php:102
+#: footer.php:102 templates/template-register-email.php:251
 msgid "Nombre"
 msgstr "Name"
 
@@ -109,7 +109,7 @@ msgstr "Name"
 msgid "Ingrese su nombre"
 msgstr "Enter your name"
 
-#: footer.php:109
+#: footer.php:109 templates/template-register-email.php:254
 msgid "Apellido"
 msgstr "Last Name"
 
@@ -213,8 +213,8 @@ msgstr "Visit our LinkedIn profile"
 
 #: functions.php:351 functions.php:356 functions.php:365 functions.php:370
 #: functions.php:538 functions.php:543 includes/wp_custom_post_type.php:20
-#: taxonomy-tipos-localizaciones.php:16 taxonomy-tipos-localizaciones.php:21
-#: taxonomy-tipos-localizaciones.php:30 taxonomy-tipos-localizaciones.php:35
+#: taxonomy-tipos-localizaciones.php:35 taxonomy-tipos-localizaciones.php:40
+#: taxonomy-tipos-localizaciones.php:49 taxonomy-tipos-localizaciones.php:54
 #: templates/page-vip-zone.php:30 templates/page-vip-zone.php:35
 #: templates/page-vip-zone.php:44 templates/page-vip-zone.php:49
 msgid "Ver Localización"
@@ -248,7 +248,15 @@ msgstr "The passwords do not match"
 msgid "El correo ya existe dentro de nuestra base de datos"
 msgstr "Mail already exists within our database"
 
-#: functions.php:669
+#: functions.php:683
+msgid "Nuevo Registro"
+msgstr "New Record"
+
+#: functions.php:700
+msgid "Balearic Home Mallorca: Nuevo Registro"
+msgstr "Balearic Home Mallorca: New Registration"
+
+#: functions.php:705
 msgid ""
 "Te has registrado correctamente, en breve recibiras una confirmación de "
 "activación al correo electrónico"
@@ -1341,11 +1349,11 @@ msgstr "Error: Name is invalid."
 
 #: includes/wp_enqueue_scripts.php:157
 msgid "Error: El apellido no puede estar vacio."
-msgstr "Error: Last name cannot be empty"
+msgstr "Error: Last name cannot be empty."
 
 #: includes/wp_enqueue_scripts.php:158
 msgid "Error: El apellido no es válido."
-msgstr "Error: Last name is invalid"
+msgstr "Error: Last name is invalid."
 
 #: includes/wp_enqueue_scripts.php:159
 msgid "Error: La contraseña no puede estar vacia."
@@ -1374,6 +1382,26 @@ msgstr "Error: Mail is invalid."
 #: includes/wp_enqueue_scripts.php:165
 msgid "Error: El Mensaje no puede estar vacio."
 msgstr "Error: Message cannot be empty."
+
+#: includes/wp_members_overrides.php:16
+msgid "Gracias por registrarte en el sitio"
+msgstr "Thank you for registering on the site"
+
+#: includes/wp_members_overrides.php:20
+msgid "Tu registro en el sitio ha sido aprobado"
+msgstr "Your registration on the site has been approved"
+
+#: includes/wp_members_overrides.php:24
+msgid "Tu link del reset de password esta aquí"
+msgstr "Your password reset link is here"
+
+#: includes/wp_members_overrides.php:28
+msgid "Tu nombre de usuario esta aquí"
+msgstr "Your username is here"
+
+#: includes/wp_members_overrides.php:32
+msgid "Nuevo usuario del sitio"
+msgstr "New site user"
 
 #: index.php:8
 msgid "Blog"
@@ -1436,6 +1464,10 @@ msgstr "Equipment:"
 msgid "Características"
 msgstr "Features"
 
+#: taxonomy-tipos-localizaciones.php:19
+msgid "Volver al Listado"
+msgstr "Back to Listing"
+
 #: templates/page-mi-cuenta.php:23 templates/page-mi-cuenta.php:31
 msgid "Escritorio"
 msgstr "Dashboard"
@@ -1474,6 +1506,7 @@ msgid "Teléfono"
 msgstr "Phone"
 
 #: templates/template-contact-form.php:13
+#: templates/template-register-email.php:257
 msgid "Correo Electrónico"
 msgstr "Email"
 
@@ -1497,29 +1530,97 @@ msgstr "Simple Search"
 msgid "ID o Nombre"
 msgstr "ID or Name"
 
+#: templates/template-filter-container.php:17
+msgid "Cualquier Tipo"
+msgstr "Any Type"
+
+#: templates/template-filter-container.php:18
+msgid "Piso"
+msgstr "Floor"
+
+#: templates/template-filter-container.php:19
+msgid "Casas o Chalets"
+msgstr "Houses or Chalets"
+
+#: templates/template-filter-container.php:20
+msgid "Casas rústicas"
+msgstr "Rustic houses"
+
+#: templates/template-filter-container.php:21
+msgid "Dúplex"
+msgstr "Duplex"
+
+#: templates/template-filter-container.php:22
+msgid "Áticos"
+msgstr "Penthouses"
+
+#: templates/template-filter-container.php:23
+msgid "Castillos"
+msgstr "Castles"
+
 #: templates/template-filter-container.php:27
 msgid "Precio"
 msgstr "Price"
 
-#: templates/template-filter-container.php:31
+#: templates/template-filter-container.php:29
+msgid "Cualquier Precio"
+msgstr "Any Price"
+
+#: templates/template-filter-container.php:51
+#: templates/template-filter-container.php:66
+msgid "Más"
+msgstr "More"
+
+#: templates/template-filter-container.php:55
 msgid "Tamaño"
 msgstr "Size"
 
-#: templates/template-filter-container.php:35
+#: templates/template-filter-container.php:59
 msgid "Habitaciones"
 msgstr "Rooms"
 
-#: templates/template-filter-container.php:46
+#: templates/template-filter-container.php:61
+#: templates/template-filter-container.php:72
+msgid "Cualquier Cantidad"
+msgstr "Any Quantity"
+
+#: templates/template-filter-container.php:70
 msgid "Baños"
 msgstr "Bathrooms"
 
-#: templates/template-filter-container.php:56
+#: templates/template-filter-container.php:80
 msgid "Equipamiento"
 msgstr "Equipment"
 
-#: templates/template-filter-container.php:65
+#: templates/template-filter-container.php:82
+msgid "Cualquier Modalidad"
+msgstr "Any Modality"
+
+#: templates/template-filter-container.php:83
+msgid "Indiferente"
+msgstr "Indifferent"
+
+#: templates/template-filter-container.php:84
+msgid "Amueblado"
+msgstr "Furnished"
+
+#: templates/template-filter-container.php:85
+msgid "Solo cocina amueblada"
+msgstr "Only furnished kitchen"
+
+#: templates/template-filter-container.php:89
 msgid "Buscar"
 msgstr "Search"
+
+#: templates/template-register-email.php:249
+msgid ""
+"Felicidades, te has registrado exitosamente en el sitio web, estas ahora en "
+"espera de activación, espera mientras uno de nuestros representantes "
+"atienden tu registro y aprueban tu cuenta"
+msgstr ""
+"Congratulations, you have successfully registered on the website, you are "
+"now waiting for activation, wait while one of our representatives attends "
+"your registration and approve your account"
 
 #~ msgid "¿No tienes una cuenta? Crea una cuenta personal"
 #~ msgstr "Don't have an account? Create a personal account"

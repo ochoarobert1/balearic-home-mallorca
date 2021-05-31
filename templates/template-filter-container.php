@@ -14,39 +14,63 @@
             <div class="filter-content-item col-xl col-lg col-md col-sm-12 col-12">
                 <label for="bhm_local_type"><?php _e('Tipo de Propiedad', 'balearic'); ?></label>
                 <select name="bhm_local_type" id="bhm_local_type" class="form-control filter-form-control">
-                    <option value="">Cualquier Tipo</option>
-                    <option value="piso">Piso</option>
-                    <option value="chalet">Casas o Chalets</option>
-                    <option value="rustico">Casas rústicas</option>
-                    <option value="duplex">Dúplex</option>
-                    <option value="aticos">Áticos</option>
-                    <option value="castillos">Castillos</option>
+                    <option value=""><?php _e('Cualquier Tipo', 'balearic'); ?></option>
+                    <option value="piso"><?php _e('Piso', 'balearic'); ?></option>
+                    <option value="chalet"><?php _e('Casas o Chalets', 'balearic'); ?></option>
+                    <option value="rustico"><?php _e('Casas rústicas', 'balearic'); ?></option>
+                    <option value="duplex"><?php _e('Dúplex', 'balearic'); ?></option>
+                    <option value="aticos"><?php _e('Áticos', 'balearic'); ?></option>
+                    <option value="castillos"><?php _e('Castillos', 'balearic'); ?></option>
                 </select>
             </div>
             <div class="filter-content-item col-xl col-lg col-md col-sm-12 col-12">
                 <label for="bhm_local_price"><?php _e('Precio', 'balearic'); ?></label>
-                <input type="number" name="bhm_local_price" id="bhm_local_price" class="form-control filter-form-control" value="200" />
+                <select tname="bhm_local_price" id="bhm_local_price" class="form-control filter-form-control">
+                    <option value="" selected><?php _e('Cualquier Precio', 'balearic'); ?></option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="300">300</option>
+                    <option value="400">400</option>
+                    <option value="500">500</option>
+                    <option value="600">600</option>
+                    <option value="700">700</option>
+                    <option value="800">800</option>
+                    <option value="900">900</option>
+                    <option value="1000">1000</option>
+                    <option value="1100">1100</option>
+                    <option value="1200">1200</option>
+                    <option value="1300">1300</option>
+                    <option value="1400">1400</option>
+                    <option value="1500">1500</option>
+                    <option value="1600">1600</option>
+                    <option value="1700">1700</option>
+                    <option value="1800">1800</option>
+                    <option value="1900">1900</option>
+                    <option value="2000">2000</option>
+                    <option value="2100">2100</option>
+                    <option value="mas"><?php _e('Más', 'balearic'); ?></option>
+                </select>
             </div>
             <div class="filter-content-item col-xl col-lg col-md col-sm-12 col-12">
                 <label for="bhm_local_size"><?php _e('Tamaño', 'balearic'); ?></label>
-                <input type="number" name="bhm_local_size" id="bhm_local_size" class="form-control filter-form-control" value="10" />
+                <input type="number" name="bhm_local_size" id="bhm_local_size" class="form-control filter-form-control" />
             </div>
             <div class="filter-content-item col-xl col-lg col-md col-sm-12 col-12">
                 <label for="bhm_local_room"><?php _e('Habitaciones', 'balearic'); ?></label>
                 <select name="bhm_local_room" id="bhm_local_room" class="form-control filter-form-control">
-                    <option value="">Cualquier Cantidad</option>
+                    <option value="" selected><?php _e('Cualquier Cantidad', 'balearic'); ?></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="mas">Más</option>
+                    <option value="mas"><?php _e('Más', 'balearic'); ?></option>
                 </select>
             </div>
             <div class="filter-content-item col-xl col-lg col-md col-sm-12 col-12">
                 <label for="bhm_local_bath"><?php _e('Baños', 'balearic'); ?></label>
                 <select name="bhm_local_bath" id="bhm_local_bath" class="form-control filter-form-control">
-                    <option value="">Cualquier Cantidad</option>
-                    <option value="1" selected>1</option>
+                    <option value="" selected><?php _e('Cualquier Cantidad', 'balearic'); ?></option>
+                    <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="mas">Más</option>
@@ -55,10 +79,10 @@
             <div class="filter-content-item col-xl col-lg col-md col-sm-12 col-12">
                 <label for="bhm_local_equip"><?php _e('Equipamiento', 'balearic'); ?></label>
                 <select name="bhm_local_equip" id="bhm_local_equip" class="form-control filter-form-control">
-                    <option value="" selected>Cualquier Modalidad</option>
-                    <option value="none">Indiferente</option>
-                    <option value="amueblado">Amueblado</option>
-                    <option value="cocina">Solo cocina amueblada</option>
+                    <option value="" selected><?php _e('Cualquier Modalidad', 'balearic'); ?></option>
+                    <option value="none"><?php _e('Indiferente', 'balearic'); ?></option>
+                    <option value="amueblado"><?php _e('Amueblado', 'balearic'); ?></option>
+                    <option value="cocina"><?php _e('Solo cocina amueblada', 'balearic'); ?></option>
                 </select>
             </div>
             <div class="filter-content-item col-xl col-lg col-md col-sm-12 col-12">

@@ -1,7 +1,26 @@
 <?php get_header(); ?>
+<?php if (function_exists('pll_current_language')) { ?>
+<?php $lang = pll_current_language('slug'); ?>
+<?php } else { ?>
+<?php $lang = 'es'; ?>
+<?php } ?>
 <main class="container-fluid p-0" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
     <div class="row justify-content-center no-gutters">
         <?php echo get_template_part('templates/template-banner-title'); ?>
+        <div class="back-btn-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-center">
+                    <div class="back-btn-content col-xl-11 col-lg-11 col-md-12 col-sm-12 col-12">
+                        <?php if ($lang == 'es') { ?>
+                        <?php $link = home_url('/servicios'); ?>
+                        <?php } else { ?>
+                        <?php $link = home_url('/services'); ?>
+                        <?php } ?>
+                        <a href="<?php echo $link; ?>" title="<?php _e('Volver al Listado', 'balearic'); ?>"><i class="fa fa-chevron-left"></i> <?php _e('Volver al Listado', 'balearic'); ?></a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <?php echo get_template_part('templates/template-filter-container'); ?>
         <?php if (have_posts()) : ?>
         <section class="locals-main-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
