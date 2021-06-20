@@ -715,3 +715,28 @@ function register_action_handler() {
     }
     wp_die();
 }
+
+/* --------------------------------------------------------------
+    SEASONS: GET CURRENT SEASONS
+-------------------------------------------------------------- */
+function get_current_season() {
+    $current_season = '';
+    $today = date('m/d/Y');
+    $arr_temporadas = array();
+    $arr_temporadas = get_terms(array('taxonomy' => 'temporadas', 'hide_empty' => false));
+    foreach ($arr_temporadas as $term) {
+        $begin = get_term_meta( $term->term_id, 'bhm_season_begin', true );
+        $end = get_term_meta( $term->term_id, 'bhm_season_end', true );
+
+        $fecha_inicio = strtotime($begin);
+        $fecha_fin = strtotime($end);
+        $fecha = strtotime($today);
+
+        if (($fecha >= $fecha_inicio) && ($fecha <= $fecha_fin)) {
+            $current_season = $term->term_id;
+            break;
+        }
+    }
+
+    return $current_season;
+}

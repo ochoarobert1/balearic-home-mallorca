@@ -2,7 +2,6 @@
 // Register Custom Post Type
 function balearic_custom_post_type()
 {
-
     $labels = array(
         'name'                  => _x('Localizaciones', 'Post Type General Name', 'balearic'),
         'singular_name'         => _x('Localización', 'Post Type Singular Name', 'balearic'),
@@ -60,7 +59,6 @@ add_action('init', 'balearic_custom_post_type', 0);
 // Register Custom Taxonomy
 function balearic_custom_taxonomy()
 {
-
     $labels = array(
         'name'                       => _x('Tipos de Localización', 'Taxonomy General Name', 'balearic'),
         'singular_name'              => _x('Tipo de Localización', 'Taxonomy Singular Name', 'balearic'),
@@ -97,11 +95,50 @@ function balearic_custom_taxonomy()
 }
 add_action('init', 'balearic_custom_taxonomy', 0);
 
+// Register Custom Taxonomy
+function balearic_temporadas_custom_taxonomy()
+{
+    $labels = array(
+        'name'                       => _x('Temporadas', 'Taxonomy General Name', 'balearic'),
+        'singular_name'              => _x('Temporada', 'Taxonomy Singular Name', 'balearic'),
+        'menu_name'                  => __('Temporadas', 'balearic'),
+        'all_items'                  => __('Todos las Temporadas', 'balearic'),
+        'parent_item'                => __('Temporada Padre', 'balearic'),
+        'parent_item_colon'          => __('Temporada Padre:', 'balearic'),
+        'new_item_name'              => __('Nueva Temporada', 'balearic'),
+        'add_new_item'               => __('Agregar Nueva Temporada', 'balearic'),
+        'edit_item'                  => __('Editar Temporada', 'balearic'),
+        'update_item'                => __('Actualizar Temporada', 'balearic'),
+        'view_item'                  => __('Ver Temporada', 'balearic'),
+        'separate_items_with_commas' => __('Separar Temporadas por comas', 'balearic'),
+        'add_or_remove_items'        => __('Agregar o Remover Temporadas', 'balearic'),
+        'choose_from_most_used'      => __('Escoger de las más usadas', 'balearic'),
+        'popular_items'              => __('Temporadas Populares', 'balearic'),
+        'search_items'               => __('Buscar Temporadas', 'balearic'),
+        'not_found'                  => __('No hay resultados', 'balearic'),
+        'no_terms'                   => __('No hay Temporadas', 'balearic'),
+        'items_list'                 => __('Listado de Temporadas', 'balearic'),
+        'items_list_navigation'      => __('Navegación del Listado de Temporadas', 'balearic'),
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => false,
+        'meta_box_cb'                => false,
+        'show_ui'                    => true,
+        'show_admin_column'          => false,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+        'show_in_rest'               => true,
+    );
+    register_taxonomy('temporadas', array('localizaciones'), $args);
+}
+
+add_action('init', 'balearic_temporadas_custom_taxonomy', 0);
 
 // Register Custom Post Type
 function balearic_services_custom_post_type()
 {
-
     $labels = array(
         'name'                  => _x('Servicios', 'Post Type General Name', 'balearic'),
         'singular_name'         => _x('Servicio', 'Post Type Singular Name', 'balearic'),

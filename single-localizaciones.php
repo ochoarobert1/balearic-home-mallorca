@@ -11,10 +11,10 @@
                             <div class="swiper-wrapper">
                                 <?php $gallery = get_post_meta(get_the_ID(), 'bhm_main_locals_gallery', true); ?>
                                 <?php foreach ((array)$gallery as $attachment_ID => $attachment_data) { ?>
-                                    <?php $image = wp_get_attachment_image_src($attachment_ID, 'locals_big_image', false); ?>
-                                    <div class="swiper-slide">
-                                        <img src="<?php echo $image[0]; ?>" alt="Slide" class="img-fluid" />
-                                    </div>
+                                <?php $image = wp_get_attachment_image_src($attachment_ID, 'locals_big_image', false); ?>
+                                <div class="swiper-slide">
+                                    <img src="<?php echo $image[0]; ?>" alt="Slide" class="img-fluid" />
+                                </div>
                                 <?php } ?>
                             </div>
                             <!-- Add Arrows -->
@@ -26,10 +26,10 @@
                             <div class="swiper-wrapper">
                                 <?php $gallery = get_post_meta(get_the_ID(), 'bhm_main_locals_gallery', true); ?>
                                 <?php foreach ((array)$gallery as $attachment_ID => $attachment_data) { ?>
-                                    <?php $image = wp_get_attachment_image_src($attachment_ID, 'locals_small_image', false); ?>
-                                    <div class="swiper-slide">
-                                        <img src="<?php echo $image[0]; ?>" alt="Slide" class="img-fluid" />
-                                    </div>
+                                <?php $image = wp_get_attachment_image_src($attachment_ID, 'locals_small_image', false); ?>
+                                <div class="swiper-slide">
+                                    <img src="<?php echo $image[0]; ?>" alt="Slide" class="img-fluid" />
+                                </div>
                                 <?php } ?>
                             </div>
                         </div>
@@ -42,8 +42,13 @@
                             <h3><?php _e('Detalles', 'balearic'); ?></h3>
                         </div>
                         <div class="local-details-container">
+                            <?php $temporada_actual = get_current_season(); ?>
                             <div class="single-data"><strong><?php _e('ID de Propiedad', 'balearic'); ?></strong> <?php echo get_post_meta(get_the_ID(), 'bhm_local_id', true); ?></div>
+                            <?php if ($temporada_actual == '') { ?>
                             <div class="single-data"><strong><?php _e('Precio:', 'balearic'); ?></strong> <?php echo get_post_meta(get_the_ID(), 'bhm_local_price', true); ?></div>
+                            <?php } else { ?>
+                            <div class="single-data"><strong><?php _e('Precio:', 'balearic'); ?></strong> <?php echo get_post_meta(get_the_ID(), 'bhm_local_price_' . $temporada_actual, true); ?></div>
+                            <?php } ?>
                             <div class="single-data"><strong><?php _e('Tipo de Propiedad:', 'balearic'); ?></strong> <?php echo get_post_meta(get_the_ID(), 'bhm_local_type', true); ?></div>
                             <div class="single-data"><strong><?php _e('Tamaño de Propiedad:', 'balearic'); ?></strong> <?php echo get_post_meta(get_the_ID(), 'bhm_local_size', true); ?> M<small>2</small></div>
                             <div class="single-data"><strong><?php _e('Habitaciones:', 'balearic'); ?></strong> <?php echo get_post_meta(get_the_ID(), 'bhm_local_room', true); ?></div>
@@ -60,8 +65,8 @@
                             <?php $arr_group = get_post_meta(get_the_ID(), 'bhm_local_mics', true); ?>
 
                             <?php foreach ($arr_group as $key => $value) { ?>
-                                <div class="single-data">
-                                    <?php switch ($value) {
+                            <div class="single-data">
+                                <?php switch ($value) {
                                         case 'aire_acondicionado':
                                             echo 'Aire acondicionado';
                                             break;
@@ -73,7 +78,7 @@
                                             break;
                                     }
                                     ?>
-                                </div>
+                            </div>
                             <?php } ?>
                         </div>
                     </div>
