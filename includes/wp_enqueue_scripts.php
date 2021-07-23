@@ -18,8 +18,8 @@ function balearic_load_js()
             wp_enqueue_script('bootstrap');
 
             /*- JQUERY STICKY ON LOCAL  -*/
-            //wp_register_script('sticky', get_template_directory_uri() . '/js/jquery.sticky.js', array('jquery'), '1.0.4', true);
-            //wp_enqueue_script('sticky');
+            wp_register_script('sticky', get_template_directory_uri() . '/js/jquery.sticky.js', array('jquery'), '1.0.4', true);
+            wp_enqueue_script('sticky');
 
             /*- JQUERY NICESCROLL ON LOCAL  -*/
             //wp_register_script('nicescroll', get_template_directory_uri() . '/js/jquery.nicescroll.min.js', array('jquery'), '3.7.6', true);
@@ -79,8 +79,8 @@ function balearic_load_js()
             wp_enqueue_script('bootstrap');
 
             /*- JQUERY STICKY -*/
-            //wp_register_script('sticky', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js', array('jquery'), '1.0.4', true);
-            //wp_enqueue_script('sticky');
+            wp_register_script('sticky', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js', array('jquery'), '1.0.4', true);
+            wp_enqueue_script('sticky');
 
             /*- JQUERY NICESCROLL -*/
             //wp_register_script('nicescroll', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js', array('jquery'), '3.7.6', true);
@@ -131,6 +131,9 @@ function balearic_load_js()
         wp_register_script('swiper-js', 'https://unpkg.com/swiper/swiper-bundle.min.js', [], '6.1.2', true);
         wp_enqueue_script('swiper-js');
 
+        wp_register_script('bootstrap-datepicker-js', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js', array('jquery'), '1.9.0', true);
+        wp_enqueue_script('bootstrap-datepicker-js');
+
         /*- MAIN FUNCTIONS -*/
         wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), $version_remove, true);
         //wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.min.js', array('jquery'), $version_remove, true);
@@ -143,6 +146,8 @@ function balearic_load_js()
         }
 
         if ($lang == 'es') {
+            wp_register_script('bootstrap-datepicker-lang-js', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.es.min.js', array('jquery', 'bootstrap-datepicker-js' ), '1.9.0', true);
+            wp_enqueue_script('bootstrap-datepicker-lang-js');
             $redirect_route = network_home_url( '/mi-cuenta/' );
         } else {
             $redirect_route = network_home_url( '/en/my-account/' );

@@ -63,6 +63,15 @@ function balearic_load_css()
             wp_enqueue_style('aos-css');
         }
 
+        wp_register_style('bootstrap-datepicker-css', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css', false, '1.9.0', 'all');
+        wp_enqueue_style('bootstrap-datepicker-css');
+
+        
+
+
+
+
+
         /*- SWIPER JS -*/
         wp_register_style('swiper-css', 'https://unpkg.com/swiper/swiper-bundle.min.css', false, '6.1.2', 'all');
         wp_enqueue_style('swiper-css');

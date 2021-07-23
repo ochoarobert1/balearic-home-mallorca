@@ -1,6 +1,6 @@
 <footer class="container-fluid p-0" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
     <div class="row no-gutters">
-        <div class="the-footer col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div id="footer" class="the-footer col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="container">
                 <div class="row align-items-start">
                     <?php if ( is_active_sidebar( 'sidebar_footer' ) ) : ?>

@@ -6,11 +6,29 @@ let formSubmit = document.getElementById('formSubmit');
 let filterForm = document.getElementById('filterForm');
 let filterSubmit = document.getElementById('filterBtn');
 let filterBtnMobile = document.getElementById('filterBtnMobile');
+let footerID = document.getElementById('footer');
 
 
 function documentCustomLoad() {
     "use strict";
     console.log('Functions Correctly Loaded');
+
+    var footerHeight = footerID.offsetHeight;
+
+    jQuery('#booking').sticky({
+        topSpacing: 50,
+        bottomSpacing: footerHeight + 50
+    });
+
+    jQuery('.input-daterange').datepicker({
+        format: "dd/mm/yyyy",
+        startDate: "today",
+        maxViewMode: 2,
+        todayBtn: "linked",
+        clearBtn: true,
+        orientation: "bottom left",
+        language: "es"
+    });
 
     var loginForm = document.getElementById('loginForm');
     var loginFormBtn = document.getElementById('loginBtn');

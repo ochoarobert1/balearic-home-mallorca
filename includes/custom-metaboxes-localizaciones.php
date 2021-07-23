@@ -3,9 +3,12 @@
     0.- LOCALS - SEASONS
 -------------------------------------------------------------- */
 $arr_temporadas = array();
+$select_temporadas = array();
 $arr_temporadas = get_terms(array('taxonomy' => 'temporadas', 'hide_empty' => false));
-foreach ($arr_temporadas as $term) {
-    $select_temporadas[$term->term_id] = $term->name;
+if (!empty($arr_temporadas)) {
+    foreach ($arr_temporadas as $term) {
+        $select_temporadas[$term->term_id] = $term->name;
+    }
 }
 
 $cmb_main_seasons = new_cmb2_box(array(

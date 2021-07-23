@@ -56,6 +56,63 @@ function balearic_custom_post_type()
 }
 add_action('init', 'balearic_custom_post_type', 0);
 
+// Register Custom Post Type
+function booking_custom_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Bookings', 'Post Type General Name', 'balearic' ),
+		'singular_name'         => _x( 'Booking', 'Post Type Singular Name', 'balearic' ),
+		'menu_name'             => __( 'Booking', 'balearic' ),
+		'name_admin_bar'        => __( 'Booking', 'balearic' ),
+		'archives'              => __( 'Archivo de Bookings', 'balearic' ),
+		'attributes'            => __( 'Atributos de Booking', 'balearic' ),
+		'parent_item_colon'     => __( 'Booking Padre:', 'balearic' ),
+		'all_items'             => __( 'Todos los Bookings', 'balearic' ),
+		'add_new_item'          => __( 'Agregar Nuevo Booking', 'balearic' ),
+		'add_new'               => __( 'Agregar Nuevo', 'balearic' ),
+		'new_item'              => __( 'Nuevo Booking', 'balearic' ),
+		'edit_item'             => __( 'Editar Booking', 'balearic' ),
+		'update_item'           => __( 'Actualizar Booking', 'balearic' ),
+		'view_item'             => __( 'Ver Booking', 'balearic' ),
+		'view_items'            => __( 'Ver Bookings', 'balearic' ),
+		'search_items'          => __( 'Buscar Booking', 'balearic' ),
+		'not_found'             => __( 'No hay resultados', 'balearic' ),
+		'not_found_in_trash'    => __( 'No hay resultados en Papelera', 'balearic' ),
+		'featured_image'        => __( 'Imagen Destacada', 'balearic' ),
+		'set_featured_image'    => __( 'Colocar Imagen Destacada', 'balearic' ),
+		'remove_featured_image' => __( 'Remover Imagen Destacada', 'balearic' ),
+		'use_featured_image'    => __( 'Usar como Imagen Destacada', 'balearic' ),
+		'insert_into_item'      => __( 'Insertar en Booking', 'balearic' ),
+		'uploaded_to_this_item' => __( 'Cargado en Booking', 'balearic' ),
+		'items_list'            => __( 'Listado de Booking', 'balearic' ),
+		'items_list_navigation' => __( 'Navegación del Listado de Booking', 'balearic' ),
+		'filter_items_list'     => __( 'Filtro del Listado de Booking', 'balearic' ),
+	);
+	$args = array(
+		'label'                 => __( 'Booking', 'balearic' ),
+		'description'           => __( 'Booking', 'balearic' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 16,
+		'menu_icon'             => 'dashicons-admin-multisite',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => true,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+		'show_in_rest'          => true,
+	);
+	register_post_type( 'booking', $args );
+
+}
+add_action( 'init', 'booking_custom_post_type', 0 );
+
 // Register Custom Taxonomy
 function balearic_custom_taxonomy()
 {

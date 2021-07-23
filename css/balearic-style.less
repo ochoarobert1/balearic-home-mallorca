@@ -795,6 +795,7 @@ a {
 
     & .gallery-top {
         margin-bottom: 1.5rem;
+        max-height: 480px;
 
         & img {
             border-radius: 10px;
@@ -823,6 +824,97 @@ a {
         }
     }
 
+}
+
+.single-locals-booking {
+    padding: 0;
+    padding-top: 2.7rem;
+}
+
+.booking-calendar-container {
+    padding: 0;
+
+    & h3 {
+        font-size: 1.1rem;
+        font-weight: 400;
+        margin-bottom: 2rem;
+        position: relative;
+
+        &:before {
+            content: '';
+            background: @softblue;
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+        }
+    }
+
+    & label {
+        display: inline-block;
+        margin-bottom: .5rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    & .booking-date,
+    .booking-qty {
+        padding: 5px 15px !important;
+        background: whitesmoke;
+    }
+
+    & .input-group-addon {
+        background: #e2e2e2;
+        color: black;
+        padding: 7px 1rem;
+    }
+
+    & .booking-date {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        padding-bottom: 15px !important;
+        padding-bottom: 0 !important;
+    }
+
+    & .booking-qty {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding-bottom: 15px !important;
+
+        & input {
+            font-size: .8rem !important;
+        }
+    }
+
+
+
+    & .input-sm {
+        height: auto;
+        font-size: 0.9rem;
+    }
+
+}
+
+.datepicker {
+    font-size: .8rem !important;
+}
+
+.btn-booking {
+    background: @softblue;
+    border-radius: 20px;
+    margin-top: 1rem;
+    text-align: center;
+    color: @white;
+    font-weight: 600;
+    width: 100%;
+    padding: 10px;
+    .transition(all .3s ease-in-out);
+
+    &:hover {
+        color: @white;
+        background: @softbluehover
+    }
 }
 
 .single-locals-main-info {
@@ -1195,7 +1287,7 @@ WP-MEMBERS OVERRIDES
     background: #f3f3f3;
     padding: .5rem 1rem;
 
-    & .back-btn-content  {
+    & .back-btn-content {
         & i {
             border: 2px solid #66c5e0;
             padding: 0.3rem;
@@ -1220,7 +1312,7 @@ WP-MEMBERS OVERRIDES
         }
     }
 
-    
+
 }
 
 
