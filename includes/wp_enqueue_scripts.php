@@ -149,14 +149,17 @@ function balearic_load_js()
             wp_register_script('bootstrap-datepicker-lang-js', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.es.min.js', array('jquery', 'bootstrap-datepicker-js' ), '1.9.0', true);
             wp_enqueue_script('bootstrap-datepicker-lang-js');
             $redirect_route = network_home_url( '/mi-cuenta/' );
+            $redirect_thanks_reservation = network_home_url( '/gracias/' );
         } else {
             $redirect_route = network_home_url( '/en/my-account/' );
+            $redirect_thanks_reservation = network_home_url( '/en/thanks/' );
         }
 
         wp_localize_script('main-functions', 'custom_admin_url', array(
             'ajax_url'          => admin_url('admin-ajax.php'),
             'redirect_home'    => home_url('/'),
             'redirect_route'    => $redirect_route,
+            'redirect_thanks_reservation'    => $redirect_thanks_reservation,
             'error_nombre'      => __('Error: El nombre no puede estar vacio.', 'balearic'),
             'invalid_nombre'    => __('Error: El nombre no es válido.', 'balearic'),
             'error_apellido'      => __('Error: El apellido no puede estar vacio.', 'balearic'),

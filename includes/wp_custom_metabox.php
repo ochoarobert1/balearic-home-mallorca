@@ -115,4 +115,7 @@ function balearic_register_custom_metabox()
     
     /* CONTACTO */
     require_once('custom-metaboxes-localizaciones.php');
+
+     /* CONTACTO */
+     require_once('custom-metaboxes-booking.php');
 }

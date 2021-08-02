@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: balearic\n"
-"POT-Creation-Date: 2021-05-31 00:53-0400\n"
-"PO-Revision-Date: 2021-05-31 00:53-0400\n"
+"POT-Creation-Date: 2021-07-29 18:10-0400\n"
+"PO-Revision-Date: 2021-07-29 18:11-0400\n"
 "Last-Translator: Robert Ochoa <ochoa.robert1@gmail.com>\n"
 "Language-Team: Robert Ochoa <contacto@robertochoaweb.com>\n"
 "Language: en_US\n"
@@ -212,7 +212,7 @@ msgid "Visita nuestro perfil en LinkedIn"
 msgstr "Visit our LinkedIn profile"
 
 #: functions.php:351 functions.php:356 functions.php:365 functions.php:370
-#: functions.php:538 functions.php:543 includes/wp_custom_post_type.php:20
+#: functions.php:538 functions.php:543 includes/wp_custom_post_type.php:19
 #: taxonomy-tipos-localizaciones.php:35 taxonomy-tipos-localizaciones.php:40
 #: taxonomy-tipos-localizaciones.php:49 taxonomy-tipos-localizaciones.php:54
 #: templates/page-vip-zone.php:30 templates/page-vip-zone.php:35
@@ -252,11 +252,11 @@ msgstr "Mail already exists within our database"
 msgid "Nuevo Registro"
 msgstr "New Record"
 
-#: functions.php:700
+#: functions.php:703
 msgid "Balearic Home Mallorca: Nuevo Registro"
 msgstr "Balearic Home Mallorca: New Registration"
 
-#: functions.php:705
+#: functions.php:708
 msgid ""
 "Te has registrado correctamente, en breve recibiras una confirmación de "
 "activación al correo electrónico"
@@ -649,6 +649,149 @@ msgstr "Installing Plugin%1$s (%2$d/%3$d)"
 msgid "Add a menu"
 msgstr "Add a menu"
 
+#: includes/custom-metaboxes-booking.php:14
+msgid "Información de Reserva"
+msgstr "Booking Information"
+
+#: includes/custom-metaboxes-booking.php:26
+msgid "Localidad"
+msgstr "Location"
+
+#: includes/custom-metaboxes-booking.php:27
+msgid "Seleccione la localidad que tendra la reserva"
+msgstr "Select the location that will have the reservation"
+
+#: includes/custom-metaboxes-booking.php:36
+msgid "Check-In"
+msgstr "Check-in"
+
+#: includes/custom-metaboxes-booking.php:37
+msgid "Selecciona el Check-In"
+msgstr "Select Check-In"
+
+#: includes/custom-metaboxes-booking.php:43
+msgid "Check-Out"
+msgstr "Check-Out"
+
+#: includes/custom-metaboxes-booking.php:44
+msgid "Selecciona el Check-Out"
+msgstr "Select check-out"
+
+#: includes/custom-metaboxes-booking.php:50
+msgid "Cantidad de Adultos"
+msgstr "Number of Adults"
+
+#: includes/custom-metaboxes-booking.php:51
+#: templates/templates-booking-form.php:31
+msgid "Ingrese la cantidad de Adultos"
+msgstr "Enter the quantity of Adults"
+
+#: includes/custom-metaboxes-booking.php:63
+msgid "Cantidad de Niños"
+msgstr "Number of Children"
+
+#: includes/custom-metaboxes-booking.php:64
+#: templates/templates-booking-form.php:35
+msgid "Ingrese la cantidad de Niños"
+msgstr "Enter the quantity of Children"
+
+#: includes/custom-metaboxes-booking.php:76
+msgid "Comentarios / Mensaje Adicional"
+msgstr "Comments / Additional Message"
+
+#: includes/custom-metaboxes-booking.php:77
+msgid ""
+"Ingrese cualquier observación o mensaje necesario para procesar esta "
+"reservación"
+msgstr "Enter any observations or messages needed to process this reservation"
+
+#: includes/custom-metaboxes-booking.php:83
+msgid "Información de Pago"
+msgstr "Payment Information"
+
+#: includes/custom-metaboxes-booking.php:95
+msgid "Status de Reservación"
+msgstr "Reservation Status"
+
+#: includes/custom-metaboxes-booking.php:96
+msgid "Seleccione el estado actual de la reservación"
+msgstr "Select the current status of the reservation"
+
+#: includes/custom-metaboxes-booking.php:101
+msgid "Pendiente de Pago"
+msgstr "Pending Payment"
+
+#: includes/custom-metaboxes-booking.php:102
+msgid "Procesando Pago"
+msgstr "Processing Payment"
+
+#: includes/custom-metaboxes-booking.php:103
+msgid "Pago Completado"
+msgstr "Payment Completed"
+
+#: includes/custom-metaboxes-booking.php:104
+msgid "Pago Cancelado"
+msgstr "Payment Cancelled"
+
+#: includes/custom-metaboxes-booking.php:110
+msgid "Método de Pago"
+msgstr "Payment Method"
+
+#: includes/custom-metaboxes-booking.php:111
+msgid "Ingrese el metodo de pago usado por el cliente"
+msgstr "Enter the payment method used by the customer"
+
+#: includes/custom-metaboxes-booking.php:117
+msgid "Referencia"
+msgstr "Reference"
+
+#: includes/custom-metaboxes-booking.php:118
+msgid "Ingrese la referencia de pago del cliente"
+msgstr "Enter the customer's payment reference"
+
+#: includes/custom-metaboxes-booking.php:124
+msgid "Fecha del Pago"
+msgstr "Date of Payment"
+
+#: includes/custom-metaboxes-booking.php:125
+msgid "Selecciona la fecha en la cual el cliente realizó el pago"
+msgstr "Select the date on which the customer made the payment"
+
+#: includes/custom-metaboxes-booking.php:133
+msgid "Información del Cliente"
+msgstr "Customer Information"
+
+#: includes/custom-metaboxes-booking.php:144
+#: templates/template-contact-form.php:5
+#: templates/templates-booking-form.php:69
+msgid "Nombre y Apellido"
+msgstr "Name and Surname"
+
+#: includes/custom-metaboxes-booking.php:145
+msgid "Ingrese el nombre completo del cliente"
+msgstr "Enter the full name of the client"
+
+#: includes/custom-metaboxes-booking.php:151
+#: templates/template-contact-form.php:9
+#: templates/templates-booking-form.php:73
+msgid "Teléfono"
+msgstr "Phone"
+
+#: includes/custom-metaboxes-booking.php:152
+msgid "Ingrese el teléfono del cliente"
+msgstr "Enter the Item Title"
+
+#: includes/custom-metaboxes-booking.php:158
+#: templates/template-contact-form.php:13
+#: templates/template-register-email.php:257
+#: templates/templates-booking-form.php:77
+msgid "Correo Electrónico"
+msgstr "Email"
+
+#: includes/custom-metaboxes-booking.php:159
+msgid "Ingrese el correo electrónico del cliente"
+msgstr "Enter customer email"
+
 #: includes/custom-metaboxes-contact.php:7
 msgid "Contacto: Información Principal"
 msgstr "Contact: Main Information"
@@ -778,7 +921,7 @@ msgstr "Remove Service"
 msgid "¿Estas seguro de remover este Servicio?"
 msgstr "Are you sure to remove this Service?"
 
-#: includes/custom-metaboxes-home.php:102 includes/wp_custom_post_type.php:124
+#: includes/custom-metaboxes-home.php:102 includes/wp_custom_post_type.php:218
 msgid "Ícono del Servicio"
 msgstr "Service icon"
 
@@ -810,85 +953,110 @@ msgstr "Enter the corresponding button action link"
 msgid "Home: Contacto"
 msgstr "Home: Contact"
 
-#: includes/custom-metaboxes-localizaciones.php:7
-#: includes/custom-metaboxes-localizaciones.php:18
+#: includes/custom-metaboxes-localizaciones.php:16
+msgid "Información"
+msgstr "Information"
+
+#: includes/custom-metaboxes-localizaciones.php:28
+msgid "Inicio de Temporada"
+msgstr "Start of Season"
+
+#: includes/custom-metaboxes-localizaciones.php:29
+msgid "Selecciona el inicio de la temporada"
+msgstr "Select the start of the season"
+
+#: includes/custom-metaboxes-localizaciones.php:35
+msgid "Fin de Temporada"
+msgstr "Season"
+
+#: includes/custom-metaboxes-localizaciones.php:36
+msgid "Selecciona el Fin de la temporada"
+msgstr "Select the End of the season"
+
+#: includes/custom-metaboxes-localizaciones.php:45
+#: includes/custom-metaboxes-localizaciones.php:56
 msgid "Galería de Fotos"
 msgstr "Photo Gallery"
 
-#: includes/custom-metaboxes-localizaciones.php:19
+#: includes/custom-metaboxes-localizaciones.php:57
 msgid "Seleccione las fotos que deben aparecer en el slider"
 msgstr "Select the photos that should appear on the slider"
 
-#: includes/custom-metaboxes-localizaciones.php:37
+#: includes/custom-metaboxes-localizaciones.php:75
 msgid "Localizaciones: Especificaciones"
 msgstr "Locations: Specifications"
 
-#: includes/custom-metaboxes-localizaciones.php:48 single-localizaciones.php:45
+#: includes/custom-metaboxes-localizaciones.php:86 single-localizaciones.php:47
 msgid "ID de Propiedad"
 msgstr "Property ID"
 
-#: includes/custom-metaboxes-localizaciones.php:49
+#: includes/custom-metaboxes-localizaciones.php:87
 msgid "Ingrese el ID de la Propiedad"
 msgstr "Enter the Property ID"
 
-#: includes/custom-metaboxes-localizaciones.php:55
+#: includes/custom-metaboxes-localizaciones.php:93
 msgid "Precio de Propiedad"
 msgstr "Property Price"
 
-#: includes/custom-metaboxes-localizaciones.php:56
+#: includes/custom-metaboxes-localizaciones.php:94
+#: includes/custom-metaboxes-localizaciones.php:103
 msgid "Ingrese el precio de la Propiedad"
 msgstr "Enter the price of the Property"
 
-#: includes/custom-metaboxes-localizaciones.php:63
+#: includes/custom-metaboxes-localizaciones.php:102
+msgid "Precio de Propiedad para Temporada: "
+msgstr "Property Price for Season: "
+
+#: includes/custom-metaboxes-localizaciones.php:111
 #: templates/template-filter-container.php:15
 msgid "Tipo de Propiedad"
 msgstr "Property Type"
 
-#: includes/custom-metaboxes-localizaciones.php:64
+#: includes/custom-metaboxes-localizaciones.php:112
 msgid "Seleccione el tipo de Propiedad"
 msgstr "Select the type of Property"
 
-#: includes/custom-metaboxes-localizaciones.php:78
+#: includes/custom-metaboxes-localizaciones.php:126
 msgid "Tamaño de Propiedad"
 msgstr "Property Size"
 
-#: includes/custom-metaboxes-localizaciones.php:79
+#: includes/custom-metaboxes-localizaciones.php:127
 msgid "Ingrese el tamaño de la Propiedad (Solo números)"
 msgstr "Enter property size (Numbers only)"
 
-#: includes/custom-metaboxes-localizaciones.php:85
+#: includes/custom-metaboxes-localizaciones.php:133
 msgid "Cantidad de Habitaciones de Propiedad"
 msgstr "Number of Property Rooms"
 
-#: includes/custom-metaboxes-localizaciones.php:86
+#: includes/custom-metaboxes-localizaciones.php:134
 msgid "Enumere la cantidad de habitaciones de Propiedad"
 msgstr "List the number of Property rooms"
 
-#: includes/custom-metaboxes-localizaciones.php:96
+#: includes/custom-metaboxes-localizaciones.php:144
 msgid "Cantidad de baños de Propiedad"
 msgstr "Number of Property Bathrooms"
 
-#: includes/custom-metaboxes-localizaciones.php:97
+#: includes/custom-metaboxes-localizaciones.php:145
 msgid "Enumere la cantidad de baños de Propiedad"
 msgstr "List the number of Property bathrooms"
 
-#: includes/custom-metaboxes-localizaciones.php:107
+#: includes/custom-metaboxes-localizaciones.php:155
 msgid "Equipamiento de Propiedad"
 msgstr "Property Equipment"
 
-#: includes/custom-metaboxes-localizaciones.php:108
+#: includes/custom-metaboxes-localizaciones.php:156
 msgid "Seleccione el Equipamiento de Propiedad"
 msgstr "Select The Property Equipment"
 
-#: includes/custom-metaboxes-localizaciones.php:122
+#: includes/custom-metaboxes-localizaciones.php:170
 msgid "Localizaciones: Miscelaneas"
 msgstr "Locations: Miscelaneas"
 
-#: includes/custom-metaboxes-localizaciones.php:133
+#: includes/custom-metaboxes-localizaciones.php:181
 msgid "Características de Propiedad"
 msgstr "Property Features"
 
-#: includes/custom-metaboxes-localizaciones.php:134
+#: includes/custom-metaboxes-localizaciones.php:182
 msgid "Seleccione las características que apliquen a esta Propiedad"
 msgstr "Select the features that apply to this Property"
 
@@ -976,298 +1144,472 @@ msgstr "Title:"
 msgid "Global: Hero con Título"
 msgstr "Global: Hero with Title"
 
-#: includes/wp_custom_post_type.php:7
+#: includes/wp_custom_post_type.php:6
 msgctxt "Post Type General Name"
 msgid "Localizaciones"
 msgstr "Locations"
 
-#: includes/wp_custom_post_type.php:8
+#: includes/wp_custom_post_type.php:7
 msgctxt "Post Type Singular Name"
 msgid "Localización"
 msgstr "Location"
 
-#: includes/wp_custom_post_type.php:9 includes/wp_custom_post_type.php:10
+#: includes/wp_custom_post_type.php:8 includes/wp_custom_post_type.php:9
 msgid "Localizaciones"
 msgstr "Locations"
 
-#: includes/wp_custom_post_type.php:11
+#: includes/wp_custom_post_type.php:10
 msgid "Archivo de Localizaciones"
 msgstr "Location Archive"
 
-#: includes/wp_custom_post_type.php:12
+#: includes/wp_custom_post_type.php:11
 msgid "Atributos de Localización"
 msgstr "Location Attributes"
 
-#: includes/wp_custom_post_type.php:13
+#: includes/wp_custom_post_type.php:12
 msgid "Localización Padre:"
 msgstr "Parent Location:"
 
-#: includes/wp_custom_post_type.php:14
+#: includes/wp_custom_post_type.php:13
 msgid "Todas las Localizaciones"
 msgstr "All Locations"
 
-#: includes/wp_custom_post_type.php:15
+#: includes/wp_custom_post_type.php:14
 msgid "Agregar Nueva Localización"
 msgstr "Add New Location Services"
 
-#: includes/wp_custom_post_type.php:16
+#: includes/wp_custom_post_type.php:15
 msgid "Agregar Nueva"
 msgstr "Add New"
 
-#: includes/wp_custom_post_type.php:17
+#: includes/wp_custom_post_type.php:16
 msgid "Nueva Localización"
 msgstr "New Location"
 
-#: includes/wp_custom_post_type.php:18
+#: includes/wp_custom_post_type.php:17
 msgid "Editar Localización"
 msgstr "Edit Location Services"
 
-#: includes/wp_custom_post_type.php:19
+#: includes/wp_custom_post_type.php:18
 msgid "Actualizar Localización"
 msgstr "Update Location Services"
 
-#: includes/wp_custom_post_type.php:21
+#: includes/wp_custom_post_type.php:20
 msgid "Ver Localizaciones"
 msgstr "See Locations"
 
-#: includes/wp_custom_post_type.php:22
+#: includes/wp_custom_post_type.php:21
 msgid "Buscar Localización"
 msgstr "Search Location"
 
-#: includes/wp_custom_post_type.php:23 includes/wp_custom_post_type.php:81
-#: includes/wp_custom_post_type.php:122
+#: includes/wp_custom_post_type.php:22 includes/wp_custom_post_type.php:79
+#: includes/wp_custom_post_type.php:136 includes/wp_custom_post_type.php:175
+#: includes/wp_custom_post_type.php:216
 msgid "No hay resultados"
 msgstr "No results"
 
-#: includes/wp_custom_post_type.php:24
+#: includes/wp_custom_post_type.php:23
 msgid "No hay resultados en la Papelera"
 msgstr "No Items in Trash"
 
-#: includes/wp_custom_post_type.php:25
+#: includes/wp_custom_post_type.php:24
 msgid "Portada de Localización"
 msgstr "Location Cover"
 
-#: includes/wp_custom_post_type.php:26
+#: includes/wp_custom_post_type.php:25
 msgid "Colocar Portada de Localización"
 msgstr "Place Location Cover"
 
-#: includes/wp_custom_post_type.php:27
+#: includes/wp_custom_post_type.php:26
 msgid "Remover Portada de Localización"
 msgstr "Remove Location Cover"
 
-#: includes/wp_custom_post_type.php:28
+#: includes/wp_custom_post_type.php:27
 msgid "Usar como Portada de Localización"
 msgstr "Use as Location Cover"
 
-#: includes/wp_custom_post_type.php:29
+#: includes/wp_custom_post_type.php:28
 msgid "Insertar dentro de Localización"
 msgstr "Insert within Location Services"
 
-#: includes/wp_custom_post_type.php:30
+#: includes/wp_custom_post_type.php:29
 msgid "Cargado a esta Localización"
 msgstr "Loaded to This Location"
 
-#: includes/wp_custom_post_type.php:31
+#: includes/wp_custom_post_type.php:30
 msgid "Listado de Localizaciones"
 msgstr "List of Locations"
 
-#: includes/wp_custom_post_type.php:32
+#: includes/wp_custom_post_type.php:31
 msgid "Navegación del Listado de Localizaciones"
 msgstr "Location List Navigation"
 
-#: includes/wp_custom_post_type.php:33
+#: includes/wp_custom_post_type.php:32
 msgid "Filtro del Listado de Localizaciones"
 msgstr "Location List Filter"
 
-#: includes/wp_custom_post_type.php:36
+#: includes/wp_custom_post_type.php:35
 msgid "Localización"
 msgstr "Location"
 
-#: includes/wp_custom_post_type.php:37
+#: includes/wp_custom_post_type.php:36
 msgid "Localizaciones dentro de la Página"
 msgstr "Locations within the Page"
 
-#: includes/wp_custom_post_type.php:65
+#: includes/wp_custom_post_type.php:63
+msgctxt "Post Type General Name"
+msgid "Bookings"
+msgstr "Cookies"
+
+#: includes/wp_custom_post_type.php:64
+msgctxt "Post Type Singular Name"
+msgid "Booking"
+msgstr "Booking"
+
+#: includes/wp_custom_post_type.php:65 includes/wp_custom_post_type.php:66
+#: includes/wp_custom_post_type.php:92 includes/wp_custom_post_type.php:93
+msgid "Booking"
+msgstr "Booking"
+
+#: includes/wp_custom_post_type.php:67
+msgid "Archivo de Bookings"
+msgstr "Archive from"
+
+#: includes/wp_custom_post_type.php:68
+msgid "Atributos de Booking"
+msgstr "Location Attributes"
+
+#: includes/wp_custom_post_type.php:69
+msgid "Booking Padre:"
+msgstr "Parent Type:"
+
+#: includes/wp_custom_post_type.php:70
+msgid "Todos los Bookings"
+msgstr "All Types"
+
+#: includes/wp_custom_post_type.php:71
+msgid "Agregar Nuevo Booking"
+msgstr "Add New Type"
+
+#: includes/wp_custom_post_type.php:72 includes/wp_custom_post_type.php:209
+msgid "Agregar Nuevo"
+msgstr "Add New"
+
+#: includes/wp_custom_post_type.php:73
+msgid "Nuevo Booking"
+msgstr "Nuevo Cliente"
+
+#: includes/wp_custom_post_type.php:74
+msgid "Editar Booking"
+msgstr "Edit Type"
+
+#: includes/wp_custom_post_type.php:75
+msgid "Actualizar Booking"
+msgstr "Update Type"
+
+#: includes/wp_custom_post_type.php:76
+msgid "Ver Booking"
+msgstr "View Booking"
+
+#: includes/wp_custom_post_type.php:77
+msgid "Ver Bookings"
+msgstr "View Bookings"
+
+#: includes/wp_custom_post_type.php:78
+msgid "Buscar Booking"
+msgstr "Search types"
+
+#: includes/wp_custom_post_type.php:80 includes/wp_custom_post_type.php:217
+msgid "No hay resultados en Papelera"
+msgstr "No results in Trash"
+
+#: includes/wp_custom_post_type.php:81
+msgid "Imagen Destacada"
+msgstr "Featured Image"
+
+#: includes/wp_custom_post_type.php:82
+msgid "Colocar Imagen Destacada"
+msgstr "Set Featured Image"
+
+#: includes/wp_custom_post_type.php:83
+msgid "Remover Imagen Destacada"
+msgstr "Remove Featured Image"
+
+#: includes/wp_custom_post_type.php:84
+msgid "Usar como Imagen Destacada"
+msgstr "Use as Featured Image"
+
+#: includes/wp_custom_post_type.php:85
+msgid "Insertar en Booking"
+msgstr "Insert into service"
+
+#: includes/wp_custom_post_type.php:86
+msgid "Cargado en Booking"
+msgstr "Uploaded on Booking"
+
+#: includes/wp_custom_post_type.php:87
+msgid "Listado de Booking"
+msgstr "List of Types"
+
+#: includes/wp_custom_post_type.php:88
+msgid "Navegación del Listado de Booking"
+msgstr "Type List Navigation"
+
+#: includes/wp_custom_post_type.php:89
+msgid "Filtro del Listado de Booking"
+msgstr "Location List Filter"
+
+#: includes/wp_custom_post_type.php:120
 msgctxt "Taxonomy General Name"
 msgid "Tipos de Localización"
 msgstr "Location Types"
 
-#: includes/wp_custom_post_type.php:66
+#: includes/wp_custom_post_type.php:121
 msgctxt "Taxonomy Singular Name"
 msgid "Tipo de Localización"
 msgstr "Location Type"
 
-#: includes/wp_custom_post_type.php:67
+#: includes/wp_custom_post_type.php:122
 msgid "Tipo de Localización"
 msgstr "Location Type"
 
-#: includes/wp_custom_post_type.php:68
+#: includes/wp_custom_post_type.php:123
 msgid "Todos los Tipos"
 msgstr "All Types"
 
-#: includes/wp_custom_post_type.php:69
+#: includes/wp_custom_post_type.php:124
 msgid "Tipo Padre"
 msgstr "Parent Type"
 
-#: includes/wp_custom_post_type.php:70
+#: includes/wp_custom_post_type.php:125
 msgid "Tipo Padre:"
 msgstr "Parent Type:"
 
-#: includes/wp_custom_post_type.php:71
+#: includes/wp_custom_post_type.php:126
 msgid "Nuevo Tipo de Localización"
 msgstr "New Location Type"
 
-#: includes/wp_custom_post_type.php:72
+#: includes/wp_custom_post_type.php:127
 msgid "Agregar Nuevo Tipo"
 msgstr "Add New Type"
 
-#: includes/wp_custom_post_type.php:73
+#: includes/wp_custom_post_type.php:128
 msgid "Editar Tipo"
 msgstr "Edit Type"
 
-#: includes/wp_custom_post_type.php:74
+#: includes/wp_custom_post_type.php:129
 msgid "Actualizar Tipo"
 msgstr "Update Type"
 
-#: includes/wp_custom_post_type.php:75
+#: includes/wp_custom_post_type.php:130
 msgid "Ver Tipo"
 msgstr "See Type"
 
-#: includes/wp_custom_post_type.php:76
+#: includes/wp_custom_post_type.php:131
 msgid "Separar tipos por comas"
 msgstr "Separate types by commas"
 
-#: includes/wp_custom_post_type.php:77
+#: includes/wp_custom_post_type.php:132
 msgid "Agregar o Remover Tipos"
 msgstr "Add or Remove Types"
 
-#: includes/wp_custom_post_type.php:78
+#: includes/wp_custom_post_type.php:133
 msgid "Escoger de los más usados"
 msgstr "Choose from the most used"
 
-#: includes/wp_custom_post_type.php:79
+#: includes/wp_custom_post_type.php:134
 msgid "Tipos Populares"
 msgstr "Popular Rates"
 
-#: includes/wp_custom_post_type.php:80
+#: includes/wp_custom_post_type.php:135
 msgid "Buscar Tipos"
 msgstr "Search types"
 
-#: includes/wp_custom_post_type.php:82
+#: includes/wp_custom_post_type.php:137
 msgid "No hay Tipos"
 msgstr "No Types"
 
-#: includes/wp_custom_post_type.php:83
+#: includes/wp_custom_post_type.php:138
 msgid "Listado de Tipos"
 msgstr "List of Types"
 
-#: includes/wp_custom_post_type.php:84
+#: includes/wp_custom_post_type.php:139
 msgid "Navegación del Listado de Tipos"
 msgstr "Type List Navigation"
 
-#: includes/wp_custom_post_type.php:106
+#: includes/wp_custom_post_type.php:159
+msgctxt "Taxonomy General Name"
+msgid "Temporadas"
+msgstr "Seasons"
+
+#: includes/wp_custom_post_type.php:160
+msgctxt "Taxonomy Singular Name"
+msgid "Temporada"
+msgstr "Season"
+
+#: includes/wp_custom_post_type.php:161
+msgid "Temporadas"
+msgstr "Seasons"
+
+#: includes/wp_custom_post_type.php:162
+msgid "Todos las Temporadas"
+msgstr "All Types"
+
+#: includes/wp_custom_post_type.php:163
+msgid "Temporada Padre"
+msgstr "Parent Type"
+
+#: includes/wp_custom_post_type.php:164
+msgid "Temporada Padre:"
+msgstr "Parent Type:"
+
+#: includes/wp_custom_post_type.php:165
+msgid "Nueva Temporada"
+msgstr "New Season"
+
+#: includes/wp_custom_post_type.php:166
+msgid "Agregar Nueva Temporada"
+msgstr "Add New Type"
+
+#: includes/wp_custom_post_type.php:167
+msgid "Editar Temporada"
+msgstr "Edit Type"
+
+#: includes/wp_custom_post_type.php:168
+msgid "Actualizar Temporada"
+msgstr "Update Type"
+
+#: includes/wp_custom_post_type.php:169
+msgid "Ver Temporada"
+msgstr "See Type"
+
+#: includes/wp_custom_post_type.php:170
+msgid "Separar Temporadas por comas"
+msgstr "Separate types by commas"
+
+#: includes/wp_custom_post_type.php:171
+msgid "Agregar o Remover Temporadas"
+msgstr "Add or Remove Types"
+
+#: includes/wp_custom_post_type.php:172
+msgid "Escoger de las más usadas"
+msgstr "Choosing from the most used"
+
+#: includes/wp_custom_post_type.php:173
+msgid "Temporadas Populares"
+msgstr "Popular Rates"
+
+#: includes/wp_custom_post_type.php:174
+msgid "Buscar Temporadas"
+msgstr "Search types"
+
+#: includes/wp_custom_post_type.php:176
+msgid "No hay Temporadas"
+msgstr "No Types"
+
+#: includes/wp_custom_post_type.php:177
+msgid "Listado de Temporadas"
+msgstr "List of Types"
+
+#: includes/wp_custom_post_type.php:178
+msgid "Navegación del Listado de Temporadas"
+msgstr "Type List Navigation"
+
+#: includes/wp_custom_post_type.php:200
 msgctxt "Post Type General Name"
 msgid "Servicios"
 msgstr "Services"
 
-#: includes/wp_custom_post_type.php:107
+#: includes/wp_custom_post_type.php:201
 msgctxt "Post Type Singular Name"
 msgid "Servicio"
 msgstr "Service"
 
-#: includes/wp_custom_post_type.php:108 includes/wp_custom_post_type.php:109
+#: includes/wp_custom_post_type.php:202 includes/wp_custom_post_type.php:203
 msgid "Servicios"
 msgstr "Services"
 
-#: includes/wp_custom_post_type.php:110
+#: includes/wp_custom_post_type.php:204
 msgid "Archivos de Servicios"
 msgstr "Archivo de Clientes"
 
-#: includes/wp_custom_post_type.php:111
+#: includes/wp_custom_post_type.php:205
 msgid "Atributos del Servicio"
 msgstr "Atributos de Cliente"
 
-#: includes/wp_custom_post_type.php:112
+#: includes/wp_custom_post_type.php:206
 msgid "Servicio Padre:"
 msgstr "Parent Service:"
 
-#: includes/wp_custom_post_type.php:113
+#: includes/wp_custom_post_type.php:207
 msgid "Todos los Servicios"
 msgstr "Todos los Clientes"
 
-#: includes/wp_custom_post_type.php:114
+#: includes/wp_custom_post_type.php:208
 msgid "Agregar Nuevo Servicio"
 msgstr "Add New"
 
-#: includes/wp_custom_post_type.php:115
-msgid "Agregar Nuevo"
-msgstr "Add New"
-
-#: includes/wp_custom_post_type.php:116
+#: includes/wp_custom_post_type.php:210
 msgid "Nuevo Servicio"
 msgstr "New Service"
 
-#: includes/wp_custom_post_type.php:117
+#: includes/wp_custom_post_type.php:211
 msgid "Editar Servicio"
 msgstr "Edit Service"
 
-#: includes/wp_custom_post_type.php:118
+#: includes/wp_custom_post_type.php:212
 msgid "Actualizar Servicio"
 msgstr "Actualizar Cliente"
 
-#: includes/wp_custom_post_type.php:119
+#: includes/wp_custom_post_type.php:213
 msgid "Ver Servicio"
 msgstr "View Service"
 
-#: includes/wp_custom_post_type.php:120
+#: includes/wp_custom_post_type.php:214
 msgid "Ver Servicios"
 msgstr "View Services"
 
-#: includes/wp_custom_post_type.php:121
+#: includes/wp_custom_post_type.php:215
 msgid "Buscar Servicio"
 msgstr "Search Service"
 
-#: includes/wp_custom_post_type.php:123
-msgid "No hay resultados en Papelera"
-msgstr "No results in Trash"
-
-#: includes/wp_custom_post_type.php:125
+#: includes/wp_custom_post_type.php:219
 msgid "Colocar Ícono del Servicio"
 msgstr "Place Service Icon"
 
-#: includes/wp_custom_post_type.php:126
+#: includes/wp_custom_post_type.php:220
 msgid "Remover Ícono del Servicio"
 msgstr "Remove Service Icon"
 
-#: includes/wp_custom_post_type.php:127
+#: includes/wp_custom_post_type.php:221
 msgid "Usar como Ícono del Servicio"
 msgstr "Use as a Service Icon"
 
-#: includes/wp_custom_post_type.php:128
+#: includes/wp_custom_post_type.php:222
 msgid "Insertar en Servicio"
 msgstr "Insert into service"
 
-#: includes/wp_custom_post_type.php:129
+#: includes/wp_custom_post_type.php:223
 msgid "Cargado a este Servicio"
 msgstr "Cargado a este Cliente"
 
-#: includes/wp_custom_post_type.php:130
+#: includes/wp_custom_post_type.php:224
 msgid "Listado de Servicios"
 msgstr "Listado de Clientes"
 
-#: includes/wp_custom_post_type.php:131
+#: includes/wp_custom_post_type.php:225
 msgid "Navegación del Listado de Servicios"
 msgstr "Navegación del Listado de Cliente"
 
-#: includes/wp_custom_post_type.php:132
+#: includes/wp_custom_post_type.php:226
 msgid "Filtro del Listado de Servicios"
 msgstr "Filtro del Listado de Clientes"
 
-#: includes/wp_custom_post_type.php:135
+#: includes/wp_custom_post_type.php:229
 msgid "Servicio"
 msgstr "Service"
 
-#: includes/wp_custom_post_type.php:136
+#: includes/wp_custom_post_type.php:230
 msgid "Servicios de la Empresa"
 msgstr "Company Services"
 
@@ -1339,47 +1681,47 @@ msgstr "Text of the consent cookie."
 msgid "Link de Cookies"
 msgstr "Link de Cookies"
 
-#: includes/wp_enqueue_scripts.php:155
+#: includes/wp_enqueue_scripts.php:163
 msgid "Error: El nombre no puede estar vacio."
 msgstr "Error: The name cannot be empty."
 
-#: includes/wp_enqueue_scripts.php:156
+#: includes/wp_enqueue_scripts.php:164
 msgid "Error: El nombre no es válido."
 msgstr "Error: Name is invalid."
 
-#: includes/wp_enqueue_scripts.php:157
+#: includes/wp_enqueue_scripts.php:165
 msgid "Error: El apellido no puede estar vacio."
 msgstr "Error: Last name cannot be empty."
 
-#: includes/wp_enqueue_scripts.php:158
+#: includes/wp_enqueue_scripts.php:166
 msgid "Error: El apellido no es válido."
 msgstr "Error: Last name is invalid."
 
-#: includes/wp_enqueue_scripts.php:159
+#: includes/wp_enqueue_scripts.php:167
 msgid "Error: La contraseña no puede estar vacia."
 msgstr "Error: The password cannot be empty."
 
-#: includes/wp_enqueue_scripts.php:160
+#: includes/wp_enqueue_scripts.php:168
 msgid "Error: La contraseña no es válido."
 msgstr "Error: Password is invalid."
 
-#: includes/wp_enqueue_scripts.php:161
+#: includes/wp_enqueue_scripts.php:169
 msgid "Error: El teléfono no puede estar vacio."
 msgstr "Error: Phone cannot be empty."
 
-#: includes/wp_enqueue_scripts.php:162
+#: includes/wp_enqueue_scripts.php:170
 msgid "Error: El teléfono no es válido."
 msgstr "Error: Phone is invalid."
 
-#: includes/wp_enqueue_scripts.php:163
+#: includes/wp_enqueue_scripts.php:171
 msgid "Error: El correo no puede estar vacio."
 msgstr "Error: Mail cannot be empty."
 
-#: includes/wp_enqueue_scripts.php:164
+#: includes/wp_enqueue_scripts.php:172
 msgid "Error: El correo no es válido."
 msgstr "Error: Mail is invalid."
 
-#: includes/wp_enqueue_scripts.php:165
+#: includes/wp_enqueue_scripts.php:173
 msgid "Error: El Mensaje no puede estar vacio."
 msgstr "Error: Message cannot be empty."
 
@@ -1432,35 +1774,35 @@ msgstr "%s Search Results for "
 msgid "Buscar por Términos:"
 msgstr "Search Terms:"
 
-#: single-localizaciones.php:42
+#: single-localizaciones.php:43
 msgid "Detalles"
 msgstr "Details"
 
-#: single-localizaciones.php:46
+#: single-localizaciones.php:49 single-localizaciones.php:51
 msgid "Precio:"
 msgstr "Price:"
 
-#: single-localizaciones.php:47
+#: single-localizaciones.php:53
 msgid "Tipo de Propiedad:"
 msgstr "Property Type:"
 
-#: single-localizaciones.php:48
+#: single-localizaciones.php:54
 msgid "Tamaño de Propiedad:"
 msgstr "Property Size:"
 
-#: single-localizaciones.php:49
+#: single-localizaciones.php:55
 msgid "Habitaciones:"
 msgstr "Rooms:"
 
-#: single-localizaciones.php:50
+#: single-localizaciones.php:56
 msgid "Baños:"
 msgstr "Bathrooms:"
 
-#: single-localizaciones.php:51
+#: single-localizaciones.php:57
 msgid "Equipamiento:"
 msgstr "Equipment:"
 
-#: single-localizaciones.php:57
+#: single-localizaciones.php:63
 msgid "Características"
 msgstr "Features"
 
@@ -1497,20 +1839,8 @@ msgstr "This area is exclusively accessible from our registered members"
 msgid "Puedes registrarte haciendo click <a href=\"%s\">aquí</a>"
 msgstr "You can register by clicking <a href=\"%s\">here</a>"
 
-#: templates/template-contact-form.php:5
-msgid "Nombre y Apellido"
-msgstr "Name and Surname"
-
-#: templates/template-contact-form.php:9
-msgid "Teléfono"
-msgstr "Phone"
-
-#: templates/template-contact-form.php:13
-#: templates/template-register-email.php:257
-msgid "Correo Electrónico"
-msgstr "Email"
-
 #: templates/template-contact-form.php:17
+#: templates/templates-booking-form.php:81
 msgid "Mensaje"
 msgstr "Message"
 
@@ -1622,6 +1952,54 @@ msgstr ""
 "now waiting for activation, wait while one of our representatives attends "
 "your registration and approve your account"
 
+#: templates/templates-booking-form.php:8
+msgid "Haga su reservación aquí"
+msgstr "Make your reservation here"
+
+#: templates/templates-booking-form.php:13
+msgid "Check-In / Check-Out"
+msgstr "Check-In / Check-Out"
+
+#: templates/templates-booking-form.php:21
+msgid "Cantidad de Personas"
+msgstr "Quantity of guests"
+
+#: templates/templates-booking-form.php:24
+msgid "Seleccione cantidad de personas"
+msgstr "Select quantity of guests"
+
+#: templates/templates-booking-form.php:30
+msgid "Adultos / Adolescentes"
+msgstr "Adults / Adolescents"
+
+#: templates/templates-booking-form.php:34
+msgid "Niños menores de 12 años"
+msgstr "Children under the age of 12"
+
+#: templates/templates-booking-form.php:37
+msgid "Guardar Valores"
+msgstr "Save Values"
+
+#: templates/templates-booking-form.php:44
+msgid "Continuar"
+msgstr "Continue"
+
+#: templates/templates-booking-form.php:47
+msgid "Para poder continuar, debe rellenar las fechas y cantidades"
+msgstr "Before you can continue, you must fill in the dates and quantities"
+
+#: templates/templates-booking-form.php:60
+msgid "Volver"
+msgstr "Back"
+
+#: templates/templates-booking-form.php:63
+msgid "Ingrese sus datos personales"
+msgstr "Enter your personal data"
+
+#: templates/templates-booking-form.php:86
+msgid "Completar Reservación"
+msgstr "Complete Reservation"
+
 #~ msgid "¿No tienes una cuenta? Crea una cuenta personal"
 #~ msgstr "Don't have an account? Create a personal account"
 
@@ -1655,33 +2033,9 @@ msgstr ""
 #~ msgstr "Clientes"
 
 #, fuzzy
-#~| msgid "Nuevo Item"
-#~ msgid "Nuevo Cliente"
-#~ msgstr "Nuevo Cliente"
-
-#, fuzzy
 #~| msgid "Ver Item"
 #~ msgid "Ver Cliente"
 #~ msgstr "Ver Cliente"
-
-#, fuzzy
-#~ msgid "Imagen del Cliente"
-#~ msgstr "Imagen del Cliente"
-
-#, fuzzy
-#~| msgid "Colocar Imagen Destacada"
-#~ msgid "Colocar Imagen del Cliente"
-#~ msgstr "Colocar Imagen del Cliente"
-
-#, fuzzy
-#~| msgid "Remover Imagen Destacada"
-#~ msgid "Remover Imagen del Cliente"
-#~ msgstr "Remover Imagen del Cliente"
-
-#, fuzzy
-#~| msgid "Usar como Imagen Destacada"
-#~ msgid "Usar como Imagen del Cliente"
-#~ msgstr "Usar como Imagen del Cliente"
 
 #, fuzzy
 #~ msgid "Cliente"

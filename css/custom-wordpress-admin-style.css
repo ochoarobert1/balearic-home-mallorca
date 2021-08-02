@@ -136,3 +136,12 @@ body.toplevel_page_balearic-control-panel .balearic-admin-content-submit {
   background: #24405c;
   color: #FFFFFF;
 }
+.cmb2-metabox-slim .cmb-row {
+  padding: 10px 0 !important;
+}
+.cmb2-metabox-slim .cmb-row .cmb2-metabox-description {
+  padding-bottom: 0 !important;
+}
+.cmb2-metabox-slim .cmb-row .cmb-th {
+  padding-bottom: 0 !important;
+}

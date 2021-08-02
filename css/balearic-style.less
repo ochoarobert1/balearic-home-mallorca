@@ -831,7 +831,8 @@ a {
     padding-top: 2.7rem;
 }
 
-.booking-calendar-container {
+.booking-calendar-container,
+.booking-contact-container {
     padding: 0;
 
     & h3 {
@@ -902,6 +903,7 @@ a {
 
 .btn-booking {
     background: @softblue;
+    border-color: @softblue;
     border-radius: 20px;
     margin-top: 1rem;
     text-align: center;
@@ -913,7 +915,8 @@ a {
 
     &:hover {
         color: @white;
-        background: @softbluehover
+        background: @softbluehover;
+        border-color: @softbluehover;
     }
 }
 
@@ -1322,4 +1325,130 @@ WP-MEMBERS OVERRIDES
 
 .success-text {
     color: rgb(9, 156, 21) !important;
+}
+
+.booking-quantity .dropdown-menu {
+    width: 100%;
+    padding: 10px 1rem;
+}
+
+.booking-quantity .btn-booking {
+    margin-top: 0;
+}
+
+.btn-save {
+    width: 100%;
+    background: #11a911;
+    border-color: #11a911;
+    font-size: 0.9rem;
+}
+
+.datepicker table tr td.disabled,
+.datepicker table tr td.disabled:hover {
+    color: #e0e0e0;
+}
+
+.booking-error {
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: #f00;
+    font-weight: 600;
+}
+
+.btn-back {
+    padding: 0;
+    margin-bottom: 10px;
+    margin-left: -5px;
+}
+
+.main-form-booking-container {
+    & .main-form-item {
+        background: #d8d8d8;
+        padding: 10px 0.8rem;
+
+        &:first-child {
+            padding-top: 15px;
+        }
+
+        & .form-control {
+            border-radius: 2px;
+            font-size: .9rem;
+            padding: 0.5rem 0.8rem;
+            height: auto;
+        }
+
+        & .danger {
+            font-size: .8rem;
+            font-weight: 700;
+            color: #f00;
+        }
+    }
+
+    & .main-form-textarea {
+        padding-bottom: 15px;
+    }
+
+    & .main-form-submit {
+        background: @white;
+
+        & .btn-submit {
+            background: @softblue;
+            border-color: @softblue;
+            border-radius: 20px;
+            margin-top: 1rem;
+            text-align: center;
+            color: @white;
+            font-weight: 600;
+            width: 100%;
+            padding: 10px;
+            .transition(all .3s ease-in-out);
+
+            &:hover {
+                color: @white;
+                background: @softbluehover;
+                border-color: @softbluehover;
+            }
+        }
+    }
+
+    .form-response {
+        text-align: center;
+        padding: 1rem 0;
+    }
+}
+
+.thanks-container {
+    text-align: center;
+    padding: 4rem;
+
+    & h4 {
+        font-size: 1.3rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+    }
+
+    & h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+    }
+
+    & .btn-back-home {
+        background: @softblue;
+        border-color: @softblue;
+        color: @white;
+        border-radius: 20px;
+        margin-top: 3rem;
+        text-align: center;
+        font-weight: 600;
+        padding: 12px 3rem;
+        .transition(all .3s ease-in-out);
+
+        &:hover {
+            color: @white;
+            background: @softbluehover;
+            border-color: @softbluehover;
+        }
+    }
 }

@@ -1,12 +1,68 @@
-let menuBtn = document.getElementById('menuBtn');
-let menuMobile = document.getElementById('menuMobile');
-let validForm = true;
-let mainForm = document.getElementById('mainForm');
-let formSubmit = document.getElementById('formSubmit');
-let filterForm = document.getElementById('filterForm');
-let filterSubmit = document.getElementById('filterBtn');
-let filterBtnMobile = document.getElementById('filterBtnMobile');
-let footerID = document.getElementById('footer');
+let menuBtn = document.getElementById('menuBtn'),
+    menuMobile = document.getElementById('menuMobile'),
+    validForm = true,
+    mainForm = document.getElementById('mainForm'),
+    formSubmit = document.getElementById('formSubmit'),
+    filterForm = document.getElementById('filterForm'),
+    filterSubmit = document.getElementById('filterBtn'),
+    filterBtnMobile = document.getElementById('filterBtnMobile'),
+    qtyAdults = document.getElementById('cantidadAdultos'),
+    qtyKids = document.getElementById('cantidadKids'),
+    qtySave = document.getElementById('qtySave'),
+    checkIn = document.getElementById('checkIn'),
+    checkOut = document.getElementById('checkOut'),
+    qtySelected = document.getElementById('qtySelected'),
+    qtyDropdown = document.getElementById('qtyDropdown'),
+    bookingCalendar = document.getElementById('bookingCalendar'),
+    bookingContact = document.getElementById('bookingContact'),
+    nextStep = document.getElementById('nextStep'),
+    errorBooking = document.getElementById('errorBooking'),
+    valueAdults = 0,
+    valueKids = 0,
+    footerID = document.getElementById('footer');
+
+function changeViews(e) {
+    e.preventDefault();
+    var passd = true;
+
+    if (valueAdults < 1) {
+        passd = false;
+    }
+
+    if (checkIn.value == '') {
+        passd = false;
+    }
+
+    if (checkOut.value == '') {
+        passd = false;
+    }
+
+    console.log(passd);
+
+    if (passd === true) {
+        errorBooking.classList.add('d-none');
+        bookingCalendar.classList.toggle('d-none');
+        bookingContact.classList.toggle('d-none');
+    } else {
+        errorBooking.classList.remove('d-none');
+    }
+}
+
+function quantityValues() {
+    valueAdults = qtyAdults.value;
+    valueKids = qtyKids.value;
+
+    if (valueAdults == '') {
+        valueAdults = 0;
+    }
+
+    if (valueKids == '') {
+        valueKids = 0;
+    }
+
+    qtySelected.innerHTML = valueAdults + ' Adultos | ' + valueKids + ' Niños';
+}
+
 
 
 function documentCustomLoad() {
@@ -14,6 +70,29 @@ function documentCustomLoad() {
     console.log('Functions Correctly Loaded');
 
     var footerHeight = footerID.offsetHeight;
+
+    if (qtyAdults) {
+        qtyAdults.addEventListener('change', quantityValues, false);
+    }
+
+    if (qtyKids) {
+        qtyKids.addEventListener('change', quantityValues, false);
+    }
+
+    if (qtySave) {
+        qtySave.addEventListener('click', function(e) {
+            e.preventDefault();
+            qtyDropdown.classList.toggle('open');
+        });
+    }
+
+    if (nextStep) {
+        nextStep.addEventListener('click', changeViews, false);
+    }
+
+    if (prevStep) {
+        prevStep.addEventListener('click', changeViews, false);
+    }
 
     jQuery('#booking').sticky({
         topSpacing: 50,
@@ -131,6 +210,82 @@ function documentCustomLoad() {
         e.preventDefault();
         menuMobile.classList.toggle('menu-container-hidden');
     });
+
+    if (bookingForm) {
+        formSubmit.addEventListener('click', function(e) {
+            e.preventDefault();
+            validForm = true;
+            var elements = document.getElementById('formName');
+            var errorText = document.getElementById('errorName');
+            if (elements.value == '') {
+                errorText.classList.remove('d-none');
+                errorText.innerHTML = custom_admin_url.error_nombre;
+                validForm = false;
+            } else {
+                if (elements.value == '') {
+                    errorText.classList.remove('d-none');
+                    errorText.innerHTML = custom_admin_url.invalid_nombre;
+                    validForm = false;
+                } else {
+                    errorText.classList.add('d-none');
+                    errorText.innerHTML = '';
+                    validForm = true;
+                }
+            }
+
+            var elements = document.getElementById('formPhone');
+            var errorText = document.getElementById('errorPhone');
+            if (elements.value == '') {
+                errorText.classList.remove('d-none');
+                errorText.innerHTML = custom_admin_url.error_phone;
+                validForm = false;
+            } else {
+                if (validatePhone(elements.value) == false) {
+                    errorText.classList.remove('d-none');
+                    errorText.innerHTML = custom_admin_url.invalid_phone;
+                    validForm = false;
+                } else {
+                    errorText.classList.add('d-none');
+                    errorText.innerHTML = '';
+                    validForm = true;
+                }
+            }
+
+            var elements = document.getElementById('formEmail');
+            var errorText = document.getElementById('errorEmail');
+            if (elements.value == '') {
+                errorText.classList.remove('d-none');
+                errorText.innerHTML = custom_admin_url.error_email;
+                validForm = false;
+            } else {
+                if (validateEmail(elements.value) == false) {
+                    errorText.classList.remove('d-none');
+                    errorText.innerHTML = custom_admin_url.invalid_email;
+                    validForm = false;
+                } else {
+                    errorText.classList.add('d-none');
+                    errorText.innerHTML = '';
+                    validForm = true;
+                }
+            }
+
+            var elements = document.getElementById('formMessage');
+            var errorText = document.getElementById('errorMessage');
+            if (elements.value == '') {
+                errorText.classList.remove('d-none');
+                errorText.innerHTML = custom_admin_url.error_message;
+                validForm = false;
+            } else {
+                errorText.classList.add('d-none');
+                errorText.innerHTML = '';
+                validForm = true;
+            }
+
+            if (validForm == true) {
+                submitReservationForm();
+            }
+        });
+    }
 
     if (mainForm) {
         formSubmit.addEventListener('click', function(e) {
@@ -354,6 +509,33 @@ function submitForm() {
         var respuesta = JSON.parse(newRequest.response);
         var ajaxResponse = document.getElementById('formResponse');
         ajaxResponse.innerHTML = respuesta.data;
+    };
+    newRequest.send(info);
+}
+
+function submitReservationForm() {
+    var emailForm = document.getElementsByClassName('booking-form-control');
+    console.log(emailForm);
+    var info = 'action=register_reservation&checkin=' + emailForm[0].value + '&checkout=' + emailForm[1].value + '&qtyadultos=' + emailForm[2].value + '&qtykids=' + emailForm[3].value + '&name=' + emailForm[4].value + '&phone=' + emailForm[5].value  + '&email=' + emailForm[6].value + '&comments=' + emailForm[7].value + '&locationID=' + emailForm[8].value;
+    var loaderContainer = document.getElementById('registerLoader');
+    loaderContainer.classList.toggle("d-none");
+    /* SEND AJAX */
+    newRequest = new XMLHttpRequest();
+    newRequest.open('POST', custom_admin_url.ajax_url, true);
+    newRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    newRequest.onload = function() {
+        loaderContainer.classList.toggle("d-none");
+        var respuesta = JSON.parse(newRequest.response);
+        var ajaxResponse = document.getElementById('formResponse');
+        ajaxResponse.innerHTML = respuesta.data;
+        if (respuesta.success == true) {
+            ajaxResponse.classList.add('success-text');
+            setTimeout(function() {
+                window.location.replace(custom_admin_url.redirect_thanks_reservation);
+            }, 2000);
+        } else {
+            ajaxResponse.classList.add('error-text');
+        }
     };
     newRequest.send(info);
 }

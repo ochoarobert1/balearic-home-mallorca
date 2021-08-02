@@ -178,6 +178,61 @@ function balearic_customize_register( $wp_customize ) {
         'label' => __( 'Link de Cookies', 'balearic' ),
     ) );
 
+    /* EMAIL SETTINGS */
+    $wp_customize->add_section('bhm_email_settings', array(
+        'title'    => __('Correos Electronicos', 'balearic'),
+        'description' => __('Opciones para Correos Electronicos', 'balearic'),
+        'priority' => 178,
+    ));
+
+    $wp_customize->add_setting('bhm_email_settings[main_email]', array(
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_text_field',
+        'capability'        => 'edit_theme_options',
+        'type'           => 'option'
+
+    ));
+
+    $wp_customize->add_control('main_email', array(
+        'type' => 'text',
+        'label'    => __('Correo Principal', 'balearic'),
+        'description' => __('Colocar aqui el correo principal para los formularios.'),
+        'section'  => 'bhm_email_settings',
+        'settings' => 'bhm_email_settings[main_email]'
+    ));
+
+    $wp_customize->add_setting('bhm_email_settings[cc_email]', array(
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_text_field',
+        'capability'        => 'edit_theme_options',
+        'type'           => 'option'
+
+    ));
+
+    $wp_customize->add_control('cc_email', array(
+        'type' => 'text',
+        'label'    => __('Correos en copia', 'balearic'),
+        'description' => __('Colocar aqui el correo o correos que estarán en copia para los formularios.'),
+        'section'  => 'bhm_email_settings',
+        'settings' => 'bhm_email_settings[cc_email]'
+    ));
+
+    $wp_customize->add_setting('bhm_email_settings[bcc_email]', array(
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_text_field',
+        'capability'        => 'edit_theme_options',
+        'type'           => 'option'
+
+    ));
+
+    $wp_customize->add_control('bcc_email', array(
+        'type' => 'text',
+        'label'    => __('Correos en copia oculta', 'balearic'),
+        'description' => __('Colocar aqui el correo o correos que estarán en copia oculta para los formularios.'),
+        'section'  => 'bhm_email_settings',
+        'settings' => 'bhm_email_settings[bcc_email]'
+    ));
+
 }
 
 function balearic_sanitize_url( $url ) {

@@ -582,16 +582,16 @@ function login_action_handler()
     }
 
     if ($found == true) {
-        if ( $user_data && wp_check_password( $user_pass , $user_data->data->user_pass, $user_data->ID ) ) {
-            $pass = true; 
+        if ($user_data && wp_check_password($user_pass, $user_data->data->user_pass, $user_data->ID)) {
+            $pass = true;
         } else {
-            $pass = false; 
+            $pass = false;
         }
     }
 
     if (($found == true) && ($pass == true)) {
         $active = get_user_meta($user_data->id, 'active', true);
-        $isAdmin = user_can( $user_data->id, 'manage_options' );
+        $isAdmin = user_can($user_data->id, 'manage_options');
         if (($active != 1) && ($isAdmin != true)) {
             $activated = false;
         } else {
@@ -616,11 +616,10 @@ function login_action_handler()
             'remember'      => true
         );
      
-        $user = wp_signon( $creds, false );
+        $user = wp_signon($creds, false);
 
         $arrResponse = array('success' => true, 'data' => __('Has iniciado sesión, en breve serás redireccionado', 'balearic'));
         echo json_encode($arrResponse);
-        
     }
 
     wp_die();
@@ -631,7 +630,8 @@ function login_action_handler()
 add_action('wp_ajax_register_action', 'register_action_handler');
 add_action('wp_ajax_nopriv_register_action', 'register_action_handler');
 
-function register_action_handler() {
+function register_action_handler()
+{
     $user_fname = $_POST['fname'];
     $user_lname = $_POST['lname'];
     $user_email = $_POST['email'];
@@ -644,7 +644,7 @@ function register_action_handler() {
         $arrResponse = array('success' => false, 'data' => __('Las contraseñas no coinciden', 'balearic'));
         echo json_encode($arrResponse);
     } else {
-        $exists = email_exists( $user_email );
+        $exists = email_exists($user_email);
         if ($exists != false) {
             $error = true;
             $arrResponse = array('success' => false, 'data' => __('El correo ya existe dentro de nuestra base de datos', 'balearic'));
@@ -656,14 +656,14 @@ function register_action_handler() {
         $username = explode('@', $user_email);
         $userdata = array(
             'user_login'            => $username[0].$username[1],
-            'user_email'            => $user_email,   
-            'first_name'            => $user_fname,  
-            'last_name'             => $user_lname,  
-            'user_pass'             => $user_pass,  
+            'user_email'            => $user_email,
+            'first_name'            => $user_fname,
+            'last_name'             => $user_lname,
+            'user_pass'             => $user_pass,
             'role'                  => 'subscriber'
         );
 
-        $user_id = wp_insert_user( $userdata );
+        $user_id = wp_insert_user($userdata);
 
         ob_start();
         $logo = get_template_directory_uri() . '/images/logo.png';
@@ -704,13 +704,13 @@ function register_action_handler() {
     
             $mail->send();
 
-            if ( ! is_wp_error( $user_id ) ) {
+            if (! is_wp_error($user_id)) {
                 $arrResponse = array('success' => true, 'data' => __('Te has registrado correctamente, en breve recibiras una confirmación de activación al correo electrónico', 'balearic'));
-                echo json_encode($arrResponse);     
+                echo json_encode($arrResponse);
             }
         } catch (Exception $e) {
             $arrResponse = array('success' => true, 'data' => 'Message could not be sent. Mailer Error:' . $mail->ErrorInfo);
-            echo json_encode($arrResponse); 
+            echo json_encode($arrResponse);
         }
     }
     wp_die();
@@ -719,14 +719,15 @@ function register_action_handler() {
 /* --------------------------------------------------------------
     SEASONS: GET CURRENT SEASONS
 -------------------------------------------------------------- */
-function get_current_season() {
+function get_current_season()
+{
     $current_season = '';
     $today = date('m/d/Y');
     $arr_temporadas = array();
     $arr_temporadas = get_terms(array('taxonomy' => 'temporadas', 'hide_empty' => false));
     foreach ($arr_temporadas as $term) {
-        $begin = get_term_meta( $term->term_id, 'bhm_season_begin', true );
-        $end = get_term_meta( $term->term_id, 'bhm_season_end', true );
+        $begin = get_term_meta($term->term_id, 'bhm_season_begin', true);
+        $end = get_term_meta($term->term_id, 'bhm_season_end', true);
 
         $fecha_inicio = strtotime($begin);
         $fecha_fin = strtotime($end);
@@ -739,4 +740,139 @@ function get_current_season() {
     }
 
     return $current_season;
+}
+
+add_action('wp_ajax_register_reservation', 'register_reservation_handler');
+add_action('wp_ajax_nopriv_register_reservation', 'register_reservation_handler');
+
+function register_reservation_handler()
+{
+    $checkin = DateTime::createFromFormat("d/m/Y", $_POST['checkin'])->format('m/d/Y');
+    $checkout = DateTime::createFromFormat("d/m/Y", $_POST['checkout'])->format('m/d/Y');
+    $adultos = $_POST['qtyadultos'];
+    $kids = $_POST['qtykids'];
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $comments = $_POST['comments'];
+    $locationID = $_POST['locationID'];
+
+    $post_title = $name . '-' . $checkin  . '-' . $checkout;
+    
+    $my_post = array(
+            'post_type'     => 'booking',
+            'post_title'    => wp_strip_all_tags($post_title),
+            'post_status'   => 'publish',
+            'post_author'   => 1,
+            'meta_input' => array(
+                'bhm_booking_location' => $locationID,
+                'bhm_booking_start' => $checkin,
+                'bhm_booking_end' => $checkout,
+                'bhm_quantity_adults' => $adultos,
+                'bhm_quantity_kids' => $kids,
+                'bhm_booking_status' => 'pending',
+                'bhm_booking_payment_method' => '',
+                'bhm_booking_payment_ref' => '',
+                'bhm_booking_payment_date' => '',
+                'bhm_booking_fullname' => $name,
+                'bhm_booking_phone' => $phone,
+                'bhm_booking_email' => $email,
+                'bhm_booking_comments' => $comments,
+            )
+          );
+    $id_booking = wp_insert_post($my_post);
+
+    send_admin_booking_email($id_booking);
+    wp_die();
+}
+
+function send_admin_booking_email($id_booking)
+{
+    $checkin = get_post_meta($id_booking, 'bhm_booking_start', true);
+    $checkout = get_post_meta($id_booking, 'bhm_booking_end', true);
+    $adultos = get_post_meta($id_booking, 'bhm_quantity_adults', true);
+    $kids = get_post_meta($id_booking, 'bhm_quantity_kids', true);
+    $name = get_post_meta($id_booking, 'bhm_booking_fullname', true);
+    $phone = get_post_meta($id_booking, 'bhm_booking_phone', true);
+    $email = get_post_meta($id_booking, 'bhm_booking_email', true);
+    $comments = get_post_meta($id_booking, 'bhm_booking_comments', true);
+    $locationID = get_post_meta($id_booking, 'bhm_booking_location', true);
+
+    $logo = get_template_directory_uri() . '/images/logo.png';
+    $titulo = esc_html__('Balearic Home Mallorca - Nueva Reservación', 'balearic');
+    $locals_titulo = esc_html__('Localización', 'balearic');
+    $cantidad_adultos_titulo = esc_html__('Cantidad de Adultos', 'balearic');
+    $cantidad_kids_titulo = esc_html__('Cantidad de Niños', 'balearic');
+    $nombre_titulo = esc_html__('Nombre', 'balearic');
+    $phone_titulo = esc_html__('Teléfono', 'balearic');
+    $message_titulo = esc_html__('Comentario Adicional', 'balearic');
+
+    $location = get_post($locationID);
+    $fechas = $checkin . ' | ' . $checkout;
+
+
+    ob_start();
+    require_once get_theme_file_path('/templates/template-email-reservation.php');
+    $body = ob_get_clean();
+    $body = str_replace([
+        '{titulo}',
+        '{locals_titulo}',
+        '{cantidad_adultos_titulo}',
+        '{cantidad_kids_titulo}',
+        '{nombre_titulo}',
+        '{phone_titulo}',
+        '{message_titulo}',
+        '{locals}',
+        '{fechas}',
+        '{cantidad_adultos}',
+        '{cantidad_kids}',
+        '{name}',
+        '{email}',
+        '{phone}',
+        '{message}',
+        '{logo}'
+        
+    ], [
+        $titulo,
+        $locals_titulo,
+        $cantidad_adultos_titulo,
+        $cantidad_kids_titulo,
+        $nombre_titulo,
+        $phone_titulo,
+        $message_titulo,
+        $location->post_title,
+        $fechas,
+        $adultos,
+        $kids,
+        $name,
+        $email,
+        $phone,
+        $comments,
+        $logo
+        
+    ], $body);
+
+    $email_settings = get_option('bhm_email_settings');
+
+    $to = $email_settings['main_email'];
+            
+    $emailsCC = $email_settings['cc_email'] . ',' . $email;
+    $emailsBCC = $email_settings['bcc_email'];
+            
+    $headers[] = 'Content-Type: text/html; charset=UTF-8';
+    $headers[] = 'From: ' . esc_html(get_bloginfo('name')) . ' <noreply@' . strtolower($_SERVER['SERVER_NAME']) . '>';
+    $headers[] = 'Cc: ' . $emailsCC;
+    $headers[] = 'Bcc: ' . $emailsBCC;
+            
+    $subject = esc_html__('Balearic Home Mallorca: Nueva Reservación', 'balearic');
+
+    $sent = wp_mail($to, $subject, $body, $headers);
+
+    if ($sent == false) {
+        wp_send_json_success(esc_html__("Su reservación ha sido procesada, en breve serás redirigido.", 'balearic'), 200);
+    } else {
+        wp_send_json_success(esc_html__("Su reservación ha sido procesada, en breve serás redirigido.", 'balearic'), 200);
+    }
+
+    wp_die();
 }
