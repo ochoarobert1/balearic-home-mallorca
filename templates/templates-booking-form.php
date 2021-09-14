@@ -5,7 +5,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="booking-calendar-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <h3><?php _e('Haga su reservación aquí', 'balearic')?></h3>
+                            <h3><?php _e('Haga su reserva aquí', 'balearic')?></h3>
                             <div class="booking-calendar-wrapper">
                                 <div class="container p-0">
                                     <div class="row no-gutters">
@@ -83,7 +83,7 @@
                             </div>
                             <div class="main-form-item main-form-submit col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <input type="hidden" name="formLocation" id="formLocation" class="form-control booking-form-control" value="<?php echo get_the_ID(); ?>">
-                                <button id="formSubmit" class="btn btn-md btn-submit"><?php _e('Completar Reservación', 'balearic'); ?></button>
+                                <button id="formSubmit" class="btn btn-md btn-submit"><?php _e('Completar Reserva', 'balearic'); ?></button>
                                 <div id="registerLoader" class="loader-css d-none"></div>
                                 <div id="formResponse" class="form-response"></div>
                             </div>

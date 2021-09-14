@@ -799,7 +799,7 @@ function send_admin_booking_email($id_booking)
     $locationID = get_post_meta($id_booking, 'bhm_booking_location', true);
 
     $logo = get_template_directory_uri() . '/images/logo.png';
-    $titulo = esc_html__('Balearic Home Mallorca - Nueva Reservación', 'balearic');
+    $titulo = esc_html__('Balearic Home Mallorca - Nueva Reserva', 'balearic');
     $locals_titulo = esc_html__('Localización', 'balearic');
     $cantidad_adultos_titulo = esc_html__('Cantidad de Adultos', 'balearic');
     $cantidad_kids_titulo = esc_html__('Cantidad de Niños', 'balearic');
@@ -864,14 +864,14 @@ function send_admin_booking_email($id_booking)
     $headers[] = 'Cc: ' . $emailsCC;
     $headers[] = 'Bcc: ' . $emailsBCC;
             
-    $subject = esc_html__('Balearic Home Mallorca: Nueva Reservación', 'balearic');
+    $subject = esc_html__('Balearic Home Mallorca: Nueva Reserva', 'balearic');
 
     $sent = wp_mail($to, $subject, $body, $headers);
 
     if ($sent == false) {
-        wp_send_json_success(esc_html__("Su reservación ha sido procesada, en breve serás redirigido.", 'balearic'), 200);
+        wp_send_json_success(esc_html__("Su reserva ha sido procesada, en breve serás redirigido.", 'balearic'), 200);
     } else {
-        wp_send_json_success(esc_html__("Su reservación ha sido procesada, en breve serás redirigido.", 'balearic'), 200);
+        wp_send_json_success(esc_html__("Su reserva ha sido procesada, en breve serás redirigido.", 'balearic'), 200);
     }
 
     wp_die();

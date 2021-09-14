@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: balearic\n"
-"POT-Creation-Date: 2021-07-29 18:10-0400\n"
-"PO-Revision-Date: 2021-07-29 18:11-0400\n"
+"POT-Creation-Date: 2021-09-14 12:40-0400\n"
+"PO-Revision-Date: 2021-09-14 12:41-0400\n"
 "Last-Translator: Robert Ochoa <ochoa.robert1@gmail.com>\n"
 "Language-Team: Robert Ochoa <contacto@robertochoaweb.com>\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Sorry, but we can't seem to find the page you are looking for. Go back to"
 
 #: 404.php:14 archive.php:53 author.php:59 category.php:53 index.php:53
-#: search.php:53 tag.php:53
+#: search.php:53 tag.php:53 templates/page-thanks.php:20
 msgid "Volver al Inicio"
 msgstr "Back to Home"
 
@@ -101,7 +101,7 @@ msgstr "Enter your password"
 msgid "su contraseña no puede estar vacia"
 msgstr "your password can't be empty"
 
-#: footer.php:102 templates/template-register-email.php:251
+#: footer.php:102 functions.php:806 templates/template-register-email.php:251
 msgid "Nombre"
 msgstr "Name"
 
@@ -263,6 +263,40 @@ msgid ""
 msgstr ""
 "You have successfully registered, you will shortly receive an activation "
 "confirmation to your email"
+
+#: functions.php:802
+msgid "Balearic Home Mallorca - Nueva Reserva"
+msgstr "Balearic Home Mallorca - New Booking"
+
+#: functions.php:803 includes/wp_custom_post_type.php:35
+msgid "Localización"
+msgstr "Location"
+
+#: functions.php:804 includes/custom-metaboxes-booking.php:50
+msgid "Cantidad de Adultos"
+msgstr "Number of Adults"
+
+#: functions.php:805 includes/custom-metaboxes-booking.php:63
+msgid "Cantidad de Niños"
+msgstr "Number of Children"
+
+#: functions.php:807 includes/custom-metaboxes-booking.php:151
+#: templates/template-contact-form.php:9
+#: templates/templates-booking-form.php:73
+msgid "Teléfono"
+msgstr "Phone"
+
+#: functions.php:808
+msgid "Comentario Adicional"
+msgstr "Additional Comment"
+
+#: functions.php:867
+msgid "Balearic Home Mallorca: Nueva Reserva"
+msgstr "Balearic Home Mallorca: New Booking"
+
+#: functions.php:872 functions.php:874
+msgid "Su reserva ha sido procesada, en breve serás redirigido."
+msgstr "Your booking has been processed, you will be redirected shortly."
 
 #: header.php:59 header.php:119
 msgid "Haga click aqui para cambiar a Español"
@@ -677,18 +711,10 @@ msgstr "Check-Out"
 msgid "Selecciona el Check-Out"
 msgstr "Select check-out"
 
-#: includes/custom-metaboxes-booking.php:50
-msgid "Cantidad de Adultos"
-msgstr "Number of Adults"
-
 #: includes/custom-metaboxes-booking.php:51
 #: templates/templates-booking-form.php:31
 msgid "Ingrese la cantidad de Adultos"
 msgstr "Enter the quantity of Adults"
-
-#: includes/custom-metaboxes-booking.php:63
-msgid "Cantidad de Niños"
-msgstr "Number of Children"
 
 #: includes/custom-metaboxes-booking.php:64
 #: templates/templates-booking-form.php:35
@@ -701,20 +727,19 @@ msgstr "Comments / Additional Message"
 
 #: includes/custom-metaboxes-booking.php:77
 msgid ""
-"Ingrese cualquier observación o mensaje necesario para procesar esta "
-"reservación"
-msgstr "Enter any observations or messages needed to process this reservation"
+"Ingrese cualquier observación o mensaje necesario para procesar esta reserva"
+msgstr "Enter any observations or messages needed to process this booking"
 
 #: includes/custom-metaboxes-booking.php:83
 msgid "Información de Pago"
 msgstr "Payment Information"
 
 #: includes/custom-metaboxes-booking.php:95
-msgid "Status de Reservación"
-msgstr "Reservation Status"
+msgid "Status de Reserva"
+msgstr "Booking Status"
 
 #: includes/custom-metaboxes-booking.php:96
-msgid "Seleccione el estado actual de la reservación"
+msgid "Seleccione el estado actual de la reserva"
 msgstr "Select the current status of the reservation"
 
 #: includes/custom-metaboxes-booking.php:101
@@ -770,12 +795,6 @@ msgstr "Name and Surname"
 #: includes/custom-metaboxes-booking.php:145
 msgid "Ingrese el nombre completo del cliente"
 msgstr "Enter the full name of the client"
-
-#: includes/custom-metaboxes-booking.php:151
-#: templates/template-contact-form.php:9
-#: templates/templates-booking-form.php:73
-msgid "Teléfono"
-msgstr "Phone"
 
 #: includes/custom-metaboxes-booking.php:152
 msgid "Ingrese el teléfono del cliente"
@@ -1248,10 +1267,6 @@ msgstr "Location List Navigation"
 msgid "Filtro del Listado de Localizaciones"
 msgstr "Location List Filter"
 
-#: includes/wp_custom_post_type.php:35
-msgid "Localización"
-msgstr "Location"
-
 #: includes/wp_custom_post_type.php:36
 msgid "Localizaciones dentro de la Página"
 msgstr "Locations within the Page"
@@ -1681,6 +1696,42 @@ msgstr "Text of the consent cookie."
 msgid "Link de Cookies"
 msgstr "Link de Cookies"
 
+#: includes/wp_custom_theme_control.php:183
+msgid "Correos Electronicos"
+msgstr "Emails"
+
+#: includes/wp_custom_theme_control.php:184
+msgid "Opciones para Correos Electronicos"
+msgstr "Email Options"
+
+#: includes/wp_custom_theme_control.php:198
+msgid "Correo Principal"
+msgstr "Main Mail"
+
+#: includes/wp_custom_theme_control.php:199
+msgid "Colocar aqui el correo principal para los formularios."
+msgstr "Place here the main mail for the forms."
+
+#: includes/wp_custom_theme_control.php:214
+msgid "Correos en copia"
+msgstr "Emails in copy"
+
+#: includes/wp_custom_theme_control.php:215
+msgid ""
+"Colocar aqui el correo o correos que estarán en copia para los formularios."
+msgstr "Place here the mail or emails that will be in copy for the forms."
+
+#: includes/wp_custom_theme_control.php:230
+msgid "Correos en copia oculta"
+msgstr "Emails in hidden copy"
+
+#: includes/wp_custom_theme_control.php:231
+msgid ""
+"Colocar aqui el correo o correos que estarán en copia oculta para los "
+"formularios."
+msgstr ""
+"Place here the mail or emails that will be in hidden copy for the forms."
+
 #: includes/wp_enqueue_scripts.php:163
 msgid "Error: El nombre no puede estar vacio."
 msgstr "Error: The name cannot be empty."
@@ -1953,7 +2004,7 @@ msgstr ""
 "your registration and approve your account"
 
 #: templates/templates-booking-form.php:8
-msgid "Haga su reservación aquí"
+msgid "Haga su reserva aquí"
 msgstr "Make your reservation here"
 
 #: templates/templates-booking-form.php:13
@@ -1997,7 +2048,7 @@ msgid "Ingrese sus datos personales"
 msgstr "Enter your personal data"
 
 #: templates/templates-booking-form.php:86
-msgid "Completar Reservación"
+msgid "Completar Reserva"
 msgstr "Complete Reservation"
 
 #~ msgid "¿No tienes una cuenta? Crea una cuenta personal"

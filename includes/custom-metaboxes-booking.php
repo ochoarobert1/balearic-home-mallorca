@@ -74,7 +74,7 @@ $cmb_booking_metabox->add_field(array(
 $cmb_booking_metabox->add_field(array(
     'id'        => $prefix . 'booking_comments',
     'name'      => esc_html__('Comentarios / Mensaje Adicional', 'balearic'),
-    'desc'      => esc_html__('Ingrese cualquier observación o mensaje necesario para procesar esta reservación', 'balearic'),
+    'desc'      => esc_html__('Ingrese cualquier observación o mensaje necesario para procesar esta reserva', 'balearic'),
     'type'      => 'textarea_small'
 ));
 
@@ -92,8 +92,8 @@ $cmb_booking_payment_metabox = new_cmb2_box(array(
 
 $cmb_booking_payment_metabox->add_field( array(
     'id'               => $prefix . 'booking_status',
-	'name'             => esc_html__('Status de Reservación', 'balearic'),
-	'desc'             => esc_html__('Seleccione el estado actual de la reservación', 'balearic'),
+	'name'             => esc_html__('Status de Reserva', 'balearic'),
+	'desc'             => esc_html__('Seleccione el estado actual de la reserva', 'balearic'),
 	'type'             => 'select',
 	'show_option_none' => true,
 	'default'          => 'pending',
